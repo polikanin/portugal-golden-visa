@@ -2,10 +2,11 @@
 
 $sections = [
     [
-        'prefix' => '',
+        'prefix' => 'hp_',
 
         'sections' => [
-            'hp_text',
+            'hp_hello_block',
+            'hp_advantages_block',
         ],
 
         'location' => [
@@ -13,7 +14,7 @@ $sections = [
                 [
                     'param'    => 'page_template',
                     'operator' => '==',
-                    'value'    => 'templates/configurator.php',
+                    'value'    => 'templates/hp_configurator.php',
                 ],
             ],
 
