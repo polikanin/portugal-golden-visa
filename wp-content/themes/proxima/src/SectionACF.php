@@ -30,9 +30,9 @@ class SectionACF
         $this->label   = $data[ 'label' ];
         $this->counter = 0;
 
-        $this->tab_demo_preview[] = $this->field_tab( [
-            'label' => __( 'Demo Preview', 'marck' ),
-        ] );
+        // $this->tab_demo_preview[] = $this->field_tab( [
+        //     'label' => __( 'Demo Preview', 'marck' ),
+        // ] );
 
         $this->tab_content[] = $this->field_tab( [
             'label' => __( 'Content', 'marck' ),
@@ -159,12 +159,12 @@ class SectionACF
 
     public function add_sub_fields(): void
     {
-        if ( !empty( $this->data[ 'tab_demo_preview' ] ) && is_array( $this->data[ 'tab_demo_preview' ] ) ) {
-            if ( $this->data[ 'tab_demo_preview' ][ 'key' ] == 'field_auto_key' )
-                $this->data[ 'tab_demo_preview' ][ 'key' ] = $this->field_auto_key();
-
-            $this->tab_demo_preview[] = $this->data[ 'tab_demo_preview' ];
-        }
+        // if ( !empty( $this->data[ 'tab_demo_preview' ] ) && is_array( $this->data[ 'tab_demo_preview' ] ) ) {
+        //     if ( $this->data[ 'tab_demo_preview' ][ 'key' ] == 'field_auto_key' )
+        //         $this->data[ 'tab_demo_preview' ][ 'key' ] = $this->field_auto_key();
+        //
+        //     $this->tab_demo_preview[] = $this->data[ 'tab_demo_preview' ];
+        // }
 
         if ( !empty( $this->data[ 'tab_content' ] ) && is_array( $this->data[ 'tab_content' ] ) ) {
 
@@ -199,11 +199,11 @@ class SectionACF
             }
         }
 
-        if ( is_array( $this->tab_demo_preview ) ) {
-            foreach ( $this->tab_demo_preview as $item ) {
-                $this->sub_fields[] = $item;
-            }
-        }
+        // if ( is_array( $this->tab_demo_preview ) ) {
+        //     foreach ( $this->tab_demo_preview as $item ) {
+        //         $this->sub_fields[] = $item;
+        //     }
+        // }
 
         if ( is_array( $this->tab_content ) ) {
             foreach ( $this->tab_content as $item ) {
