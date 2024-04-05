@@ -81,7 +81,7 @@ $configurator_data = [
     'label_placement'       => 'top',
     'instruction_placement' => 'label',
     'hide_on_screen'        => [
-        // 0 => 'the_content',
+        0 => 'the_content',
         // 1 => 'excerpt',
     ],
     'active'                => true,
