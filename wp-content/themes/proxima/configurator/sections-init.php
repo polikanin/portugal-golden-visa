@@ -11,6 +11,12 @@ $sections = [
             'hp_program_block',
             'hp_definition_block',
             'hp_investments_block',
+            'hp_options_block',
+            'hp_highlights_block',
+            'hp_testimonials_block',
+            'hp_steps_block',
+            'hp_successful_block',
+            'hp_4_items_block',
         ],
 
         'location' => [

@@ -1,19 +1,19 @@
 <?php
 
 return [
-    'label' => __('Program Block', 'proxima'),
+    'label' => __('Options Block', 'proxima'),
     'key' => basename(__DIR__),
     'tab_demo_preview' => [
         'key' => 'field_auto_key', // $section->field_auto_key(),
         'type' => 'message',
-        'message' => 'Program Block', // marck_section_demo_preview( $section->key ),
+        'message' => 'Options Block', // marck_section_demo_preview( $section->key ),
         'new_lines' => 'wpautop',
         'esc_html' => 0,
     ],
 
     'tab_content' => [
         array(
-            'key' => 'field_660feec974c2b',
+            'key' => 'field_661007174ad19',
             'label' => 'Title',
             'name' => 'title',
             'type' => 'textarea',
@@ -32,7 +32,26 @@ return [
             'new_lines' => '',
         ),
         array(
-            'key' => 'field_660feeefe7a61',
+            'key' => 'field_661006e80e9a6',
+            'label' => 'Subtitle',
+            'name' => 'subtitle',
+            'type' => 'textarea',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => 0,
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'maxlength' => '',
+            'rows' => 4,
+            'new_lines' => '',
+        ),
+        array(
+            'key' => 'field_6610072bef88a',
             'label' => 'Text',
             'name' => 'text',
             'type' => 'textarea',
@@ -51,7 +70,7 @@ return [
             'new_lines' => '',
         ),
         array(
-            'key' => 'field_661008da5b18d',
+            'key' => 'field_66100890cc086',
             'label' => 'Button',
             'name' => 'button',
             'type' => 'link',
@@ -66,7 +85,7 @@ return [
             'return_format' => 'array',
         ),
         array(
-            'key' => 'field_660fef2ce7a62',
+            'key' => 'field_6610073166f97',
             'label' => 'Program',
             'name' => 'program',
             'type' => 'repeater',
@@ -85,7 +104,7 @@ return [
             'button_label' => '',
             'sub_fields' => array(
                 array(
-                    'key' => 'field_660fef55e7a63',
+                    'key' => 'field_661007363299c',
                     'label' => 'Title',
                     'name' => 'title',
                     'type' => 'textarea',
@@ -104,7 +123,7 @@ return [
                     'new_lines' => '',
                 ),
                 array(
-                    'key' => 'field_660fef61e7a64',
+                    'key' => 'field_6610074e96d9a',
                     'label' => 'Text',
                     'name' => 'text',
                     'type' => 'textarea',
@@ -123,7 +142,7 @@ return [
                     'new_lines' => '',
                 ),
                 array(
-                    'key' => 'field_660fef69e7a65',
+                    'key' => 'field_661007693d644',
                     'label' => 'Icon',
                     'name' => 'icon',
                     'type' => 'image',
