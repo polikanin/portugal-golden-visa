@@ -2,7 +2,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 100px 0 1px 0;
+  padding: 65px 0 1px 0;
   $offset: 16px;
 
   &--head{
@@ -12,19 +12,21 @@
 
     .vp-title{
       max-width: 520px;
+      font-family: $third-family;
     }
 
     .vp-text{
       font-weight: 300;
       font-size: 18px;
       max-width: 150px;
+      margin: 0 275px 0 0;
     }
   }
 
   .vp-items{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 80px;
+    margin-top: 62px;
     margin-left: -$offset;
     margin-right: -$offset;
   }
@@ -47,12 +49,28 @@
     &--title{
       font-weight: 400;
       font-size: 48px;
-      margin-bottom: 20px;
+      margin-bottom: 13px;
     }
 
     &--text{
       font-weight: 300;
       font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    &--dots{
+      display: flex;
+      gap: 4px;
+
+      span{
+        width: 8px;
+        min-width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: $white;
+      }
     }
   }
 }

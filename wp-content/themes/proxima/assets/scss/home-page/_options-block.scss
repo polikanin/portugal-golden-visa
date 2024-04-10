@@ -1,4 +1,6 @@
 .vp-options-block{
+  padding: 102px 0 40px 0;
+
   .vp-container{
     display: grid;
     grid-template-columns: 550px 500px;
@@ -8,6 +10,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      padding-bottom: 53px;
+    }
+
+    &--right{
+      margin: 150px 0 0 0;
     }
   }
 
@@ -26,7 +33,7 @@
     font-size: 18px;
 
     p{
-      margin: 5px 0;
+      margin: 9px 0;
     }
   }
 

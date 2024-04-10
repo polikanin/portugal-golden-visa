@@ -4,7 +4,12 @@
 
   .vp-container{
     display: grid;
-    grid-template-columns: 560px 1fr;
+    justify-content: space-between;
+    grid-template-columns: 500px 752px;
+
+    &--right{
+      margin: 175px 0 0 0;
+    }
   }
 
   .vp-container--block{
@@ -45,7 +50,8 @@
   }
 
   .vp-item{
-    padding-bottom: 45px;
+    padding-bottom: 42px;
+    padding-left: 20px;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

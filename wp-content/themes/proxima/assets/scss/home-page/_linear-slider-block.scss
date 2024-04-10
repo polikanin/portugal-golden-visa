@@ -12,7 +12,7 @@
   }
 
   .vp-linear-slider--container{
-    margin-top: 64px;
+    margin-top: 62px;
   }
 
   .swiper{
@@ -27,7 +27,7 @@
   .vp-linear-slide{
     $self: &;
     width: max-content;
-    padding: 24px;
+    padding: 24px 24px 32px 24px;
     text-align: center;
     border: 1px solid $line;
     border-radius: 10px;
@@ -35,7 +35,7 @@
     background: $black15;
 
     &--img{
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       color: $line;
       transition: 0.3s;
     }

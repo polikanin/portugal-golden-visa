@@ -1,5 +1,5 @@
 .vp-investments-block{
-  padding: 90px 0 100px 0;
+  padding: 92px 0 100px 0;
 
   .vp-title{
     max-width: 440px;
@@ -54,14 +54,18 @@
       font-size: 18px;
       display: flex;
       align-items: flex-end;
-      height: calc(18px * 1.2 * 6);
+      height: calc(18px * 1.185 * 6);
     }
 
     &--list{
       &-item{
         font-weight: 300;
         color: $white30;
-        margin: 10px 0;
+        margin: 14px 0;
+
+        &:last-child{
+          margin-bottom: 0;
+        }
 
         &:before{
           content: '';
@@ -83,6 +87,7 @@
       background-color: $black15;
       font-weight: 300;
       color: $white30;
+      margin-top: 19px;
     }
 
     &--container{
@@ -104,7 +109,7 @@
 
     &--right{
       display: grid;
-      grid-template-rows: 1fr 1fr;
+      grid-template-rows: 60px 1fr;
     }
 
     &:nth-of-type(4){

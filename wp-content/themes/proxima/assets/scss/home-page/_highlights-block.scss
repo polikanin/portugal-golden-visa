@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 32px;
-    margin: 32px auto 0 auto;
+    margin: 30px auto 0 auto;
     max-width: 1090px;
   }
 
@@ -40,7 +40,7 @@
       margin-top: 8px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 7px 8px;
     }
 
     &--block{
@@ -57,7 +57,7 @@
       border-radius: 47px;
       padding: 8px 12px;
       width: max-content;
-      margin: 0 auto 30px auto;
+      margin: 0 auto 14px auto;
       font-family: $second-family;
       color: $white30;
     }
@@ -68,7 +68,7 @@
       height: calc(18px * 1.2 * 2);
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
     }
   }
 }

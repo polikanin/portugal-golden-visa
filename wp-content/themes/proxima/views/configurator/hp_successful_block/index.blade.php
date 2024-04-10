@@ -26,6 +26,12 @@
                             </div>
                             <div class="vp-item--text">
                                 {{ $item['text'] }}
+
+                                <div class="vp-item--dots">
+                                    @foreach(range(1, $loop->index + 1) as $i)
+                                        <span></span>
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
                     </div>

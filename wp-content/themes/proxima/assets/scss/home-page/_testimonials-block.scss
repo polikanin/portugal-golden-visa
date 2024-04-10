@@ -1,12 +1,12 @@
 .vp-testimonials-block{
-  padding: 100px 0 100px 0;
+  padding: 98px 0 100px 0;
 
   .vp-title{
     max-width: 400px;
   }
 
   &--head{
-    margin-bottom: 64px;
+    margin-bottom: 62px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -17,12 +17,14 @@
     justify-content: flex-end;
     align-items: center;
     gap: 16px;
+    padding: 0 0 2px 0;
   }
 
   .vp-swiper-pagination{
     font-weight: 500;
     font-size: 18px;
     width: auto;
+    letter-spacing: -1px;
   }
 
   .vp-swiper-button{
@@ -55,7 +57,7 @@
     background-color: $black15;
     border: 1px solid $line;
     border-radius: 10px;
-    padding: 20px;
+    padding: 20px 20px 24px 20px;
 
     &--head{
       display: flex;
@@ -86,7 +88,7 @@
     &--title{
       font-weight: 500;
       font-size: 18px;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     &--text{
