@@ -91,7 +91,7 @@ if ( !function_exists( 'get_svg_content' ) ) {
 
         $attached_path = get_attached_file( $attachment_id );
 
-        if ( file_exists( $attached_path ) ) return false;
+        if ( !file_exists( $attached_path ) ) return false;
 
         return file_get_contents( $attached_path );
     }
