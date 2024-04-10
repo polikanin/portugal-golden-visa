@@ -24,6 +24,16 @@ define( 'JS_LOAD_IN_FOOTER', false ); // load scripts in footer?
 define( 'VITE_SERVER', 'http://localhost:3000' );
 define( 'VITE_ENTRY_POINT', '/main.js' );
 
+add_filter( 'script_loader_tag', 'add_type_attribute', 10, 3 );
+function add_type_attribute( $tag, $handle, $src )
+{
+    // if not your script, do nothing and return original $tag
+    if ( 'vite_main_script' !== $handle ) return $tag;
+
+    // change the script tag by adding type="module" and return it.
+    return '<script type="module" src="' . esc_url( $src ) . '"></script>';
+}
+
 // enqueue hook
 add_action( 'wp_enqueue_scripts', function () {
 
