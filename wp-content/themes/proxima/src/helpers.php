@@ -84,4 +84,17 @@ if ( !function_exists( 'get_image_html' ) ) {
     }
 }
 
+if ( !function_exists( 'get_svg_content' ) ) {
+    function get_svg_content( $attachment_id = false )
+    {
+        if ( !is_numeric( $attachment_id ) ) return false;
+
+        $attached_path = get_attached_file( $attachment_id );
+
+        if ( file_exists( $attached_path ) ) return false;
+
+        return file_get_contents( $attached_path );
+    }
+}
+
 
