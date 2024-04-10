@@ -1,0 +1,39 @@
+.vp-advantages-block{
+  padding: 100px 0 60px 0;
+  $offset: 24px;
+
+  .vp-items{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    margin-top: 80px;
+    margin-left: -$offset;
+    margin-right: -$offset;
+  }
+
+  .vp-item{
+    padding: 63px $offset 0 $offset;
+
+    &:not(:first-child){
+      border-left: 1px solid $line;
+    }
+
+    &--text{
+      font-weight: 300;
+      height: calc(16px * 1.2 * 3);
+    }
+
+    &--title{
+      font-weight: 400;
+      font-size: 48px;
+      margin: 93px 0 64px 0;
+    }
+
+    &--img{
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+  }
+}

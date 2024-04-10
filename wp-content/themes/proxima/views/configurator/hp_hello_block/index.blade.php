@@ -1,27 +1,35 @@
 <div id="{{ $section_id }}"
-     class="vp_hello_block"
+     class="vp-hello-block"
      @if($bg) style="background-image: url('{{ $bg['url'] }}')" @endif
 >
-    @if($title)
-        <h1 class="vp_title">
-            {{ $title }}
-        </h1>
-    @endif
+    <div class="wrapper">
+        <div class="vp-hello-block--grid">
+            <div class="vp-hello-block--col">
+                @if($title)
+                    <h1 class="vp-title">
+                        {{ $title }}
+                    </h1>
+                @endif
+            </div>
+            <div class="vp-hello-block--col">
 
-    @if($text)
-        <p class="vp_text">
-            {{ $text }}
-        </p>
-    @endif
+            </div>
+            <div class="vp-hello-block--col">
 
-    @if($link)
-        <a
-                href="{{ $link['url'] }}"
-                {{ ( $link['target'] ) ? 'target="_blank"' : '' }}
-        >
-            {{ $link['title'] }}
-        </a>
-    @endif
+            </div>
+            <div class="vp-hello-block--col">
+                <div class="vp-hello-block--content">
+                    @if($text)
+                        <p class="vp-text">
+                            {{ $text }}
+                        </p>
+                    @endif
 
-
+                    @if($link)
+                        @include('components.button', ['button' => $link])
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

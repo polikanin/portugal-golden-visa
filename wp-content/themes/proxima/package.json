@@ -8,6 +8,7 @@
     "prod": "vite build"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "cross-env": "^7.0.3",
     "postcss": "^8.4.21",
@@ -17,8 +18,11 @@
     "vite-plugin-live-reload": "^3.0.2"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.5.1",
+    "axios": "^1.6.7",
+    "custom-vue-scrollbar": "^0.0.8",
     "jquery": "^3.7.1",
-    "slick-carousel": "^1.8.1"
+    "swiper": "^11.1.0",
+    "vue": "^3.2.36",
+    "vue-loader": "^17.0.1"
   }
 }

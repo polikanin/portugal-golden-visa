@@ -21,7 +21,7 @@ $InitACF->init();
 include 'inc/load.inc.php';
 
 include 'src/helpers.php';
-
+add_filter( 'show_admin_bar', '__return_false' );
 add_filter( 'gettext', function ( $translation, $text, $domain ) {
 
     // de_DE_formal

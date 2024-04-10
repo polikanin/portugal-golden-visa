@@ -9,7 +9,7 @@
 // ln -s {path_to_vite}/src/assets {path_to_public_html}/assets
 // on production everything will work just fine
 
-// import vue from '@vitejs/plugin-vue'
+import vue from '@vitejs/plugin-vue'
 // import tailwindcss from 'tailwindcss';
 import {defineConfig} from 'vite'
 import liveReload from 'vite-plugin-live-reload'
@@ -21,7 +21,7 @@ const fs = require('fs')
 export default defineConfig({
 
     plugins: [
-        // vue(),
+        vue(),
         // tailwindcss(),
         liveReload(__dirname + '/**/*.php'),
     ],
@@ -105,7 +105,7 @@ export default defineConfig({
     // https://v3.vuejs.org/guide/installation.html#with-a-bundler
     resolve: {
         alias: {
-            // vue: 'vue/dist/vue.esm-bundler.js'
+            vue: 'vue/dist/vue.esm-bundler.js'
         }
     }
 })
