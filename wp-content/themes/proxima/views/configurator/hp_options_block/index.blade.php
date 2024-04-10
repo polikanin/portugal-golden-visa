@@ -1,39 +1,35 @@
 <div id="{{ $section_id }}"
-     class="vp-program_block"
+     class="vp-options-block"
 >
-    @if($title)
-        <h1 class="vp-title">
-            {{ $title }}
-        </h1>
-    @endif
-    @if($subtitle)
-        <p class="vp-subtitle">
-            {{ $subtitle }}
-        </p>
-    @endif
-    @if($text)
-        <p class="vp-text">
-            {{ $text }}
-        </p>
-    @endif
-
-    @include('components.button', ['button' => $button])
-
-    @if($program)
-        <div class="vp-vertical-slider">
-            @foreach($program as $item)
-                <div class="vp-vertical-slide">
-                    <div class="vp-vertical-slide--text">
-                        {{ $item['text'] }}
-                    </div>
-                    <div class="vp-vertical-slide--title">
-                        {{ $item['title'] }}
-                    </div>
-                    <div class="vp-vertical-slide--img">
-                        {!! get_image_html($item['icon'], 'full') !!}
-                    </div>
+    <div class="wrapper">
+        <div class="vp-container">
+            <div class="vp-container--left">
+                <div class="">
+                    @if($title)
+                        <h1 class="vp-title">
+                            {{ $title }}
+                        </h1>
+                    @endif
+                    @include('components.button', ['button' => $button])
                 </div>
-            @endforeach
+                <div class="">
+                    @if($subtitle)
+                        <p class="vp-subtitle">
+                            {{ $subtitle }}
+                        </p>
+                    @endif
+                    @if($text)
+                        <div class="vp-text">
+                            {!! $text !!}
+                        </div>
+                    @endif
+                </div>
+            </div>
+            <div class="vp-container--right">
+                @if($program)
+                    <vertical-x3-slider :slides="{{ json_encode($program) }}"></vertical-x3-slider>
+                @endif
+            </div>
         </div>
-    @endif
+    </div>
 </div>

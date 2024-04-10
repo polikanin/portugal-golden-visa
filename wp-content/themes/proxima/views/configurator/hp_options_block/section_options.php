@@ -67,7 +67,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => '3',
-            'new_lines' => '',
+            'new_lines' => 'wpautop',
         ),
         array(
             'key' => 'field_66100890cc086',
@@ -154,7 +154,7 @@ return [
                         'class' => '',
                         'id' => '',
                     ),
-                    'return_format' => 'id',
+                    'return_format' => 'url',
                     'preview_size' => 'thumbnail',
                     'library' => 'all',
                     'min_width' => '',
