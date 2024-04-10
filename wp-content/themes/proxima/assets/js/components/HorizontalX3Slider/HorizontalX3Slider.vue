@@ -73,7 +73,7 @@ export default {
         }
     },
     mounted() {
-        console.log(this.slides)
+
     },
     methods: {
         getRef(e) {

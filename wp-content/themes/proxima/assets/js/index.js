@@ -4,16 +4,17 @@ import Components from "./components";
 import 'swiper/css/effect-fade';
 
 import 'custom-vue-scrollbar/dist/style.css';
-
+import { Autoplay } from 'swiper/modules';
 createApp({
     delimiters: ['${', '}'],
     data() {
         return {
-
+            swiperAutoplaySpeed: 9000,
             modal: {
                 isModal: false,
                 id: false,
             },
+            modules: [Autoplay],
         }
     },
     mounted () {
