@@ -12,10 +12,10 @@ let Components
 
 Components = {
     install(Vue) {
-        Vue.component('se-accordion', Accordion);
-        Vue.component('se-icon', Icon)
-        Vue.component('se-loader', Loader)
-        Vue.component('se-modal', Modal)
+        Vue.component('vp-accordion', Accordion);
+        Vue.component('vp-icon', Icon)
+        Vue.component('vp-loader', Loader)
+        Vue.component('vp-modal', Modal)
         Vue.component('swiper', Swiper)
         Vue.component('swiper-slide', SwiperSlide)
         Vue.component('custom-scrollbar', CustomScrollbar)

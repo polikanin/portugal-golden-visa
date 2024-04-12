@@ -1,5 +1,5 @@
 <template>
-    <svg class="se-icon">
+    <svg class="vp-icon">
         <use v-if="type" :xlink:href="sw_path+'sprite.svg#'+ type"></use>
         <use width="40px" height="40px" v-else :xlink:href="sw_path+'sprite.svg#empty-type'"></use>
     </svg>
@@ -11,7 +11,7 @@ export default {
     props: ['type'],
     data(){
         return {
-            sw_path: '/bundles/stempelexpressconfi/assets/icons/',
+            sw_path: '/wp-content/themes/proxima/assets/images/',
             //sw_path: './src/assets/images/',
         }
     },

@@ -2,9 +2,15 @@
     @if(strpos($button['url'], '##') !== false)
         <div class="{{ $class? : 'vp-btn' }}">
             <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--up">
+                @if($icon)
+                    <vp-icon type="{{ $icon }}"></vp-icon>
+                @endif
                 {{ $button['title'] }}
             </button>
             <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--down">
+                @if($icon)
+                    <vp-icon type="{{ $icon }}"></vp-icon>
+                @endif
                 {{ $button['title'] }}
             </button>
         </div>
@@ -15,6 +21,9 @@
                     href="{{ $button['url'] }}"
                     {{ ( $button['target'] ) ? 'target="_blank"' : '' }}
             >
+                @if($icon)
+                    <vp-icon type="{{ $icon }}"></vp-icon>
+                @endif
                 {{ $button['title'] }}
             </a>
             <a
@@ -22,6 +31,9 @@
                     href="{{ $button['url'] }}"
                     {{ ( $button['target'] ) ? 'target="_blank"' : '' }}
             >
+                @if($icon)
+                    <vp-icon type="{{ $icon }}"></vp-icon>
+                @endif
                 {{ $button['title'] }}
             </a>
         </div>

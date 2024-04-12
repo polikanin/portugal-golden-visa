@@ -8,7 +8,7 @@
             </h2>
         @endif
 
-        @include('components.button', ['button' => $link])
+        @include('components.button', ['button' => $link, 'icon' => 'user-tag'])
 
         @if($subtitle)
             <h3 class="vp-subtitle">

@@ -8,7 +8,8 @@
     font-family: $second-family;
     border: 1px solid $gold;
     border-radius: 2px;
-    padding: 14px 24px;
+    height: 48px;
+    padding: 0 24px;
     max-width: 100%;
     backdrop-filter: blur(8px);
     background-color: $gold20;
@@ -17,6 +18,8 @@
     color: $yellow;
     text-align: center;
     display: block;
+    display: flex;
+    align-items: center;
   }
 
   &--up{
@@ -34,6 +37,13 @@
     pointer-events: none;
     z-index: 2;
     text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  .vp-icon{
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+    margin: 0 8px 0 0;
   }
 
   &:hover{

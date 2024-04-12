@@ -12,72 +12,20 @@
     background-color: $secondary;
   }
 
-  .container{
+  .vp-container{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
   }
-}
 
-.vp-menu{
-  margin: 14px auto 0 65px;
+  .vp-menu{
+    margin: 14px auto 0 65px;
 
-  .menu{
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 24px;
-    color: $white;
-
-    &-item{
-      font-weight: 300;
-
-      &-has-children{
-        position: relative;
-
-        & > a{
-          &:after{
-            content: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 6L8 10L12 6' stroke='white' stroke-linecap='round' stroke-linejoin='round' /%3E%3C/svg%3E");
-            position: relative;
-            top: 1px;
-            margin: 0 0 0 12px;
-          }
-        }
-
-        &:hover{
-          .sub-menu{
-            display: block;
-          }
-        }
-      }
-
-      .sub-menu{
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        padding: 10px;
-        background-color: $white;
-        color: $black;
-        min-width: 150px;
-        display: none;
-
-        &:before{
-          content: '';
-          position: absolute;
-          width: 100%;
-          bottom: 100%;
-          left: 0;
-          height: 10px;
-        }
-
-        .menu-item{
-          padding: 3px 0;
-
-          a{
-            display: block;
-          }
-        }
-      }
+    .menu{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 24px;
     }
   }
 }

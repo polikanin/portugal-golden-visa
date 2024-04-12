@@ -54,7 +54,7 @@
 <div id="vp-app">
 <header class="vp-header">
     <div class="wrapper">
-        <div class="container">
+        <div class="vp-container">
             @php($image = get_field('logo', 'options'))
 
             {!! get_image_html($image, 'full') !!}

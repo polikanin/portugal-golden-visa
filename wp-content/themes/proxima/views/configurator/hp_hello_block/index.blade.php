@@ -26,7 +26,7 @@
                     @endif
 
                     @if($link)
-                        @include('components.button', ['button' => $link])
+                        @include('components.button', ['button' => $link, 'icon' => 'video'])
                     @endif
                 </div>
             </div>

@@ -10,7 +10,7 @@
                             {{ $title }}
                         </h1>
                     @endif
-                    @include('components.button', ['button' => $button])
+                    @include('components.button', ['button' => $button, 'icon' => 'export'])
                 </div>
                 <div class="">
                     @if($subtitle)
