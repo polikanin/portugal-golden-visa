@@ -16,6 +16,21 @@
     font-size: 18px;
   }
 
+  &--contact{
+    border: 1px solid $secondary;
+    border-radius: 10px;
+    backdrop-filter: blur(15.5px);
+    background-color: $black15;
+    padding: 32px;
+
+    .vp-text{
+      font-weight: 300;
+      font-size: 18px;
+      margin-top: 15px;
+      margin-bottom: 50px;
+    }
+  }
+
   &--col{
     position: relative;
 
@@ -78,6 +93,15 @@
     margin-top: 25px;
   }
 
+  .vp-title{
+    min-height: 125px;
+  }
+
+  .vp-label{
+    font-weight: 300;
+    font-size: 14px;
+  }
+
   .vp-items{
     display: grid;
     grid-template-columns: max(330px);
@@ -118,7 +142,7 @@
   &.type_2{
     #{$self}--col{
       &:nth-of-type(3){
-        padding: 20px 60px 122px 0;
+        padding: 20px 60px 100px 0;
 
         .vp-items{
           grid-template-columns: repeat(2, 1fr);
@@ -129,7 +153,11 @@
   }
 
   &.type_3{
-
+    #{$self}--col{
+      &:nth-of-type(4){
+        padding: 24px 0px 50px 24px;
+      }
+    }
   }
 
   &.type_4{

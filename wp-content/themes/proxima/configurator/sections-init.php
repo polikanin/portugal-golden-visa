@@ -18,6 +18,7 @@ $sections = [
             'hp_successful_block',
             'hp_4_items_block',
             'hp_linear_slider_block',
+            'hp_faq_block',
         ],
 
         'location' => [

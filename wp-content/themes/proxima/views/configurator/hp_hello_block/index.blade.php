@@ -7,7 +7,7 @@
             <div class="vp-hello-block--col">
                 @if($title)
                     <h1 class="vp-title">
-                        {{ $title }}
+                        {!! $title !!}
                     </h1>
                 @endif
             </div>
@@ -82,6 +82,34 @@
                                     </div>
                                 @endif
                             @endforeach
+                        @endif
+                    </div>
+                </div>
+            @endif
+
+            @if($block_type === 'type_3')
+                <div class="vp-hello-block--col">
+
+                </div>
+                <div class="vp-hello-block--col">
+
+                </div>
+                <div class="vp-hello-block--col">
+                    <div class="vp-hello-block--contact">
+                        @if($subtitle)
+                            <p class="vp-subtitle">
+                                {{ $subtitle }}
+                            </p>
+                        @endif
+                        @if($type_3_text)
+                            <p class="vp-text">
+                                {{ $type_3_text }}
+                            </p>
+                        @endif
+                        @if($label)
+                            <p class="vp-label">
+                                {{ $label }}
+                            </p>
                         @endif
                     </div>
                 </div>
