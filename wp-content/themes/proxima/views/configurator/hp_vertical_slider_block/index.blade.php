@@ -12,12 +12,50 @@
                 {{ $subtitle }}
             </p>
         @endif
-        @if($image)
-            <div class="vp-img-container">
-                {!! get_image_html($image, 'full') !!}
-            </div>
-        @endif
-
-        <vertical-slider :slides="{{ json_encode($slider) }}"></vertical-slider>
+        <div class="vp-vertical-slider-block--wrapper">
+            @if($image)
+                <div class="vp-img-container">
+                    {!! get_image_html($image, 'full') !!}
+                </div>
+            @endif
+            @if($slider)
+                <div class="vp-container">
+                    <div class="vp-vertical-slider-block--preview">
+                        <div class="vp-vertical-slider-block--preview-progress"><span></span></div>
+                        <div class="vp-vertical-slider-block--preview-items">
+                            @foreach($slider as $slide)
+                                <div class="vp-vertical-slide--btn"
+                                >
+                                    <div class="vp-vertical-slide--btn-index">
+                                        @if($loop->index + 1 < 10)
+                                            0
+                                        @endif
+                                        {{ $loop->index + 1 }}
+                                    </div>
+                                    {{ $slide['title'] }}
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="vp-vertical-slider-block--swiper">
+                        @foreach($slider as $slide)
+                            <div class="vp-vertical-slide">
+                                <div class="vp-vertical-slide--img">
+                                    <img src="{{ $slide['image'] }}" alt="">
+                                </div>
+                                <div class="vp-vertical-slide--block">
+                                    <div class="vp-vertical-slide--title">
+                                        {{ $slide['title'] }}
+                                    </div>
+                                    <div class="vp-vertical-slide--text">
+                                        {{ $slide['text'] }}
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
+        </div>
     </div>
 </div>

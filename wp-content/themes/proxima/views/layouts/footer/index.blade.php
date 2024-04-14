@@ -94,4 +94,23 @@
         {{--        </div>--}}
     </div>
 </footer>
+
+<div class="vp-footer--bottom">
+    <div class="wrapper">
+        <div class="vp-container">
+            <p class="vp-text">
+                © 2024 Advisors Portugal. All Rights Reserved.
+            </p>
+            <p class="vp-text">
+                <a href="">
+                    Terms and Conditions
+                </a>
+                |
+                <a href="">
+                    Privacy Policy
+                </a>
+            </p>
+        </div>
+    </div>
+</div>
 </div>

@@ -11,20 +11,22 @@
     "@vitejs/plugin-vue": "^4.1.0",
     "autoprefixer": "^10.4.14",
     "cross-env": "^7.0.3",
+    "gulp": "^4.0.2",
+    "gulp-cheerio": "^1.0.0",
+    "gulp-replace": "^1.0.0",
+    "gulp-svg-sprite": "^1.5.0",
     "postcss": "^8.4.21",
     "sass": "^1.69.7",
     "tailwindcss": "^3.3.1",
     "vite": "^4.2.1",
-    "vite-plugin-live-reload": "^3.0.2",
-    "gulp": "^4.0.2",
-    "gulp-cheerio": "^1.0.0",
-    "gulp-replace": "^1.0.0",
-    "gulp-svg-sprite": "^1.5.0"
+    "vite-plugin-live-reload": "^3.0.2"
   },
   "dependencies": {
+    "animejs": "^3.2.2",
     "axios": "^1.6.7",
     "custom-vue-scrollbar": "^0.0.8",
     "jquery": "^3.7.1",
+    "scrollmagic": "^2.0.8",
     "swiper": "^11.1.0",
     "vue": "^3.2.36",
     "vue-loader": "^17.0.1"

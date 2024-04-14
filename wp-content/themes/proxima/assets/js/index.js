@@ -1,10 +1,14 @@
 import {createApp} from 'vue'
 import Components from "./components";
+import verticalAnimation from "./verticalAnimation";
 
 import 'swiper/css/effect-fade';
 
 import 'custom-vue-scrollbar/dist/style.css';
 import { Autoplay } from 'swiper/modules';
+import stepAnimation from "./stepAnimation";
+
+
 createApp({
     delimiters: ['${', '}'],
     data() {
@@ -46,6 +50,9 @@ createApp({
                 }
             })
         })
+
+        verticalAnimation()
+        stepAnimation()
     },
     computed: {
 
