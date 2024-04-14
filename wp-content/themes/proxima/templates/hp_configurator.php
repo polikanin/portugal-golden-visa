@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: ACF Home Page Configurator
+ * Template Name: ACF Page Configurator
  */
 
 get_header();

@@ -1,4 +1,5 @@
 .vp-hello-block{
+  $self: &;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -6,7 +7,8 @@
 
   &--grid{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    //grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 53% 47%;
   }
 
   &--content{
@@ -22,8 +24,6 @@
     }
 
     &:nth-of-type(4){
-      padding: 33px 30px 274px 31px;
-
       &:before{
         content: '';
         width: 12px;
@@ -76,5 +76,63 @@
 
   .vp-btn{
     margin-top: 25px;
+  }
+
+  .vp-items{
+    display: grid;
+    grid-template-columns: max(330px);
+    gap: 38px;
+    padding: 20px 20px 0 32px;
+  }
+
+  .vp-item{
+    &--index{
+      border-radius: 50%;
+      padding: 10px;
+      width: 43px;
+      height: 43px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 24px;
+      font-weight: 300;
+      backdrop-filter: blur(8px);
+      background-color: $secondary;
+    }
+
+    &--text{
+      font-weight: 300;
+      font-size: 18px;
+    }
+  }
+
+
+  &.type_1{
+    #{$self}--col{
+      &:nth-of-type(4){
+        padding: 33px 30px 274px 31px;
+      }
+    }
+  }
+
+  &.type_2{
+    #{$self}--col{
+      &:nth-of-type(3){
+        padding: 20px 60px 122px 0;
+
+        .vp-items{
+          grid-template-columns: repeat(2, 1fr);
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  &.type_3{
+
+  }
+
+  &.type_4{
+
   }
 }
