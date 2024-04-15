@@ -57,7 +57,9 @@
         <div class="vp-container">
             @php($image = get_field('logo', 'options'))
 
-            {!! get_image_html($image, 'full') !!}
+            <a href="/">
+                {!! get_image_html($image, 'full') !!}
+            </a>
 
             {!! wp_nav_menu( [
                 'theme_location'  => 'primary',

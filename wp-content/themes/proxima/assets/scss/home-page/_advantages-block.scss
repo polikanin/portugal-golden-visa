@@ -34,6 +34,16 @@
       object-fit: cover;
       border-radius: 10px;
       overflow: hidden;
+
+      img{
+        transition: 4s;
+      }
+
+      &:hover{
+        img{
+          transform: scale(1.1);
+        }
+      }
     }
   }
 }
