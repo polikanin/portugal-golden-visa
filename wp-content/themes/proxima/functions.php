@@ -52,3 +52,73 @@ add_filter( 'gettext', function ( $translation, $text, $domain ) {
     return $translation;
 
 }, 10, 3 );
+
+
+function get_list_clone_data( $parent_layout )
+{
+    global $wpdb;
+
+    $prefix = $wpdb->prefix;
+
+    $sql = "SELECT * FROM {$prefix}postmeta ";
+    $sql .= "LEFT JOIN {$prefix}posts ON {$prefix}postmeta.post_id = {$prefix}posts.ID ";
+    $sql .= "WHERE {$prefix}posts.post_type = 'page' AND {$prefix}postmeta.meta_key LIKE '%configurator'";
+
+    $results = $wpdb->get_results( $sql, OBJECT );
+
+    $array = [];
+
+    foreach ( $results ?? [] as $item ) {
+        // 'hp_advantages'
+
+        if ( $item->post_id == $_GET[ 'post' ] ) continue;
+        if ( substr( $item->meta_key, 0, 1 ) === '_' ) continue;
+        if ( empty( $item->meta_value ) ) continue;
+
+        $configurator = unserialize( $item->meta_value );
+
+        foreach ( $configurator as $section_key => $section ) {
+
+            if ( $section == $parent_layout ) {
+
+                $array[] = [
+                    'key'         => $item->meta_key,
+                    'page_id'     => $item->ID,
+                    'name'        => $item->post_title,
+                    'section_key' => $section_key,
+                ];
+
+            }
+
+        }
+
+    }
+
+    return $array;
+}
+
+// add_action( 'init', function () {
+//     dd();
+// } );
+
+add_filter( 'acf/prepare_field', function ( $field ) {
+
+    if ( $field[ '_name' ] == 'clone_data_parent' ) {
+
+        $parent_layout = str_replace( 'layout_', '', $field[ 'parent_layout' ] );
+
+        $data = get_list_clone_data( $parent_layout );
+
+        $choices = [];
+
+        foreach ( $data as $item ) {
+            $section_key            = $item[ 'section_key' ] + 1;
+            $choice_key             = $item[ 'key' ] . '_' . $item[ 'page_id' ] . '_' . $item[ 'section_key' ];
+            $choices[ $choice_key ] = "Page '{$item['name']}' :: Section {$section_key}";
+        }
+
+        $field[ 'choices' ] = $choices;
+    }
+
+    return $field;
+} );

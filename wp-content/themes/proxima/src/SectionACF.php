@@ -62,6 +62,29 @@ class SectionACF
             'maxlength'         => '',
         ];
 
+        $this->tab_options[] = [
+            'key'               => $this->field_fix_key( 'clone_data_parent' ),
+            'label'             => __( 'Clone Data Parent', 'marck' ),
+            'name'              => 'clone_data_parent',
+            'type'              => 'select',
+            'instructions'      => '',
+            'required'          => 0,
+            'conditional_logic' => 0,
+            'wrapper'           => [
+                'width' => '',
+                'class' => '',
+                'id'    => '',
+            ],
+            'choices'           => [],
+            'default_value'     => false,
+            'allow_null'        => 1,
+            'multiple'          => 0,
+            'ui'                => 0,
+            'return_format'     => 'value',
+            'ajax'              => 0,
+            'placeholder'       => '',
+        ];
+
         $this->set_layout();
     }
 
