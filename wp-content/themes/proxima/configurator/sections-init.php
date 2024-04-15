@@ -11,6 +11,7 @@ $sections = [
             'hp_program_block',
             'hp_definition_block',
             'hp_investments_block',
+            'hp_investments_small_block',
             'hp_options_block',
             'hp_highlights_block',
             'hp_testimonials_block',
@@ -19,6 +20,7 @@ $sections = [
             'hp_4_items_block',
             'hp_linear_slider_block',
             'hp_faq_block',
+            'hp_about_block',
         ],
 
         'location' => [

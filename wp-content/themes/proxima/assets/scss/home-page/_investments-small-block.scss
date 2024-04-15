@@ -1,0 +1,90 @@
+.vp-investments-sm-block{
+  padding: 80px 0 80px 0;
+
+  .vp-title{
+    max-width: 440px;
+  }
+
+  .vp-items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .vp-item{
+    $self: &;
+    border: 1px solid $line;
+    border-radius: 10px;
+    padding: 30px;
+    backdrop-filter: blur(15.5px);
+    background-color: $black15;
+
+    &--index{
+      border: 1px solid $line;
+      border-radius: 10px;
+      width: 60px;
+      height: 60px;
+      backdrop-filter: blur(15.5px);
+      background-color: $black15;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0 0 5px auto;
+
+      span{
+        display: block;
+        border-radius: 50%;
+        background-color: $gold;
+        width: 8px;
+        height: 8px;
+        margin: 2px;
+      }
+    }
+
+    &--title{
+      font-weight: 400;
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    &--text{
+      font-weight: 300;
+      font-size: 18px;
+    }
+
+    .vp-btn{
+      margin-top: 50px;
+    }
+
+    &--container{
+      display: grid;
+      grid-template-columns: 1fr 80px;
+    }
+
+    &:nth-of-type(4){
+      .vp-item--index{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-content: center;
+        padding: 16px;
+      }
+    }
+
+    &:nth-of-type(5){
+      .vp-item--index{
+        align-content: center;
+
+        span{
+          &:first-child{
+            margin: 2px 20px;
+          }
+
+          &:last-child{
+            margin: 2px 20px;
+          }
+        }
+      }
+    }
+  }
+}

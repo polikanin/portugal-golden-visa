@@ -4,6 +4,7 @@
   background-size: cover;
   background-position: center;
   padding-top: 100px;
+  overflow: hidden;
 
   &--grid{
     display: grid;
@@ -71,7 +72,7 @@
         position: absolute;
         bottom: 0;
         height: 1px;
-        width: 50vw;
+        width: 55vw;
         background-color: $white30;
       }
     }
