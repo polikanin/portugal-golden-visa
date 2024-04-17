@@ -13,6 +13,8 @@ createApp({
     delimiters: ['${', '}'],
     data() {
         return {
+            isBadgeActive: false,
+            isSlideChange: true,
             swiperAutoplaySpeed: 9000,
             modal: {
                 isModal: false,
@@ -25,8 +27,11 @@ createApp({
         let self = this;
         const header = document.querySelector('.vp-header')
         const progress = document.querySelectorAll('[data-progress-container]')
+        const badgeSlides = document.querySelectorAll('[data-badge-slide]')
 
         window.addEventListener('scroll', function (){
+            self.deactivateBadge()
+
             if(window.scrollY > 50){
                 header.classList.add('fixed')
             }
@@ -51,6 +56,15 @@ createApp({
             })
         })
 
+        badgeSlides.forEach(item => {
+            item.addEventListener('mouseover', function(e){
+                self.activateBadge(e)
+            })
+            item.addEventListener('mouseout', function(){
+                self.deactivateBadge()
+            })
+        })
+
         verticalAnimation()
         stepAnimation()
     },
@@ -58,7 +72,43 @@ createApp({
 
     },
     methods: {
+        activateBadge(e) {
+            let self = this;
+            let target = e.target
+            let blockClass = target.dataset.badgeSlide
+            if(target.parentNode.classList.contains('swiper-slide-next') && self.isSlideChange){
+                self.isBadgeActive = true
+                self.$refs.badge.classList.add(blockClass)
+                self.$refs.badge.classList.add('active')
+                self.$refs.badge.style.top = target.getBoundingClientRect().y + 'px'
+                self.$refs.badge.style.left = target.getBoundingClientRect().x + 'px'
+            }
+        },
+        deactivateBadge() {
+            let self = this;
+            self.isBadgeActive = false
+            self.$refs.badge.classList.remove('active')
+            setTimeout(function (){
+                if(!self.isBadgeActive) {
+                    self.$refs.badge.removeAttribute("class")
+                    self.$refs.badge.classList.add('vp-badge')
+                }
+            }, 300)
+        },
+        onSlideChange() {
+            let self = this;
 
+            setTimeout(function (){
+                self.isSlideChange = true
+            }, 300)
+        },
+        progress() {
+
+        },
+        start() {
+            this.deactivateBadge()
+            this.isSlideChange = false
+        }
     },
 })
     .use(Components)

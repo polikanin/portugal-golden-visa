@@ -71,31 +71,6 @@
       cursor: grabbing;
     }
 
-    *{
-      pointer-events: none;
-    }
-
-    &--badge{
-      width: 84px;
-      height: 84px;
-      border-radius: 50%;
-      fill: $black15;
-      border: 1px solid $line;
-      backdrop-filter: blur(15.5px);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: fixed;
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 0.3s;
-      transform: translate(-50%, -50%);
-
-      &.active{
-        opacity: 1;
-      }
-    }
-
     &--title{
       font-weight: 400;
       font-size: 24px;

@@ -22,6 +22,8 @@ $sections = [
             'hp_linear_slider_block',
             'hp_faq_block',
             'hp_about_block',
+            'hp_x3_slider_block',
+            'hp_terms_block',
         ],
 
         'location' => [

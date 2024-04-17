@@ -118,4 +118,8 @@
         </div>
     </div>
 </div>
+
+<div class="vp-badge" ref="badge">
+    Drag
+</div>
 </div>

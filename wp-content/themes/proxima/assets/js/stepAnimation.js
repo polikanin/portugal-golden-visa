@@ -30,7 +30,6 @@ let stepAnimation = function (){
                     let end = Math.floor((tl2.progress - 4) / (100/tl2.children[0].animatables.length)) - 1
                     let start = Math.round(tl2.progress / (100/tl2.children[0].animatables.length)) - 1
 
-                    console.log(tl2)
                     //tl2.children[0].animatables.forEach(item => item.target.classList.remove('active'))
                     if(tl2.children[0].animatables[start]){
                         tl2.children[0].animatables[start].target.classList.remove('active-end')

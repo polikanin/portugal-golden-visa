@@ -1,5 +1,6 @@
 .vp-advantages-block{
   padding: 100px 0 60px 0;
+  overflow: hidden;
   $offset: 24px;
 
   .vp-items{
@@ -25,6 +26,10 @@
     .vp-item{
       border-left: 1px solid $line;
     }
+  }
+
+  .swiper-slide{
+    width: 270px!important;
   }
 
   .vp-item{

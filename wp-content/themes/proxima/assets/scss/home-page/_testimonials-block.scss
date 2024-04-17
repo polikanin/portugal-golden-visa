@@ -38,10 +38,21 @@
       justify-content: center;
       align-items: center;
       cursor: pointer;
+      color: $white;
       transition: 0.3s;
 
       &.swiper-button-disabled{
-        opacity: 0.3;
+        border-color: $white30;
+        color: $white30;
+      }
+
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &:active{
+        color: $black;
+        background-color: $white;
       }
     }
   }

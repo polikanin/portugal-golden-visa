@@ -47,11 +47,16 @@
   }
 
   &:hover{
-
-
     #{$self}--down{
       opacity: 1;
       pointer-events: auto;
+    }
+  }
+
+  &:active{
+    #{$self}--down{
+      color: $black;
+      background-color: $gold;
     }
   }
 }
