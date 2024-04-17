@@ -7,6 +7,7 @@ $sections = [
         'sections' => [
             'hp_hello_block',
             'hp_advantages_block',
+            'hp_advantages_slider_block',
             'hp_vertical_slider_block',
             'hp_program_block',
             'hp_definition_block',

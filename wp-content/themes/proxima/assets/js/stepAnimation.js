@@ -23,15 +23,17 @@ let stepAnimation = function (){
             triggerElement: item,
             duration: 4500,
             triggerHook: 0,
-            reverse: false,
+            //reverse: false,
         })
             .on("progress", function (event) {
                 if(tl2.children && tl2.children[0] && tl2.children[0].animatables){
                     let end = Math.floor((tl2.progress - 4) / (100/tl2.children[0].animatables.length)) - 1
                     let start = Math.round(tl2.progress / (100/tl2.children[0].animatables.length)) - 1
 
+                    console.log(tl2)
                     //tl2.children[0].animatables.forEach(item => item.target.classList.remove('active'))
                     if(tl2.children[0].animatables[start]){
+                        tl2.children[0].animatables[start].target.classList.remove('active-end')
                         tl2.children[0].animatables[start].target.classList.add('active')
                     }
                     if(tl2.children[0].animatables[end]){
@@ -43,11 +45,11 @@ let stepAnimation = function (){
                 tl2.seek(tl2.duration * event.progress);
 
                 if(Math.ceil(event.progress*100) >= 100){
-                    let padding = parseInt(item.parentNode.style.paddingBottom)
-                    if(padding > 0){
-                        window.scrollTo(0, window.scrollY - padding)
-                    }
-                    scene.duration(1)
+                    // let padding = parseInt(item.parentNode.style.paddingBottom)
+                    // if(padding > 0){
+                    //     window.scrollTo(0, window.scrollY - padding)
+                    // }
+                    // scene.duration(1)
                 }
             })
 

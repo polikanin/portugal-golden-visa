@@ -86,8 +86,8 @@ return [
                             'default_value' => '',
                             'placeholder' => '',
                             'maxlength' => '',
-                            'rows' => 2,
-                            'new_lines' => '',
+                            'rows' => 4,
+                            'new_lines' => 'br',
                         ),
                         array(
                             'key' => 'field_661c644bebf66',

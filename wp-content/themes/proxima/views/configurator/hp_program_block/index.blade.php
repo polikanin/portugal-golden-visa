@@ -18,7 +18,9 @@
                 </div>
             </div>
             <div class="vp-container--right" data-progress-container style="--progress: 0%;">
-                <div class="vp-progress"></div>
+                @if(count($program) > 4)
+                    <div class="vp-progress"></div>
+                @endif
                 @if($program)
                     <div class="vp-items">
                         @foreach($program as $item)

@@ -7,6 +7,9 @@
                         {!! get_svg_content($iconId) !!}
                     </span>
                 @endif
+                @if($iconImg)
+                    <vp-icon type="{{ $iconImg }}"></vp-icon>
+                @endif
                 {{ $button['title'] }}
             </button>
             <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--down">
@@ -14,6 +17,9 @@
                     <span class="vp-icon">
                         {!! get_svg_content($iconId) !!}
                     </span>
+                @endif
+                @if($iconImg)
+                    <vp-icon type="{{ $iconImg }}"></vp-icon>
                 @endif
                 {{ $button['title'] }}
             </button>
@@ -30,6 +36,9 @@
                         {!! get_svg_content($iconId) !!}
                     </span>
                 @endif
+                @if($iconImg)
+                    <vp-icon type="{{ $iconImg }}"></vp-icon>
+                @endif
                 {{ $button['title'] }}
             </a>
             <a
@@ -41,6 +50,9 @@
                     <span class="vp-icon">
                         {!! get_svg_content($iconId) !!}
                     </span>
+                @endif
+                @if($iconImg)
+                    <vp-icon type="{{ $iconImg }}"></vp-icon>
                 @endif
                 {{ $button['title'] }}
             </a>

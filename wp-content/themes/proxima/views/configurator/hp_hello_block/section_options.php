@@ -113,7 +113,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => 3,
-            'new_lines' => '',
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_661b477b6ca0b',

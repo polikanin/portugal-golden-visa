@@ -2,7 +2,7 @@ import ScrollMagic from "scrollmagic";
 import anime from "animejs";
 
 let verticalAnimation = function (){
-    let verticalSliders = document.querySelectorAll('.vp-vertical-slider-block .vp-vertical-slider-block--wrapper')
+    let verticalSliders = document.querySelectorAll('.vp-vertical-slider-block')
     let controller = new ScrollMagic.Controller();
 
     verticalSliders.forEach(item => {

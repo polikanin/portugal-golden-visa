@@ -23,7 +23,7 @@
                     <div class="vp-hello-block--content">
                         @if($text)
                             <p class="vp-text">
-                                {{ $text }}
+                                {!! $text !!}
                             </p>
                         @endif
 

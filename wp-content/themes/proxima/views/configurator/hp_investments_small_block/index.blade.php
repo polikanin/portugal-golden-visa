@@ -22,7 +22,7 @@
                                 @endif
                                 @if($item['text'])
                                     <div class="vp-item--text">
-                                        {{ $item['text'] }}
+                                        {!! $item['text'] !!}
                                     </div>
                                 @endif
                                 @if($item['link'])
