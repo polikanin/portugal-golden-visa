@@ -1,6 +1,6 @@
 @if($button && $button['url'])
     @if(strpos($button['url'], '##') !== false)
-        <div class="{{ $class? : 'vp-btn' }}">
+        <div class="{{ $class? : 'vp-btn' }}" @click.prevent="modal.id = '{{ $button['url'] }}'">
             <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--up">
                 @if($iconId)
                     <span class="vp-icon">

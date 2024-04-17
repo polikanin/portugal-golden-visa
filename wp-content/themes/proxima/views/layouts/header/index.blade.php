@@ -69,7 +69,7 @@
             ] ); !!}
 
             @include('components.button', ['button' => [
-                'url'=> '##',
+                'url'=> '##quiz',
                 'title' => 'Speak with an expert'
                 ], 'class' => 'vp-btn--simple',])
         </div>

@@ -2,8 +2,11 @@ import Accordion from './Accordion/Accordion.vue';
 import Icon from './Icon/Icon.vue';
 import Loader from "./Loader/Loader.vue";
 import Modal from "./Modal/Modal.vue";
+import Button from "./Button/Button.vue";
+import Dropdown from "./Dropdown/Dropdown.vue";
 import VerticalX3Slider from "./VerticalX3Slider/VerticalX3Slider.vue";
 import HorizontalX3Slider from "./HorizontalX3Slider/HorizontalX3Slider.vue";
+import Quiz from "./Quiz/Quiz.vue";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import CustomScrollbar from 'custom-vue-scrollbar';
 
@@ -15,6 +18,9 @@ Components = {
         Vue.component('vp-icon', Icon)
         Vue.component('vp-loader', Loader)
         Vue.component('vp-modal', Modal)
+        Vue.component('vp-quiz', Quiz)
+        Vue.component('vp-button', Button)
+        Vue.component('vp-dropdown', Dropdown)
         Vue.component('swiper', Swiper)
         Vue.component('swiper-slide', SwiperSlide)
         Vue.component('custom-scrollbar', CustomScrollbar)

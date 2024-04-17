@@ -13,6 +13,7 @@ createApp({
     delimiters: ['${', '}'],
     data() {
         return {
+            isQuizOpen: true,
             isBadgeActive: false,
             isSlideChange: true,
             swiperAutoplaySpeed: 9000,

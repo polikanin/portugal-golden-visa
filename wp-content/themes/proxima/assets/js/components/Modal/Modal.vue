@@ -1,36 +1,36 @@
 <template>
-  <transition name="wbp-modal">
-    <div class="wbp-modal">
-      <div class="wbp-modal-mask" @click="$emit('close')"></div>
-      <div class="wbp-modal-wrapper">
-        <div class="wbp-modal-container">
+    <transition name="vp-modal">
+        <div class="vp-modal">
+            <div class="vp-modal--mask" @click="$emit('close')"></div>
+            <div class="vp-modal--wrapper">
+                <div class="vp-modal--container">
 
-          <div class="wbp-modal-header">
-            <slot name="header">
 
-            </slot>
-          </div>
+                    <slot name="header">
 
-          <div class="wbp-modal-body">
-            <slot name="body">
+                    </slot>
 
-            </slot>
-          </div>
 
-          <div class="wbp-modal-footer">
-            <slot name="footer">
+                    <div class="vp-modal--body">
+                        <slot name="body">
 
-            </slot>
-          </div>
+                        </slot>
+                    </div>
+
+                    <div class="vp-modal--footer">
+                        <slot name="footer">
+
+                        </slot>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </transition>
+    </transition>
 </template>
 
 <script>
 export default {
-  name: "Dialog"
+    name: "Dialog"
 }
 </script>
 

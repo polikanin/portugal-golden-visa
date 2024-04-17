@@ -118,7 +118,7 @@
         </div>
     </div>
 </div>
-
+<vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"></vp-quiz>
 <div class="vp-badge" ref="badge">
     Drag
 </div>
