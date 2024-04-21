@@ -11,15 +11,19 @@
     margin: 50px 0 0 0;
 
     &--row{
-      display: grid;
-      grid-template-columns: max(450px) max(335px) 1fr;
-      padding: 32px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      &-inner{
+        display: grid;
+        grid-template-columns: max(450px) max(335px) 1fr;
+        padding: 32px 0;
+      }
     }
 
     &--head{
-      display: grid;
-      grid-template-columns: max(450px) max(335px) 1fr;
+      &-inner{
+        display: grid;
+        grid-template-columns: max(450px) max(335px) 1fr;
+      }
     }
 
     &--col{
