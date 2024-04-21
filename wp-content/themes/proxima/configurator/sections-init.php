@@ -30,6 +30,8 @@ $sections = [
             'hp_government_block',
             'hp_fees_block',
             'hp_law_block',
+            'hp_form_block',
+            'hp_news_block',
         ],
 
         'location' => [

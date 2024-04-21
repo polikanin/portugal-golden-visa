@@ -12,6 +12,7 @@
 
     &--row{
       border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
       &-inner{
         display: grid;
         grid-template-columns: max(450px) max(335px) 1fr;

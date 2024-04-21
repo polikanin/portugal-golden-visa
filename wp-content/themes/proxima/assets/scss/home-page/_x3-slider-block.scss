@@ -25,7 +25,7 @@
     }
   }
   .swiper-slide{
-    width: $width-lpt/3!important;
+    width: calc(#{$width-lpt}/3)!important;
     min-height: 265px;
     position: relative;
     display: flex;

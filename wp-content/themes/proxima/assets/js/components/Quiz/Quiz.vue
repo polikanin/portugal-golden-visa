@@ -51,7 +51,10 @@
                         </label>
                     </div>
                     <div class="vp-modal--navigation">
-                        <vp-button icon="arrow-next" @click="step++">Press to start</vp-button>
+                        <vp-button @click="step++">
+                            Press to start
+                            <vp-icon type="arrow-next"></vp-icon>
+                        </vp-button>
                     </div>
                 </div>
             </transition>
