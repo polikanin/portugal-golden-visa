@@ -24,6 +24,12 @@ $sections = [
             'hp_about_block',
             'hp_x3_slider_block',
             'hp_terms_block',
+            'hp_compare_block',
+            'hp_requirements_block',
+            'hp_timelines_block',
+            'hp_government_block',
+            'hp_fees_block',
+            'hp_law_block',
         ],
 
         'location' => [

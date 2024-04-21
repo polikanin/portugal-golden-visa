@@ -1,0 +1,128 @@
+.vp-compare-block{
+  padding: 100px 0 70px 0;
+
+  .vp-items{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+  }
+
+  .vp-item{
+    $self: &;
+    max-width: 33.33%;
+    flex-grow: 1;
+    border: 1px solid $secondary;
+    border-radius: 10px;
+    backdrop-filter: blur(15.5px);
+    background: $black15;
+
+    &:hover{
+      .vp-item--head{
+        img{
+          transform: scale(1.05);
+        }
+      }
+    }
+
+    &--inner{
+      padding: 20px;
+    }
+
+    &--head{
+      position: relative;
+      height: 210px;
+      display: flex;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 24px;
+
+      img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: 3s;
+      }
+    }
+
+    &--quote{
+      backdrop-filter: blur(3px);
+      background: $white30;
+      border-radius: 47px;
+      padding: 8px 12px;
+      font-family: $second-family;
+      font-size: 16px;
+      position: absolute;
+      top: 16px;
+      left: 16px;
+    }
+
+    &--country{
+      font-weight: 400;
+      font-size: 32px;
+      text-align: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--price{
+      font-size: 24px;
+
+      span{
+        font-weight: 300;
+        font-size: 18px;
+        color: $white30;
+        vertical-align: bottom;
+      }
+    }
+
+    &--list{
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+
+      &-el{
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 16px;
+        align-items: center;
+
+        &--icon{
+          border: 1px solid $line;
+          border-radius: 50%;
+          width: 48px;
+          min-width: 48px;
+          height: 48px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img{
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        &--text{
+          font-weight: 300;
+          font-size: 18px;
+
+          span{
+            color: $white30;
+          }
+        }
+      }
+    }
+  }
+}

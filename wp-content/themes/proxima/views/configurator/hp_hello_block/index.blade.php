@@ -114,6 +114,58 @@
                     </div>
                 </div>
             @endif
+
+            @if($block_type === 'type_4')
+                <div class="vp-hello-block--col">
+                    <div class="vp-items-type_4">
+                        @if($items_type_4)
+                            @foreach($items_type_4 as $item)
+                                @if($loop->index > 3)
+                                    <div class="vp-item">
+                                        <div class="vp-item--text">
+                                            {{ $item['text'] }}
+                                        </div>
+                                        <div class="vp-item--title">
+                                            {{ $item['title'] }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="vp-hello-block--col">
+                    <div class="vp-items-type_4">
+                        @if($items_type_4)
+                            @foreach($items_type_4 as $item)
+                                @if($loop->index < 4)
+                                    <div class="vp-item">
+                                        <div class="vp-item--text">
+                                            {{ $item['text'] }}
+                                        </div>
+                                        <div class="vp-item--title">
+                                            {{ $item['title'] }}
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
+                        @endif
+                    </div>
+                </div>
+                <div class="vp-hello-block--col">
+                    <div class="vp-hello-block--content">
+                        @if($text)
+                            <p class="vp-text">
+                                {!! $text !!}
+                            </p>
+                        @endif
+
+                        @if($link)
+                            @include('components.button', ['button' => $link, 'iconId' => $icon])
+                        @endif
+                    </div>
+                </div>
+            @endif
         </div>
     </div>
 </div>

@@ -22,6 +22,49 @@ createApp({
                 id: false,
             },
             modules: [Autoplay],
+            selected: false,
+            selectedTimeline: false,
+            code: [
+                {
+                    value: '(+380)',
+                    mask: 'XX-XXX-XX-XX',
+                    icon: 'ukraine',
+                },
+                {
+                    value: '(+1)',
+                    mask: 'XX-XXX-XX-XX',
+                    icon: 'canada',
+                },
+                {
+                    value: '(+82)',
+                    mask: 'XX-XXX-XX-XX',
+                    icon: 'south-korea',
+                },
+                {
+                    value: '(+001)',
+                    mask: 'XX-XXX-XX-XX',
+                    icon: 'usa',
+                },
+                {
+                    value: '(+44)',
+                    mask: 'XX-XXX-XX-XX',
+                    icon: 'british',
+                },
+            ],
+            timeline: [
+                {
+                    value: '(GMT +1)',
+                    mask: 'Europe/Kyiv',
+                },
+                {
+                    value: '(GMT +2)',
+                    mask: 'Europe/Kyiv',
+                },
+                {
+                    value: '(GMT +3)',
+                    mask: 'Europe/Kyiv',
+                },
+            ]
         }
     },
     mounted () {
@@ -73,6 +116,12 @@ createApp({
 
     },
     methods: {
+        select(e) {
+            this.selected = e
+        },
+        selectTimeline(e) {
+            this.selectedTimeline = e
+        },
         activateBadge(e) {
             let self = this;
             let target = e.target

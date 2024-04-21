@@ -2,12 +2,18 @@
   padding: 80px 0 78px 0;
 
   .vp-title{
-    margin-bottom: 62px;
+    margin-bottom: 32px;
+  }
+
+  .vp-text{
+    font-weight: 300;
+    font-size: 18px;
   }
 
   .vp-items{
     display: grid;
     gap: 32px;
+    margin-top: 62px;
   }
 
   .vp-item{
@@ -82,6 +88,17 @@
         padding-left: 25px;
         position: relative;
 
+        &>strong{
+          font-size: 24px;
+        }
+
+        &>em{
+          font-weight: 300;
+          font-size: 16px;
+          font-style: normal;
+          color: $white30;
+        }
+
         &:before{
           content: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8.48437 0.707108L16.2626 8.48528L8.48438 16.2634L0.706202 8.48528L8.48437 0.707108Z' fill='%23121212' stroke='%23292929' /%3E%3Cpath d='M8.48437 3.55664L13.4341 8.50639L8.48437 13.4561L3.53463 8.50639L8.48437 3.55664Z' fill='%23E9A900' /%3E%3C/svg%3E");
           position: absolute;
@@ -126,6 +143,35 @@
 
       p{
         margin-top: 16px;
+
+        em{
+          font-style: normal;
+          font-weight: 300;
+          font-size: 14px;
+          color: $white30;
+        }
+      }
+
+      blockquote{
+        backdrop-filter: blur(15.5px);
+        background: $black15;
+        border: 1px solid $secondary;
+        border-radius: 10px;
+        max-width: 334px;
+        padding: 12px;
+        margin: 30px 0 0 0;
+
+        strong{
+          color: $gold;
+          font-weight: 300;
+        }
+
+        p{
+          margin: 0 0 0 0;
+          color: $white30;
+          font-weight: 300;
+          font-size: 14px;
+        }
       }
 
       ul{

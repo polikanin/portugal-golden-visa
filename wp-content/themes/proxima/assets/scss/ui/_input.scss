@@ -23,6 +23,7 @@
   }
 
   &--group{
+    width: 100%;
     display: grid;
     grid-template-columns: 145px 1fr;
     gap: 8px;
