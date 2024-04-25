@@ -31,7 +31,7 @@ function add_type_attribute( $tag, $handle, $src )
     if ( 'vite_main_script' !== $handle ) return $tag;
 
     // change the script tag by adding type="module" and return it.
-    return '<script type="module" src="' . esc_url( $src ) . '"></script>';
+    return '<script type="module" src="' .get_template_directory_uri() . '/dist/main.bundle.js"></script>';
 }
 
 // enqueue hook

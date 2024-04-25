@@ -4,10 +4,10 @@ import verticalAnimation from "./verticalAnimation";
 
 import 'swiper/css/effect-fade';
 
+//import '../scss/main.scss';
 import 'custom-vue-scrollbar/dist/style.css';
 import { Autoplay } from 'swiper/modules';
 import stepAnimation from "./stepAnimation";
-
 
 createApp({
     delimiters: ['${', '}'],
