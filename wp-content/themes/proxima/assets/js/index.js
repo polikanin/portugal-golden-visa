@@ -6,13 +6,14 @@ import 'swiper/css/effect-fade';
 
 //import '../scss/main.scss';
 import 'custom-vue-scrollbar/dist/style.css';
-import { Autoplay } from 'swiper/modules';
+import { Autoplay, Navigation } from 'swiper/modules';
 import stepAnimation from "./stepAnimation";
 
 createApp({
     delimiters: ['${', '}'],
     data() {
         return {
+            topBtnActive: false,
             isQuizOpen: true,
             isBadgeActive: false,
             isSlideChange: true,
@@ -21,7 +22,7 @@ createApp({
                 isModal: false,
                 id: false,
             },
-            modules: [Autoplay],
+            modules: [Autoplay, Navigation],
             selected: false,
             selectedTimeline: false,
             code: [
@@ -71,41 +72,31 @@ createApp({
         let self = this;
         const header = document.querySelector('.vp-header')
         const progress = document.querySelectorAll('[data-progress-container]')
-        const badgeSlides = document.querySelectorAll('[data-badge-slide]')
 
         window.addEventListener('scroll', function (){
-            self.deactivateBadge()
-
             if(window.scrollY > 50){
                 header.classList.add('fixed')
+                self.topBtnActive = true
             }
             else{
                 header.classList.remove('fixed')
+                self.topBtnActive = false
             }
 
             progress.forEach(item => {
                 if(item && item.getBoundingClientRect().y < 150){
-                    let height = item.getBoundingClientRect().height
+                    let height = item.getBoundingClientRect().height - window.innerHeight + 240
                     let oy = Math.abs(item.getBoundingClientRect().y - 150)
                     if(100/height*oy <= 100){
-                        item.style.setProperty('--progress', `${100/height*oy}%`);
+                        item.parentNode.style.setProperty('--progress', `${100/height*oy}%`);
                     }
                     else{
-                        item.style.setProperty('--progress', '100%');
+                        item.parentNode.style.setProperty('--progress', '100%');
                     }
                 }
                 else{
-                    item.style.setProperty('--progress', '0%');
+                    item.parentNode.style.setProperty('--progress', '0%');
                 }
-            })
-        })
-
-        badgeSlides.forEach(item => {
-            item.addEventListener('mouseover', function(e){
-                self.activateBadge(e)
-            })
-            item.addEventListener('mouseout', function(){
-                self.deactivateBadge()
             })
         })
 
@@ -122,29 +113,6 @@ createApp({
         selectTimeline(e) {
             this.selectedTimeline = e
         },
-        activateBadge(e) {
-            let self = this;
-            let target = e.target
-            let blockClass = target.dataset.badgeSlide
-            if(target.parentNode.classList.contains('swiper-slide-next') && self.isSlideChange){
-                self.isBadgeActive = true
-                self.$refs.badge.classList.add(blockClass)
-                self.$refs.badge.classList.add('active')
-                self.$refs.badge.style.top = target.getBoundingClientRect().y + 'px'
-                self.$refs.badge.style.left = target.getBoundingClientRect().x + 'px'
-            }
-        },
-        deactivateBadge() {
-            let self = this;
-            self.isBadgeActive = false
-            self.$refs.badge.classList.remove('active')
-            setTimeout(function (){
-                if(!self.isBadgeActive) {
-                    self.$refs.badge.removeAttribute("class")
-                    self.$refs.badge.classList.add('vp-badge')
-                }
-            }, 300)
-        },
         onSlideChange() {
             let self = this;
 
@@ -152,11 +120,10 @@ createApp({
                 self.isSlideChange = true
             }, 300)
         },
-        progress() {
-
+        goToTop() {
+            window.scrollTo(0, 0)
         },
         start() {
-            this.deactivateBadge()
             this.isSlideChange = false
         }
     },

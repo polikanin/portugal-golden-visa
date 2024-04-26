@@ -135,3 +135,25 @@ a.vp-btn--simple{
   justify-content: center;
   align-items: center;
 }
+
+.vp-mail-link{
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  padding: 12px 24px;
+  height: 48px;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.1);
+  width: fit-content;
+  font-weight: 300;
+  font-size: 16px;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  .vp-icon{
+    width: 24px;
+    height: 24px;
+  }
+}

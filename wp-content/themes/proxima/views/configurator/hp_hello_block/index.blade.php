@@ -22,9 +22,9 @@
                 <div class="vp-hello-block--col">
                     <div class="vp-hello-block--content">
                         @if($text)
-                            <p class="vp-text">
+                            <div class="vp-text">
                                 {!! $text !!}
-                            </p>
+                            </div>
                         @endif
 
                         @if($link)
@@ -111,6 +111,10 @@
                                 {{ $label }}
                             </p>
                         @endif
+                            <a class="vp-mail-link" href="mailto:onboarding@advisorsportugal.com">
+                                <vp-icon type="sms"></vp-icon>
+                                onboarding@advisorsportugal.com
+                            </a>
                     </div>
                 </div>
             @endif

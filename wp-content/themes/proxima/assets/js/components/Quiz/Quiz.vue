@@ -5,9 +5,17 @@
                 <h2 class="vp-modal--title" v-show="step === 0">
                     Initial Onboarding Questionnaire
                 </h2>
-                <h2 class="vp-modal--title" style="text-align: center; padding-left: 60px" v-show="step !== 0">
-                    Lead form
-                </h2>
+                <transition>
+                    <div class="vp-modal--steps" v-show="step !== 0 && step < 5">
+                        <div class="vp-modal--step" :class="{active: step === 1}">01</div>
+                        <div class="vp-modal--step-line"></div>
+                        <div class="vp-modal--step" :class="{active: step === 2}">02</div>
+                        <div class="vp-modal--step-line"></div>
+                        <div class="vp-modal--step" :class="{active: step === 3}">03</div>
+                        <div class="vp-modal--step-line"></div>
+                        <div class="vp-modal--step" :class="{active: step === 4}">04</div>
+                    </div>
+                </transition>
                 <div class="vp-modal--close" @click="$emit('close')" v-show="step !== 0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
@@ -16,18 +24,6 @@
             </div>
         </template>
         <template #body>
-            <transition>
-                <div class="vp-modal--steps" v-show="step !== 0 && step < 5">
-                    <div class="vp-modal--step" :class="{active: step === 1}">01</div>
-                    <div class="vp-modal--step-line"></div>
-                    <div class="vp-modal--step" :class="{active: step === 2}">02</div>
-                    <div class="vp-modal--step-line"></div>
-                    <div class="vp-modal--step" :class="{active: step === 3}">03</div>
-                    <div class="vp-modal--step-line"></div>
-                    <div class="vp-modal--step" :class="{active: step === 4}">04</div>
-                </div>
-            </transition>
-
             <transition>
                 <div class="vp-modal--body" v-show="step === 0">
                     <p class="vp-modal--subtitle">

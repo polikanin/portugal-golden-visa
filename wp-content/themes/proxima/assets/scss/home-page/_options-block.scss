@@ -10,11 +10,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding-bottom: 53px;
+      padding-bottom: 0;
     }
 
     &--right{
-      margin: 150px 0 0 0;
+      margin: 0 0 0 0;
     }
   }
 
@@ -51,6 +51,14 @@
 
       .vp-vertical-slide{
         transform: scale(1.1);
+
+        &--title{
+          color: $white;
+        }
+
+        &--img{
+          filter: none;
+        }
       }
     }
   }
@@ -71,15 +79,31 @@
       cursor: grabbing;
     }
 
+    &:hover{
+      .vp-vertical-slide{
+        &--title{
+          color: $white;
+        }
+
+        &--img{
+          filter: none;
+        }
+      }
+    }
+
     &--title{
+      color: $white30;
       font-weight: 400;
       font-size: 24px;
+      transition: 0.3s;
     }
 
     &--img{
       width: 32px;
       height: 32px;
       margin: 48px auto 48px auto;
+      transition: 0.3s;
+      filter: grayscale(1) brightness(0.35);
     }
 
     &--text{

@@ -5,8 +5,15 @@
   background-position: center;
   padding-top: 100px;
   overflow: hidden;
+  min-height: 100vh;
+  display: grid;
+
+  .wrapper{
+    min-height: 100%;
+  }
 
   &--grid{
+    min-height: 100%;
     display: grid;
     //grid-template-columns: repeat(2, 1fr);
     grid-template-columns: 53% 47%;
@@ -15,6 +22,30 @@
   &--content{
     //max-width: 260px;
     font-size: 18px;
+
+    .vp-text{
+      font-weight: 300;
+      font-size: 18px;
+
+      p{
+        margin: 0;
+
+        b, strong{
+          font-weight: 300;
+          position: relative;
+
+          &:before{
+            content: '';
+            position: absolute;
+            width: calc(100% + 2px);
+            height: 2px;
+            left: -1px;
+            top: calc(50% + 1px);
+            background-color: $gold;
+          }
+        }
+      }
+    }
   }
 
   &--contact{
@@ -36,7 +67,8 @@
     position: relative;
 
     &:nth-of-type(1){
-      padding: 109px 50px 77px 0;
+      padding: 40px 50px 40px 0;
+      display: grid;
     }
 
     &:nth-of-type(4){
@@ -96,11 +128,13 @@
 
   .vp-title{
     min-height: 125px;
+    margin-top: auto;
   }
 
   .vp-label{
     font-weight: 300;
     font-size: 14px;
+    margin-bottom: 16px;
   }
 
   .vp-items{
@@ -165,7 +199,7 @@
   &.type_1{
     #{$self}--col{
       &:nth-of-type(4){
-        padding: 33px 30px 274px 31px;
+        padding: 30px 30px 40px 30px;
       }
     }
   }
@@ -173,7 +207,7 @@
   &.type_2{
     #{$self}--col{
       &:nth-of-type(3){
-        padding: 20px 60px 100px 0;
+        padding: 20px 60px 40px 0;
 
         .vp-items{
           grid-template-columns: repeat(2, 1fr);
@@ -186,7 +220,7 @@
   &.type_3{
     #{$self}--col{
       &:nth-of-type(4){
-        padding: 24px 0px 50px 24px;
+        padding: 24px 0px 40px 24px;
       }
     }
   }
@@ -194,17 +228,17 @@
   &.type_4{
     #{$self}--col{
       &:nth-of-type(1){
-        padding: 48px 48px 48px 0;
+        //padding: 48px 48px 48px 0;
       }
       &:nth-of-type(2){
         display: grid;
-        padding: 48px 0 48px 48px;
+        padding: 40px 0 40px 40px;
       }
       &:nth-of-type(3){
-        padding: 48px 48px 48px 0;
+        padding: 40px 40px 40px 0;
       }
       &:nth-of-type(4){
-        padding: 33px 30px 274px 31px;
+        padding: 40px 30px 40px 30px;
       }
     }
   }

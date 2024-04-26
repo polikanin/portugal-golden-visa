@@ -82,10 +82,10 @@ return [
             'mime_types' => '',
         ),
         array(
-            'key' => 'field_661b475d6ca0a',
+            'key' => 'field_662bb453bf106',
             'label' => 'Text',
             'name' => 'text',
-            'type' => 'textarea',
+            'type' => 'wysiwyg',
             'instructions' => '',
             'required' => 0,
             'conditional_logic' => array(
@@ -110,10 +110,10 @@ return [
                 'id' => '',
             ),
             'default_value' => '',
-            'placeholder' => '',
-            'maxlength' => '',
-            'rows' => 3,
-            'new_lines' => 'br',
+            'tabs' => 'visual',
+            'toolbar' => 'full',
+            'media_upload' => 1,
+            'delay' => 0,
         ),
         array(
             'key' => 'field_661b477b6ca0b',

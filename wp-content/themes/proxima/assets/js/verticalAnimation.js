@@ -13,7 +13,7 @@ let verticalAnimation = function (){
         let durationPerSlide = 1000
 
         let s2a1 = {
-            targets: item.querySelectorAll('.vp-vertical-slide'),
+            targets: item.querySelectorAll('.vp-vertical-slide[data-animated-slide]'),
             translateY: ['50vh', 0],
             opacity: [0, 1],
             duration: 1000,
@@ -27,10 +27,11 @@ let verticalAnimation = function (){
             triggerElement: item,
             duration: durationPerSlide * btns.length,
             triggerHook: 0,
+            offset: -50
         })
             .on("progress", function (event) {
                 if(tl2.children && tl2.children[0] && tl2.children[0].animatables){
-                    let index = Math.round(tl2.progress / (100/tl2.children[0].animatables.length)) - 1
+                    let index = Math.round(tl2.progress / (100/tl2.children[0].animatables.length))
                     btns.forEach(item => item.classList.remove('active'))
                     if(btns[index]){
                         btns[index].classList.add('active')

@@ -118,8 +118,10 @@
         </div>
     </div>
 </div>
+
+<button class="vp-top-btn" ref="top-btn" :class="{active: topBtnActive}" @click.prevent="goToTop">
+    <vp-icon type="arrow-narrow-up"></vp-icon>
+</button>
+
 <vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"></vp-quiz>
-<div class="vp-badge" ref="badge">
-    Drag
-</div>
 </div>

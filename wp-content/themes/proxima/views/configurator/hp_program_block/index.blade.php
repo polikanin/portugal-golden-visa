@@ -2,13 +2,16 @@
      class="vp-program-block"
 >
     <div class="wrapper">
-        <div class="vp-container">
+        <div class="vp-container" style="--progress: 0%;" data-progress>
             <div class="vp-container--left">
                 <div class="vp-container--block">
                     @if($title)
                         <h1 class="vp-title">
                             {{ $title }}
                         </h1>
+                    @endif
+                    @if(count($program) > 4)
+                        <div class="vp-progress"></div>
                     @endif
                     @if($text)
                         <p class="vp-text">
@@ -17,10 +20,8 @@
                     @endif
                 </div>
             </div>
-            <div class="vp-container--right" data-progress-container style="--progress: 0%;">
-                @if(count($program) > 4)
-                    <div class="vp-progress"></div>
-                @endif
+            <div class="vp-container--right" data-progress-container>
+
                 @if($program)
                     <div class="vp-items">
                         @foreach($program as $item)

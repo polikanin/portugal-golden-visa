@@ -25,6 +25,7 @@
                         <div class="vp-vertical-slider-block--preview-items">
                             @foreach($slider as $slide)
                                 <div class="vp-vertical-slide--btn"
+                                     @if($loop->index > 0) data-animated-btn @endif
                                 >
                                     <div class="vp-vertical-slide--btn-index">
                                         @if($loop->index + 1 < 10)
@@ -39,7 +40,7 @@
                     </div>
                     <div class="vp-vertical-slider-block--swiper">
                         @foreach($slider as $slide)
-                            <div class="vp-vertical-slide">
+                            <div class="vp-vertical-slide" @if($loop->index > 0) data-animated-slide @endif>
                                 <div class="vp-vertical-slide--img">
                                     <img src="{{ $slide['image'] }}" alt="">
                                 </div>

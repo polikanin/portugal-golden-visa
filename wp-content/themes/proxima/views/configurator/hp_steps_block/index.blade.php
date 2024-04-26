@@ -13,11 +13,11 @@
         <div class="vp-steps-block--items" style="--count: {{ count($steps) + 1 }}">
             <div class=""></div>
             @foreach($steps as $item)
-                <div class="vp-step-slide" style="--index:{{ $loop->index }}">
+                <div class="vp-step-slide" @if($loop->index > 0) data-step-slide @endif style="--index:{{ $loop->index }}">
                     <div class="vp-step-slide--dot"></div>
                     <div class="vp-step-slide--line"></div>
                     @if($item['day_number'])
-                        <div class="vp-step-slide--index">
+                        <div class="vp-step-slide--index" data-step-btn="{{ $loop->index }}">
                             {{ $item['day_number'] }}
                         </div>
                     @endif

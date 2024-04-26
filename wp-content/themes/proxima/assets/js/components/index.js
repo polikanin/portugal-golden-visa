@@ -6,6 +6,7 @@ import Button from "./Button/Button.vue";
 import Dropdown from "./Dropdown/Dropdown.vue";
 import VerticalX3Slider from "./VerticalX3Slider/VerticalX3Slider.vue";
 import HorizontalX3Slider from "./HorizontalX3Slider/HorizontalX3Slider.vue";
+import HorizontalX3V2Slider from "./HorizontalX3V2Slider/HorizontalX3V2Slider.vue";
 import Quiz from "./Quiz/Quiz.vue";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import CustomScrollbar from 'custom-vue-scrollbar';
@@ -26,6 +27,7 @@ Components = {
         Vue.component('custom-scrollbar', CustomScrollbar)
         Vue.component('vertical-x3-slider', VerticalX3Slider)
         Vue.component('horizontal-x3-slider', HorizontalX3Slider)
+        Vue.component('horizontal-x3-v2-slider', HorizontalX3V2Slider)
 
     }
 };

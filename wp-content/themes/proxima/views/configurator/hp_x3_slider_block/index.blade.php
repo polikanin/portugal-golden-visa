@@ -22,6 +22,10 @@
                 :slides-per-view="'auto'"
                 :centeredSlides="true"
                 :loop="true"
+                :autoplay="{
+                        delay: 2000,
+                        pauseOnMouseEnter: true
+                    }"
                 @slide-change-transition-end="onSlideChange"
                 @slide-change-transition-start="start"
         >

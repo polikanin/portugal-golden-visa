@@ -33,7 +33,7 @@
 
   .vp-container{
     display: grid;
-    //grid-template-columns: min(30%, 335px) min(50%, 560px) min(30%, 295px);
+    grid-template-columns: 335px 1fr 295px;
   }
 
   .vp-locations{
@@ -102,5 +102,33 @@
         }
       }
     }
+  }
+}
+
+.vp-top-btn{
+  position: fixed;
+  z-index: 3;
+  bottom: 50px;
+  right: 50px;
+  width: 48px;
+  height: 48px;
+  border: 1px solid $white;
+  border-radius: 50%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $white;
+  transition: 0.3s;
+
+  &:not(.active){
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .vp-icon{
+    width: 20px;
+    height: 20px;
   }
 }

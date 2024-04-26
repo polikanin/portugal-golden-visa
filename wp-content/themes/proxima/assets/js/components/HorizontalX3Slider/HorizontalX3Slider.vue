@@ -6,15 +6,11 @@
 
         <div class="vp-testimonials-block--ctrl">
             <div class="vp-swiper-button-prev">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M10.0601 13.2787L5.71339 8.93208C5.20006 8.41875 5.20006 7.57875 5.71339 7.06542L10.0601 2.71875" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                <vp-icon type="arrow-left"></vp-icon>
             </div>
             <div class="vp-swiper-pagination"></div>
             <div class="vp-swiper-button-next">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.93994 13.2787L10.2866 8.93208C10.7999 8.41875 10.7999 7.57875 10.2866 7.06542L5.93994 2.71875" stroke="currentColor" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
+                <vp-icon type="arrow-right"></vp-icon>
             </div>
         </div>
     </div>

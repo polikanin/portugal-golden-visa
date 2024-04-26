@@ -30,7 +30,7 @@
     position: absolute;
     top: 0;
     width: 425px;
-    opacity: 0;
+    //opacity: 0;
 
     &--dot{
       width: 12px;
@@ -128,7 +128,17 @@
 
   .vp-step-slide.active-end{
     transition: 0.3s linear;
+    pointer-events: none;
     translate: calc((-50vw + 50px) + (100px * var(--index))) 0;
+
+    .vp-step-slide--index{
+      pointer-events: auto;
+      cursor: pointer;
+
+      &:hover{
+        color: $white;
+      }
+    }
 
     .vp-step-slide--body{
       opacity: 0;

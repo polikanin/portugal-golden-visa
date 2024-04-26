@@ -146,3 +146,38 @@ button{
     border-radius: 2px;
   }
 }
+
+.vp-swiper-button{
+  &-next,
+  &-prev{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: $white;
+    transition: 0.3s;
+
+    &.swiper-button-disabled{
+      border-color: $white30;
+      color: $white30;
+    }
+
+    &:hover{
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &:active{
+      color: $black;
+      background-color: $white;
+    }
+
+    .vp-icon{
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

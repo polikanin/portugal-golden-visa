@@ -4,6 +4,10 @@
         :slides-per-view="3"
         direction="vertical"
         :modules="modules"
+        :autoplay="{
+                        delay: 2000,
+                        pauseOnMouseEnter: true
+                    }"
         :loop="true"
         @swiper="getRef"
         @slide-change="onSlideChange"
@@ -26,14 +30,14 @@
 </template>
 
 <script>
-import {EffectFade} from 'swiper/modules';
+import {Autoplay, EffectFade} from 'swiper/modules';
 
 export default {
   name: "VerticalSlider",
   props: ['slides'],
   data() {
     return {
-      modules: [EffectFade],
+      modules: [EffectFade, Autoplay],
       activeSlide: 0,
       slider: false
     }
