@@ -122,3 +122,8 @@ add_filter( 'acf/prepare_field', function ( $field ) {
 
     return $field;
 } );
+
+add_filter( 'cn_cookie_notice_output', function ( $output, $options ) {
+    global $blade;
+    return $blade->run('components.cookie', ['options' => $options]);
+}, 10, 2);

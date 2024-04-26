@@ -1,6 +1,6 @@
 @if($button && $button['url'])
     @if(strpos($button['url'], '##') !== false)
-        <div class="{{ $class? : 'vp-btn' }}" @click.prevent="modal.id = '{{ $button['url'] }}'">
+        <div class="{{ $class? : 'vp-btn' }} {{$add_class}}" @click.prevent="modal.id = '{{ $button['url'] }}'">
             <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--up">
                 @if($iconId)
                     <span class="vp-icon">
@@ -12,7 +12,7 @@
                 @endif
                 {{ $button['title'] }}
             </button>
-            <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--down">
+            <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--down {{$add_class}}">
                 @if($iconId)
                     <span class="vp-icon">
                         {!! get_svg_content($iconId) !!}

@@ -968,6 +968,40 @@ a.vp-btn--simple {
   opacity: 0;
   transform: translateX(-100px); }
 
+.cookie-notice-container {
+  max-width: 560px;
+  border-radius: 10px;
+  background-color: #1e1e1e;
+  padding: 20px;
+  text-align: left;
+  margin: 0 0 32px 64px;
+  font-family: var(--font-family); }
+
+.cookie-notice-title {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 8px; }
+
+.cookie-notice-text {
+  font-weight: 300;
+  font-size: 18px; }
+
+.cookie-notice-footer {
+  margin-top: 30px;
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  align-items: flex-end; }
+
+.cookie-notice-more {
+  font-weight: 400;
+  font-size: 18px;
+  text-decoration: underline;
+  color: var(--gold);
+  margin: 0 auto 0 0; }
+  .cookie-notice-more:hover {
+    text-decoration: none; }
+
 .vp-menu .menu {
   color: var(--white); }
   .vp-menu .menu-item {

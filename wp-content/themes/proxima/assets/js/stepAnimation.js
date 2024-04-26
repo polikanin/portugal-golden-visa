@@ -17,7 +17,6 @@ let stepAnimation = function (){
                 let h = block.offsetHeight - inner.offsetHeight - 125;
                 let blockHeight = (h / (stepBtns.length-1)) * (index);
                 let scroll = window.scrollY - (block.getBoundingClientRect().y * -1) + blockHeight;
-                console.log(scroll)
                 window.scrollTo(0, scroll)
 
                 setTimeout(function (){
