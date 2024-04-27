@@ -10,7 +10,9 @@
                 @if($iconImg)
                     <vp-icon type="{{ $iconImg }}"></vp-icon>
                 @endif
-                {{ $button['title'] }}
+                <span class="vp-btn--text">
+                    {{ $button['title'] }}
+                </span>
             </button>
             <button class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--down {{$add_class}}">
                 @if($iconId)
@@ -21,7 +23,9 @@
                 @if($iconImg)
                     <vp-icon type="{{ $iconImg }}"></vp-icon>
                 @endif
-                {{ $button['title'] }}
+                <span class="vp-btn--text">
+                    {{ $button['title'] }}
+                </span>
             </button>
         </div>
     @else
@@ -39,7 +43,9 @@
                 @if($iconImg)
                     <vp-icon type="{{ $iconImg }}"></vp-icon>
                 @endif
-                {{ $button['title'] }}
+                <span class="vp-btn--text">
+                    {{ $button['title'] }}
+                </span>
             </a>
             <a
                     class="{{ $class? : 'vp-btn' }}--inner {{ $class? : 'vp-btn' }}--down"
@@ -54,7 +60,9 @@
                 @if($iconImg)
                     <vp-icon type="{{ $iconImg }}"></vp-icon>
                 @endif
-                {{ $button['title'] }}
+                <span class="vp-btn--text">
+                    {{ $button['title'] }}
+                </span>
             </a>
         </div>
     @endif

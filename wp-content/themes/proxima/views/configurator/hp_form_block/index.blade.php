@@ -168,7 +168,7 @@
 
             <div class="vp-form--ctrl">
                 <vp-button>
-                    Submit
+                    <span class="vp-btn--text">Submit</span>
                     <vp-icon type="arrow-next"></vp-icon>
                 </vp-button>
             </div>

@@ -3,7 +3,7 @@
         <div class="vp-advantages-block--head">
             <vp-button @click.prevent="openModal('##quiz')">
                 <vp-icon type="subtitle"></vp-icon>
-                More Information from Fund Advisors
+                <span class="vp-btn--text">More Information from Fund Advisors</span>
             </vp-button>
 
             <div class="vp-advantages-block--ctrl">
@@ -48,7 +48,7 @@
 
                     </div>
                     <vp-button @click.prevent="openModal('##quiz')">
-                        {{ slide.link.title }}
+                        <span class="vp-btn--text">{{ slide.link.title }}</span>
                     </vp-button>
                 </div>
             </swiper-slide>
@@ -66,7 +66,7 @@
 
                     </div>
                     <vp-button @click.prevent="openModal('##quiz')">
-                        {{ slide.link.title }}
+                        <span class="vp-btn--text">{{ slide.link.title }}</span>
                     </vp-button>
                 </div>
             </swiper-slide>

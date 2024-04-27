@@ -172,7 +172,7 @@
             <div class="vp-modal--navigation">
                 <vp-button @click="modal.id = '##quiz'">
                     <vp-icon type="user-tag"></vp-icon>
-                    Contact Our Team of Experts
+                    <span class="vp-btn--text">Contact Our Team of Experts</span>
                 </vp-button>
             </div>
         </div>

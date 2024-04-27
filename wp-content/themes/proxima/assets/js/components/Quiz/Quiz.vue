@@ -48,7 +48,7 @@
                     </div>
                     <div class="vp-modal--navigation">
                         <vp-button @click="step++">
-                            Press to start
+                            <span class="vp-btn--text">Press to start</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
                     </div>
@@ -122,10 +122,10 @@
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="step--">
                             <vp-icon type="arrow-prev"></vp-icon>
-                            Go Back
+                            <span class="vp-btn--text">Go Back</span>
                         </vp-button>
                         <vp-button @click="step++">
-                            Next Step
+                            <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
                     </div>
@@ -211,10 +211,10 @@
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="step--">
                             <vp-icon type="arrow-prev"></vp-icon>
-                            Go Back
+                            <span class="vp-btn--text">Go Back</span>
                         </vp-button>
                         <vp-button @click="step++">
-                            Next Step
+                            <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
                     </div>
@@ -321,10 +321,10 @@
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="step--">
                             <vp-icon type="arrow-prev"></vp-icon>
-                            Go Back
+                            <span class="vp-btn--text">Go Back</span>
                         </vp-button>
                         <vp-button @click="step++">
-                            Next Step
+                            <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
                     </div>
@@ -427,10 +427,10 @@
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="step--">
                             <vp-icon type="arrow-prev"></vp-icon>
-                            Go Back
+                            <span class="vp-btn--text">Go Back</span>
                         </vp-button>
                         <vp-button @click="step++">
-                            Next Step
+                            <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
                     </div>
@@ -450,7 +450,7 @@
 
                     <div class="vp-modal--navigation">
                         <vp-button @click="$emit('close')">
-                            Continue
+                            <span class="vp-btn--text">Continue</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
                     </div>

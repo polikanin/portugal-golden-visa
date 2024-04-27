@@ -462,6 +462,9 @@ button {
     color: var(--black);
     background-color: var(--gold); }
 
+.vp-btn--text {
+  margin-top: 2px; }
+
 a.vp-btn {
   width: max-content;
   display: flex;
@@ -604,7 +607,7 @@ a.vp-btn--simple {
       opacity: 0;
       transition: 0.3s; }
   .vp-checkbox--text {
-    margin: 2px 0 0 0;
+    margin: 3px 0 0 0;
     font-weight: 300;
     font-size: 14px; }
   input:checked + .vp-checkbox--box {
@@ -636,7 +639,7 @@ a.vp-btn--simple {
       opacity: 0;
       transition: 0.3s; }
   .vp-radio--text {
-    margin: 2px 0 0 0;
+    margin: 3px 0 0 0;
     font-weight: 300;
     font-size: 14px; }
   input:checked + .vp-radio--box {
@@ -872,7 +875,7 @@ a.vp-btn--simple {
     .vp-modal--terms .vp-checkbox--box {
       border-radius: 50%; }
     .vp-modal--terms .vp-checkbox--text {
-      margin: 2px 0 0 0; }
+      margin: 3px 0 0 0; }
       .vp-modal--terms .vp-checkbox--text a {
         font-weight: 400;
         color: var(--gold); }
