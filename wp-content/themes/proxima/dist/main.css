@@ -1021,6 +1021,9 @@ a.vp-btn--simple {
   .cookie-notice-more:hover {
     text-decoration: none; }
 
+.cookies-set #cookie-notice {
+  display: none !important; }
+
 .vp-disclaimer--title {
   text-align: center;
   font-weight: 400;

@@ -1,6 +1,6 @@
 <div id="cookie-notice" role="dialog"
+     aria-label="{{$options['aria_label']}}"
      class="cookie-revoke-hidden cn-position-bottom cn-effect-fade cookie-notice-visible"
-     class="cn-position-bottom cn-effect-fade cookie-notice-hidden cookie-revoke-visible"
 >
     <div class="cookie-notice-container">
 
