@@ -2,7 +2,7 @@
   <div class="vp-dropdown">
     <div class="vp-dropdown--value" @click="isOpen = !isOpen">
       <template v-if="selected">
-        <vp-icon v-show="selected.icon" :type="selected.icon"></vp-icon>
+        <img v-show="selected.icon" :src="selected.icon">
         {{ selected.value }}
 
         <div class="vp-dropdown--value-arr" :class="{'active': isOpen}">
@@ -13,7 +13,7 @@
     <div class="vp-dropdown--menu" v-show="isOpen">
       <div class="vp-dropdown--menu-inner">
         <div class="vp-dropdown--menu-item" @click="select(item)" v-for="item in list">
-          <vp-icon v-show="item.icon"  :type="item.icon"></vp-icon>
+            <img v-show="item.icon" :src="item.icon">
           {{ item.value }}
         </div>
       </div>

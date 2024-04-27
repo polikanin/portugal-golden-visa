@@ -10,6 +10,7 @@ import HorizontalX3V2Slider from "./HorizontalX3V2Slider/HorizontalX3V2Slider.vu
 import Quiz from "./Quiz/Quiz.vue";
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import CustomScrollbar from 'custom-vue-scrollbar';
+import { MaskInput } from 'vue-3-mask';
 
 let Components
 
@@ -28,7 +29,7 @@ Components = {
         Vue.component('vertical-x3-slider', VerticalX3Slider)
         Vue.component('horizontal-x3-slider', HorizontalX3Slider)
         Vue.component('horizontal-x3-v2-slider', HorizontalX3V2Slider)
-
+        Vue.component('vp-mask', MaskInput);
     }
 };
 

@@ -14,7 +14,8 @@
   --lines: #e6e4ef;
   --main-white: #fff;
   --line-40: rgba(230, 228, 239, 0.3);
-  --background: #f5f4fa; }
+  --background: #f5f4fa;
+  --error:  #e83030; }
 
 :root {
   --font-family: "Outfit", sans-serif;
@@ -561,6 +562,10 @@ a.vp-btn--simple {
     display: grid;
     grid-template-columns: 145px 1fr;
     gap: 8px; }
+  .vp-input--error {
+    background-color: rgba(232, 48, 48, 0.05);
+    border-color: var(--error);
+    color: var(--error); }
 
 .vp-textarea {
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -668,10 +673,11 @@ a.vp-btn--simple {
     min-height: 100%;
     cursor: pointer;
     padding: 13px 36px 13px 16px; }
-    .vp-dropdown--value .vp-icon {
+    .vp-dropdown--value img {
       width: 32px;
       min-width: 32px;
-      height: 32px; }
+      height: 32px;
+      object-fit: contain; }
     .vp-dropdown--value-arr {
       position: absolute;
       top: calc(50% - 10px);
@@ -709,7 +715,8 @@ a.vp-btn--simple {
       padding: 12px;
       cursor: pointer;
       border-bottom: 1px solid var(--white-30); }
-      .vp-dropdown--menu-item .vp-icon {
+      .vp-dropdown--menu-item img {
+        object-fit: contain;
         width: 24px;
         min-width: 24px;
         height: 24px; }
@@ -899,7 +906,8 @@ a.vp-btn--simple {
     font-weight: 400;
     font-size: 16px;
     color: var(--white-30);
-    transition: 0.3s; }
+    transition: 0.3s;
+    padding-top: 2px; }
     .vp-modal--step.active {
       color: var(--white); }
     .vp-modal--step.passed {
@@ -1055,6 +1063,15 @@ a.vp-btn--simple {
       font-weight: 300;
       font-size: 16px;
       color: rgba(255, 255, 255, 0.5); }
+
+.vp-error--msg {
+  color: var(--error);
+  font-weight: 300;
+  font-size: 16px;
+  padding: 4px 15px; }
+
+.vp-disabled {
+  opacity: 0.5; }
 
 .vp-menu .menu {
   color: var(--white); }

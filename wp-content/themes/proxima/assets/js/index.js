@@ -65,15 +65,15 @@ createApp({
                     value: '(GMT +3)',
                     mask: 'Europe/Kyiv',
                 },
-            ]
+            ],
         }
     },
+
     mounted () {
         let self = this;
         const header = document.querySelector('.vp-header')
         const progress = document.querySelectorAll('[data-progress-container]')
-
-        window.addEventListener('scroll', function (){
+        let setupScrollSettings = function (){
             if(window.scrollY > 50){
                 header.classList.add('fixed')
                 self.topBtnActive = true
@@ -82,6 +82,12 @@ createApp({
                 header.classList.remove('fixed')
                 self.topBtnActive = false
             }
+        }
+
+        setupScrollSettings()
+
+        window.addEventListener('scroll', function (){
+            setupScrollSettings()
 
             progress.forEach(item => {
                 if(item && item.getBoundingClientRect().y < 150){
@@ -121,7 +127,7 @@ createApp({
             }, 300)
         },
         goToTop() {
-            window.scrollTo(0, 0)
+            window.scrollTo({top: 0, behavior: 'smooth'});
         },
         start() {
             this.isSlideChange = false

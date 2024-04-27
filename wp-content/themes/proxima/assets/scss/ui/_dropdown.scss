@@ -22,10 +22,11 @@
     cursor: pointer;
     padding: 13px 36px 13px 16px;
 
-    .vp-icon{
+    img{
       width: 32px;
       min-width: 32px;
       height: 32px;
+      object-fit: contain;
     }
 
     &-arr{
@@ -78,7 +79,8 @@
       cursor: pointer;
       border-bottom: 1px solid $white30;
 
-      .vp-icon{
+      img{
+        object-fit: contain;
         width: 24px;
         min-width: 24px;
         height: 24px;

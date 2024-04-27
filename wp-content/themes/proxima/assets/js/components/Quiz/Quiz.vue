@@ -36,7 +36,7 @@
                     </p>
                     <div class="vp-modal--terms">
                         <label class="vp-checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox" v-model="quiz.terms">
                             <span class="vp-checkbox--box"></span>
                             <span class="vp-checkbox--text">
             I agree to the
@@ -45,9 +45,11 @@
             <a href="">Privacy Policy</a>
           </span>
                         </label>
+
+                        <div class="vp-error--msg" v-if="v$.quiz.terms.$error">{{msg.terms}}</div>
                     </div>
                     <div class="vp-modal--navigation">
-                        <vp-button @click="step++">
+                        <vp-button @click="submitStep">
                             <span class="vp-btn--text">Press to start</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
@@ -59,27 +61,34 @@
                 <div class="vp-modal--body" v-show="step === 1">
                     <div class="vp-modal--group">
                         <input class="vp-input"
+                               :class="{'vp-input--error': v$.quiz.firstName.$error}"
                                type="text"
+                               v-model="quiz.firstName"
                                placeholder="First Name">
+                        <div class="vp-error--msg" v-if="v$.quiz.firstName.$error">{{msg.firstName}}</div>
                     </div>
                     <div class="vp-modal--group">
                         <input class="vp-input"
+                               :class="{'vp-input--error': v$.quiz.lastName.$error}"
                                type="text"
+                               v-model="quiz.lastName"
                                placeholder="Last Name">
+                        <div class="vp-error--msg" v-if="v$.quiz.lastName.$error">{{msg.lastName}}</div>
                     </div>
                     <div class="vp-modal--group">
                         <input class="vp-input"
+                               :class="{'vp-input--error': v$.quiz.email.$error}"
                                type="text"
+                               v-model="quiz.email"
                                placeholder="Email">
+                        <div class="vp-error--msg" v-if="v$.quiz.email.$error">{{msg.email}}</div>
                     </div>
                     <div class="vp-modal--group">
                         <div class="vp-input--group">
                             <div class="vp-input--preview">
                                 <vp-dropdown :list="code" @select="select"></vp-dropdown>
                             </div>
-                            <input class="vp-input"
-                                   type="text"
-                                   :placeholder="selected.mask">
+                            <vp-mask class="vp-input" v-model="quiz.phone" :mask="selected.mask" :placeholder="selected.placeholder" />
                         </div>
                     </div>
 
@@ -89,12 +98,12 @@
                         </div>
                         <div class="vp-modal--block-container">
                             <label class="vp-radio">
-                                <input type="radio" value="Yes" name="test">
+                                <input type="radio" value="Yes" name="videoCall" v-model="quiz.videoCall">
                                 <span class="vp-radio--box"></span>
                                 <span class="vp-radio--text">Yes</span>
                             </label>
                             <label class="vp-radio">
-                                <input type="radio" value="No" name="test">
+                                <input type="radio" value="No" name="videoCall" v-model="quiz.videoCall">
                                 <span class="vp-radio--box"></span>
                                 <span class="vp-radio--text">No</span>
                             </label>
@@ -107,12 +116,12 @@
                         </div>
                         <div class="vp-modal--block-container">
                             <label class="vp-radio">
-                                <input type="radio" value="Yes" name="test">
+                                <input type="radio" value="Yes" name="whatsAppCall" v-model="quiz.whatsAppCall">
                                 <span class="vp-radio--box"></span>
                                 <span class="vp-radio--text">Yes</span>
                             </label>
                             <label class="vp-radio">
-                                <input type="radio" value="No" name="test">
+                                <input type="radio" value="No" name="whatsAppCall" v-model="quiz.whatsAppCall">
                                 <span class="vp-radio--box"></span>
                                 <span class="vp-radio--text">No</span>
                             </label>
@@ -120,11 +129,11 @@
                     </div>
 
                     <div class="vp-modal--navigation">
-                        <vp-button btn-class="vp-btn--simple" @click="step--">
+                        <vp-button btn-class="vp-btn--simple" @click="stepBack">
                             <vp-icon type="arrow-prev"></vp-icon>
                             <span class="vp-btn--text">Go Back</span>
                         </vp-button>
-                        <vp-button @click="step++">
+                        <vp-button @click="submitStep">
                             <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
@@ -136,8 +145,10 @@
                 <div class="vp-modal--body" v-show="step === 2">
                     <div class="vp-modal--group">
               <textarea class="vp-textarea"
+                        v-model="quiz.message"
                         placeholder="Family composition of the applicants including age?"></textarea>
                     </div>
+
                     <div class="vp-modal--group">
                         <div class="vp-input--group">
                             <div class="vp-input--preview">
@@ -145,75 +156,32 @@
                             </div>
                             <input class="vp-input"
                                    type="text"
+                                   v-model="quiz.timelineCity"
                                    :placeholder="selectedTimeline.mask">
                         </div>
                     </div>
+
                     <div class="vp-modal--label">
                         What is the motivation behind obtaining the Portuguese Golden
                         <span>* Choose one or more options</span>
                     </div>
 
-                    <div class="vp-modal--group">
+                    <div class="vp-modal--group" v-for="item in fields.motivation">
                         <label class="vp-checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox"
+                                   :value="item"
+                                   v-model="quiz.motivation">
                             <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Backup option if needed due to geopolitical & economical reasons
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Investment diversification
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Alternative future for my family
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Freedom of movement
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Retirement in the future
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Relocation in mid — long term
-          </span>
+                            <span class="vp-checkbox--text">{{item}}</span>
                         </label>
                     </div>
 
                     <div class="vp-modal--navigation">
-                        <vp-button btn-class="vp-btn--simple" @click="step--">
+                        <vp-button btn-class="vp-btn--simple" @click="stepBack">
                             <vp-icon type="arrow-prev"></vp-icon>
                             <span class="vp-btn--text">Go Back</span>
                         </vp-button>
-                        <vp-button @click="step++">
+                        <vp-button @click="submitStep">
                             <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
@@ -227,62 +195,24 @@
                         What are your objectives in regards to the investment vehicle chosen?
                         <span>*Up to two responses</span>
                     </div>
-                    <div class="vp-modal--group">
+                    <div class="vp-modal--group" v-for="item in fields.objectives">
                         <label class="vp-checkbox">
-                            <input type="checkbox">
+                            <input type="checkbox"
+                                   :value="item"
+                            v-model="quiz.objectives">
                             <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Capital preservation
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Moderate capital gains
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           High capital gains
-          </span>
+                            <span class="vp-checkbox--text">{{item}}</span>
                         </label>
                     </div>
 
                     <div class="vp-modal--label">
                         How would you describe your risk profile?
                     </div>
-                    <div class="vp-modal--group">
+                    <div class="vp-modal--group" v-for="item in fields.risk">
                         <label class="vp-radio">
-                            <input type="radio">
+                            <input type="radio" :value="item" name="risk" v-model="quiz.risk">
                             <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           Conservative
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           Moderate
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           High
-          </span>
+                            <span class="vp-radio--text">{{item}}</span>
                         </label>
                     </div>
 
@@ -290,40 +220,26 @@
                         Preferred type of investment?
                         <span>* Up to two responses</span>
                     </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
+
+                    <div class="vp-modal--group" v-for="item in fields.investment">
+                        <label class="vp-checkbox" :class="{
+                            'vp-disabled': quiz.investment.length >= 2 && quiz.investment.indexOf(item) === -1
+                        }">
+                            <input type="checkbox"
+                                   :value="item"
+                                   :disabled="quiz.investment.length >= 2 && quiz.investment.indexOf(item) === -1"
+                                   v-model="quiz.investment">
                             <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Venture or private equity funds?
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Cultural heritage / artistic production?
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-checkbox">
-                            <input type="checkbox">
-                            <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">
-           Direct investment that creates jobs?
-          </span>
+                            <span class="vp-checkbox--text">{{item}}</span>
                         </label>
                     </div>
 
                     <div class="vp-modal--navigation">
-                        <vp-button btn-class="vp-btn--simple" @click="step--">
+                        <vp-button btn-class="vp-btn--simple" @click="stepBack">
                             <vp-icon type="arrow-prev"></vp-icon>
                             <span class="vp-btn--text">Go Back</span>
                         </vp-button>
-                        <vp-button @click="step++">
+                        <vp-button @click="submitStep">
                             <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
@@ -340,12 +256,12 @@
                         </div>
                         <div class="vp-modal--block-container">
                             <label class="vp-radio">
-                                <input type="radio" value="Yes" name="test">
+                                <input type="radio" value="Yes" name="capability" v-model="quiz.capability">
                                 <span class="vp-radio--box"></span>
                                 <span class="vp-radio--text">Yes</span>
                             </label>
                             <label class="vp-radio">
-                                <input type="radio" value="No" name="test">
+                                <input type="radio" value="No" name="capability" v-model="quiz.capability">
                                 <span class="vp-radio--box"></span>
                                 <span class="vp-radio--text">No</span>
                             </label>
@@ -355,81 +271,32 @@
                     <div class="vp-modal--label">
                         Are you planning on relocating to Portugal?
                     </div>
-                    <div class="vp-modal--group">
+                    <div class="vp-modal--group" v-for="item in fields.relocating">
                         <label class="vp-radio">
-                            <input type="radio">
+                            <input type="radio" name="relocating" :value="item" v-model="quiz.relocating">
                             <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           Relocation in 1 year
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           Relocation in 3+ years
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           Relocation in 5+ years
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           No specific plans for now
-          </span>
+                            <span class="vp-radio--text">{{item}}</span>
                         </label>
                     </div>
 
                     <div class="vp-modal--label">
                         Time frame to investment?
                     </div>
-                    <div class="vp-modal--group">
+                    <div class="vp-modal--group" v-for="item in fields.frameToInvestment">
                         <label class="vp-radio">
-                            <input type="radio">
+                            <input type="radio" name="frameToInvestment" :value="item" v-model="quiz.frameToInvestment">
                             <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           Immediate
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           2 months
-          </span>
-                        </label>
-                    </div>
-                    <div class="vp-modal--group">
-                        <label class="vp-radio">
-                            <input type="radio">
-                            <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">
-           > 4 months
-          </span>
+                            <span class="vp-radio--text">{{item}}</span>
                         </label>
                     </div>
 
 
                     <div class="vp-modal--navigation">
-                        <vp-button btn-class="vp-btn--simple" @click="step--">
+                        <vp-button btn-class="vp-btn--simple" @click="stepBack">
                             <vp-icon type="arrow-prev"></vp-icon>
                             <span class="vp-btn--text">Go Back</span>
                         </vp-button>
-                        <vp-button @click="step++">
+                        <vp-button @click="submitStep">
                             <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
@@ -449,7 +316,7 @@
                     </div>
 
                     <div class="vp-modal--navigation">
-                        <vp-button @click="$emit('close')">
+                        <vp-button @click="submit">
                             <span class="vp-btn--text">Continue</span>
                             <vp-icon type="arrow-next"></vp-icon>
                         </vp-button>
@@ -461,7 +328,15 @@
 </template>
 
 <script>
+import { useVuelidate } from '@vuelidate/core'
+import { required, email } from '@vuelidate/validators'
+const isChecked = (value) => {
+    return value !== false
+}
 export default {
+    setup () {
+        return { v$: useVuelidate() }
+    },
     name: "Quiz",
     props: ['isOpen'],
     data() {
@@ -469,47 +344,84 @@ export default {
             step: 0,
             selected: false,
             selectedTimeline: false,
-            code: [
-                {
-                    value: '(+380)',
-                    mask: 'XX-XXX-XX-XX',
-                    icon: 'ukraine',
-                },
-                {
-                    value: '(+1)',
-                    mask: 'XX-XXX-XX-XX',
-                    icon: 'canada',
-                },
-                {
-                    value: '(+82)',
-                    mask: 'XX-XXX-XX-XX',
-                    icon: 'south-korea',
-                },
-                {
-                    value: '(+001)',
-                    mask: 'XX-XXX-XX-XX',
-                    icon: 'usa',
-                },
-                {
-                    value: '(+44)',
-                    mask: 'XX-XXX-XX-XX',
-                    icon: 'british',
-                },
-            ],
-            timeline: [
-                {
-                    value: '(GMT +1)',
-                    mask: 'Europe/Kyiv',
-                },
-                {
-                    value: '(GMT +2)',
-                    mask: 'Europe/Kyiv',
-                },
-                {
-                    value: '(GMT +3)',
-                    mask: 'Europe/Kyiv',
-                },
-            ]
+            code: window.VpPhoneCode,
+            timeline: window.VpTimeline,
+            fields: {
+                motivation: [
+                    'Backup option if needed due to geopolitical & economical reasons',
+                    'Investment diversification',
+                    'Alternative future for my family',
+                    'Freedom of movement',
+                    'Retirement in the future',
+                    'Relocation in mid — long term',
+                ],
+                objectives: [
+                    'Capital preservation',
+                    'Moderate capital gains',
+                    'High capital gains',
+                ],
+                risk: [
+                    'Conservative',
+                    'Moderate',
+                    'High',
+                ],
+                investment: [
+                    'Venture or private equity funds?',
+                    'Cultural heritage / artistic production?',
+                    'Direct investment that creates jobs?',
+                ],
+                relocating: [
+                    'Relocation in 1 year',
+                    'Relocation in 3+ years',
+                    'Relocation in 5+ years',
+                    'No specific plans for now',
+                ],
+                frameToInvestment: [
+                    'Immediate',
+                    '2 months',
+                    '> 4 months',
+                ],
+            },
+            quiz: {
+                terms: false,
+                firstName: '',
+                lastName: '',
+                email: '',
+                phone: '',
+                phoneCode: '',
+                videoCall: '',
+                whatsAppCall: '',
+                message: '',
+                timelineCode: '',
+                timelineCity: '',
+                motivation: [],
+                objectives: [],
+                risk: '',
+                investment: [],
+                capability: '',
+                relocating: '',
+                frameToInvestment: '',
+            },
+            msg: {
+                terms: 'terms error',
+                firstName: 'firstName error',
+                lastName: 'lastName error',
+                email: 'email error',
+            }
+        }
+    },
+    validations () {
+        return {
+            quiz: {
+                terms: {isChecked},
+                firstName: {required},
+                lastName: {required},
+                email: {required, email},
+            },
+            $validationGroups: {
+                step_0: ['quiz.terms'],
+                step_1: ['quiz.firstName', 'quiz.lastName', 'quiz.email'],
+            }
         }
     },
     mounted() {
@@ -521,9 +433,35 @@ export default {
         },
         select(e) {
             this.selected = e
+            this.quiz.phoneCode = e.value
         },
         selectTimeline(e) {
             this.selectedTimeline = e
+            this.quiz.timelineCode = e.value
+        },
+        stepBack () {
+            this.step--
+        },
+        submitStep () {
+            if(this.v$.$validationGroups['step_'+this.step]){
+                if(!this.v$.$validationGroups['step_'+this.step].$invalid){
+                    this.step++;
+                    this.v$.$reset()
+                }
+                else{
+                    this.v$.$touch()
+                }
+            }
+            else{
+                this.step++;
+                this.v$.$reset()
+            }
+        },
+        async submit () {
+            console.log(this.quiz)
+            console.log(await this.v$.$validate())
+            this.$emit('close')
+            this.step = 0
         },
     }
 }

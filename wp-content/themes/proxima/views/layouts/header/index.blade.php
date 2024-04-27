@@ -51,6 +51,31 @@
 
     </style>
 @endpush
+
+@php($phone_code = get_field('phone_code', 'options'))
+@php($timelines = get_field('timeline', 'options'))
+
+<script>
+    window.VpPhoneCode = [
+        @foreach($phone_code as $code)
+        {
+            value: '{{$code['value']}}',
+            mask: '{{$code['mask']}}',
+            placeholder: '{{$code['placeholder']}}',
+            icon: '{{$code['icon']}}',
+        },
+        @endforeach
+    ]
+    window.VpTimeline = [
+        @foreach($timelines as $timeline)
+        {
+            value: '{{$timeline['value']}}',
+            mask: '{{$timeline['mask']}}',
+        },
+        @endforeach
+    ]
+</script>
+
 <div id="vp-app">
 <header class="vp-header">
     <div class="wrapper">

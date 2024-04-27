@@ -28,4 +28,10 @@
     grid-template-columns: 145px 1fr;
     gap: 8px;
   }
+
+  &--error{
+    background-color: rgba(232, 48, 48, 0.05);
+    border-color: $error;
+    color: $error;
+  }
 }

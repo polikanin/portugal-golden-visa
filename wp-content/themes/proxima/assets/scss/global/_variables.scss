@@ -15,6 +15,7 @@
   --main-white: #fff;
   --line-40: rgba(230, 228, 239, 0.3);
   --background: #f5f4fa;
+  --error:  #e83030;
 }
 
 :root {
@@ -81,6 +82,7 @@ $line: var(--line);
 $line40: var(--line-40);
 $lines: var(--lines);
 $background: var(--background);
+$error: var(--error);
 
 $primary: var(--line);
 $primary-h: var(--line);
