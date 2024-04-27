@@ -4,7 +4,7 @@
     <div class="wrapper">
         @if($title)
             <h2 class="vp-title">
-                {{ $title }}
+                {!! $title !!}
             </h2>
         @endif
 
@@ -12,7 +12,7 @@
 
         @if($subtitle)
             <h3 class="vp-subtitle">
-                {{ $subtitle }}
+                {!! $subtitle !!}
             </h3>
         @endif
     </div>

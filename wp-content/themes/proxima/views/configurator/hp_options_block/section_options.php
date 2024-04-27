@@ -29,7 +29,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => '3',
-            'new_lines' => '',
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_661006e80e9a6',
@@ -48,7 +48,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => 4,
-            'new_lines' => '',
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_6610072bef88a',
@@ -139,7 +139,7 @@ return [
                     'placeholder' => '',
                     'maxlength' => '',
                     'rows' => 2,
-                    'new_lines' => '',
+                    'new_lines' => 'br',
                 ),
                 array(
                     'key' => 'field_661007693d644',

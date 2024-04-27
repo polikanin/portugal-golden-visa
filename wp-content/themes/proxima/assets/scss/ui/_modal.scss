@@ -131,6 +131,11 @@
       color: $white;
     }
 
+    &.passed{
+      color: $gold;
+      background-color: $gold20;
+    }
+
     &-line{
       width: 13px;
       height: 1px;
@@ -214,6 +219,16 @@
   &-enter &--container,
   &-leave-active &--container {
     transform: scale(1.05) translateY(-50%);
+  }
+
+  &--big{
+    .vp-modal--wrapper{
+      max-width: 860px;
+    }
+
+    .vp-modal--container{
+      padding: 32px;
+    }
   }
 }
 

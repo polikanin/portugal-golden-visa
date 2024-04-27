@@ -7,7 +7,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
         'key'                   => 'group_5db03c368b09d',
         'title'                 => 'Theme Settings',
         'fields'                => [
-
+            // MAIN SETTINGS TAB
             [
                 'key'               => 'field_5ebfac98803d0',
                 'label'             => 'Main Settings',
@@ -46,7 +46,6 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 'return_format'     => 'id',
                 'ui'                => 1,
             ],
-
             [
                 'key'               => 'field_65d101650b1f2',
                 'label'             => 'logo',
@@ -71,7 +70,6 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 'max_size'          => '',
                 'mime_types'        => '',
             ],
-
             [
                 'key' => 'field_661889eba4cfe',
                 'label' => 'Locations',
@@ -188,6 +186,7 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 'maxlength'         => '',
             ],
 
+            // CONTACT TAB
             [
                 'key'               => 'field_65eb57864cc01',
                 'label'             => 'Contact',
@@ -241,6 +240,141 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 'prepend'           => '',
                 'append'            => '',
                 'maxlength'         => '',
+            ],
+
+            // DISCLAIMER TAB
+            [
+                'key'               => 'field_662c411ec062f',
+                'label'             => 'Disclaimer',
+                'name'              => '',
+                'type'              => 'tab',
+                'instructions'      => '',
+                'required'          => 0,
+                'conditional_logic' => 0,
+                'wrapper'           => [
+                    'width' => '',
+                    'class' => '',
+                    'id'    => '',
+                ],
+                'placement'         => 'top',
+                'endpoint'          => 0,
+            ],
+
+            [
+                'key' => 'field_662c417695bb3',
+                'label' => 'Title',
+                'name' => 'disclaimer_title',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => 2,
+                'new_lines' => '',
+            ],
+            [
+                'key' => 'field_662c418395bb4',
+                'label' => 'Subtitle',
+                'name' => 'disclaimer_subtitle',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => 4,
+                'new_lines' => 'br',
+            ],
+            [
+                'key' => 'field_662c41a095bb5',
+                'label' => 'Text',
+                'name' => 'disclaimer_text',
+                'type' => 'wysiwyg',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'tabs' => 'visual',
+                'toolbar' => 'full',
+                'media_upload' => 1,
+                'delay' => 0,
+            ],
+            [
+                'key' => 'field_662c41ab95bb6',
+                'label' => 'List',
+                'name' => 'disclaimer_list',
+                'type' => 'repeater',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'collapsed' => '',
+                'min' => 0,
+                'max' => 0,
+                'layout' => 'table',
+                'button_label' => '',
+                'sub_fields' => [
+                    [
+                        'key' => 'field_662c41cf95bb7',
+                        'label' => 'Title',
+                        'name' => 'title',
+                        'type' => 'text',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'prepend' => '',
+                        'append' => '',
+                        'maxlength' => '',
+                    ],
+                    [
+                        'key' => 'field_662c41eb95bb8',
+                        'label' => 'Text',
+                        'name' => 'text',
+                        'type' => 'textarea',
+                        'instructions' => '',
+                        'required' => 0,
+                        'conditional_logic' => 0,
+                        'wrapper' => array(
+                            'width' => '',
+                            'class' => '',
+                            'id' => '',
+                        ),
+                        'default_value' => '',
+                        'placeholder' => '',
+                        'maxlength' => '',
+                        'rows' => 4,
+                        'new_lines' => '',
+                    ],
+                ],
             ],
 
         ],

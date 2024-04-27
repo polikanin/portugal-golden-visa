@@ -5,12 +5,12 @@
     <div class="wrapper">
         @if($title)
             <h1 class="vp-title">
-                {{ $title }}
+                {!! $title !!}
             </h1>
         @endif
         @if($text)
             <div class="vp-text">
-                {{ $text }}
+                {!! $text !!}
             </div>
         @endif
 

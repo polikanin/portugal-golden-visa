@@ -28,8 +28,8 @@ return [
             'default_value' => '',
             'placeholder' => '',
             'maxlength' => '',
-            'rows' => 2,
-            'new_lines' => '',
+            'rows' => 5,
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_66244a3d4cd6c',

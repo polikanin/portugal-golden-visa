@@ -13,7 +13,7 @@
                 @foreach($items as $item)
                     <div class="vp-item">
                         <div class="vp-item--text">
-                            {{ $item['text'] }}
+                            {!! $item['text'] !!}
                         </div>
                         <div class="vp-item--title">
                             {{ $item['value'] }}

@@ -7,13 +7,13 @@
                 </h2>
                 <transition>
                     <div class="vp-modal--steps" v-show="step !== 0 && step < 5">
-                        <div class="vp-modal--step" :class="{active: step === 1}">01</div>
+                        <div class="vp-modal--step" :class="{active: step === 1, passed: step > 1}">01</div>
                         <div class="vp-modal--step-line"></div>
-                        <div class="vp-modal--step" :class="{active: step === 2}">02</div>
+                        <div class="vp-modal--step" :class="{active: step === 2, passed: step > 2}">02</div>
                         <div class="vp-modal--step-line"></div>
-                        <div class="vp-modal--step" :class="{active: step === 3}">03</div>
+                        <div class="vp-modal--step" :class="{active: step === 3, passed: step > 3}">03</div>
                         <div class="vp-modal--step-line"></div>
-                        <div class="vp-modal--step" :class="{active: step === 4}">04</div>
+                        <div class="vp-modal--step" :class="{active: step === 4, passed: step > 4}">04</div>
                     </div>
                 </transition>
                 <div class="vp-modal--close" @click="$emit('close')" v-show="step !== 0">

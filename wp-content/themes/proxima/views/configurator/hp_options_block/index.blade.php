@@ -7,7 +7,7 @@
                 <div class="">
                     @if($title)
                         <h1 class="vp-title">
-                            {{ $title }}
+                            {!! $title !!}
                         </h1>
                     @endif
                     @include('components.button', ['button' => $button, 'iconImg' => 'export'])
@@ -15,7 +15,7 @@
                 <div class="">
                     @if($subtitle)
                         <p class="vp-subtitle">
-                            {{ $subtitle }}
+                            {!! $subtitle !!}
                         </p>
                     @endif
                     @if($text)

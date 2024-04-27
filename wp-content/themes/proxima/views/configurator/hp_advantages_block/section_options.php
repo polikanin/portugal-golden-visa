@@ -67,7 +67,7 @@ return [
                     'placeholder' => '',
                     'maxlength' => '',
                     'rows' => 2,
-                    'new_lines' => '',
+                    'new_lines' => 'br',
                 ),
                 array(
                     'key' => 'field_660fd8c570a7c',

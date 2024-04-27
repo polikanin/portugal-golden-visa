@@ -7,15 +7,18 @@
                 <div class="vp-container--block">
                     @if($title)
                         <h1 class="vp-title">
-                            {{ $title }}
+                            {!! $title !!}
                         </h1>
                     @endif
                     @if(count($program) > 4)
                         <div class="vp-progress"></div>
                     @endif
+                    @if($button)
+                            @include('components.button', ['button' => $button, 'iconImg' => 'user-tag'])
+                    @endif
                     @if($text)
                         <p class="vp-text">
-                            {{ $text }}
+                            {!! $text !!}
                         </p>
                     @endif
                 </div>
@@ -34,7 +37,7 @@
                                         {{ $item['title'] }}
                                     </div>
                                     <div class="vp-item--text">
-                                        {{ $item['text'] }}
+                                        {!! $item['text'] !!}
                                     </div>
                                 </div>
                             </div>

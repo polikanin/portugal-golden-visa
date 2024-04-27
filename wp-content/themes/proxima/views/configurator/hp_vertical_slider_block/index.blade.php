@@ -4,12 +4,12 @@
     <div class="wrapper">
         @if($title)
             <h2 class="vp-title">
-                {{ $title }}
+                {!! $title !!}
             </h2>
         @endif
         @if($subtitle)
             <p class="vp-text">
-                {{ $subtitle }}
+                {!! $subtitle !!}
             </p>
         @endif
         <div class="vp-vertical-slider-block--wrapper">

@@ -4,7 +4,7 @@
     <div class="wrapper">
         @if($title)
             <h1 class="vp-title">
-                {{ $title }}
+                {!! $title !!}
             </h1>
         @endif
 
@@ -17,7 +17,7 @@
                                 {{ $highlight['title'] }}
                             </div>
                             <div class="vp-item--subtitle">
-                                {{ $highlight['description'] }}
+                                {!! $highlight['description'] !!}
                             </div>
                         </div>
 
@@ -28,7 +28,7 @@
                                         {{ $item['title'] }}
                                     </div>
                                     <div class="vp-item--text">
-                                        {{ $item['text'] }}
+                                        {!! $item['text'] !!}
                                     </div>
                                 </div>
                             @endforeach

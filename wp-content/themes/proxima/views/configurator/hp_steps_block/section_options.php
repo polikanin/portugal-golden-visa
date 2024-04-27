@@ -29,7 +29,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => 4,
-            'new_lines' => '',
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_6614377bcedea',

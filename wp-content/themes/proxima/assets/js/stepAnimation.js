@@ -69,6 +69,7 @@ let stepAnimation = function (){
                     let end = Math.floor((tl2.progress - 4) / (100/tl2.children[0].animatables.length)) - 1
                     let start = Math.round(tl2.progress / (100/tl2.children[0].animatables.length)) - 1
 
+                    console.log('stt')
                     if(start === 0 && end < 0){
                         item.querySelectorAll('.vp-step-slide')[0].classList.remove('active')
                         item.querySelectorAll('.vp-step-slide')[0].classList.add('active-end');

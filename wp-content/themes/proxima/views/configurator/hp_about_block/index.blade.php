@@ -14,7 +14,7 @@
                                     {!! get_image_html($item['icon'], 'full') !!}
                                 </div>
                                 <div class="vp-item--text">
-                                    {{ $item['text'] }}
+                                    {!! $item['text'] !!}
                                 </div>
                             </div>
                             @if(($loop->index+1) % 3  == 1 )

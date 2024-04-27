@@ -27,7 +27,7 @@
                                     {{ $loop->index + 1 }}
                                 </div>
                                 <div class="vp-item--text">
-                                    {{ $item['text'] }}
+                                    {!! $item['text'] !!}
                                 </div>
                             </div>
                         @endforeach

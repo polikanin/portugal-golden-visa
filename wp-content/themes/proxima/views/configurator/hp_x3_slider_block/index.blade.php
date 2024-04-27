@@ -3,11 +3,18 @@
 >
     <div class="wrapper">
         <div class="vp-x3-slider-block--head">
-            @if($title)
-                <h1 class="vp-title">
-                    {!! $title !!}
-                </h1>
-            @endif
+            <div class="">
+                @if($title)
+                    <h1 class="vp-title">
+                        {!! $title !!}
+                    </h1>
+                @endif
+                @if($subtitle)
+                    <div class="vp-text">
+                        {!! $subtitle !!}
+                    </div>
+                @endif
+            </div>
             @if($text)
                 <div class="vp-text">
                     {!! $text !!}

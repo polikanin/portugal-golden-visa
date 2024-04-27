@@ -73,7 +73,7 @@
                     we only work with investors who are sufficiently knowledgeable and experienced in dealing with these
                     types of investments and are classified as professional investors.
                     <br>
-                    <a href="">
+                    <a href="" @click.prevent="modal.id = '##disclamer'">
                         Please read our full disclaimer.
                     </a>
                 </div>
@@ -124,4 +124,58 @@
 </button>
 
 <vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"></vp-quiz>
+
+<vp-modal v-show="modal.id === '##disclamer'" class="vp-modal--big">
+    @php($disclaimer_title = get_field('disclaimer_title', 'options'))
+    @php($disclaimer_subtitle = get_field('disclaimer_subtitle', 'options'))
+    @php($disclaimer_text = get_field('disclaimer_text', 'options'))
+    @php($disclaimer_list = get_field('disclaimer_list', 'options'))
+    <template #header>
+        <div class="vp-modal--header">
+            <h2 class="vp-disclaimer--title">
+                {{ $disclaimer_title }}
+            </h2>
+
+            <div class="vp-modal--close" @click="modal.id = false">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </div>
+        </div>
+    </template>
+    <template #body>
+        <div class="vp-modal--body">
+            <div class="vp-disclaimer--subtitle">
+                {!! $disclaimer_subtitle !!}
+            </div>
+
+            <div class="vp-disclaimer--list">
+                <div class="vp-disclaimer--list-inner">
+                    @foreach($disclaimer_list as $item)
+                        <div class="vp-disclaimer--list-item">
+                            <div class="vp-disclaimer--list-item--title">
+                                {{ $item['title'] }}
+                            </div>
+                            <div class="vp-disclaimer--list-item--text">
+                                {{ $item['text'] }}
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+            <div class="vp-disclaimer--text">
+                {!! $disclaimer_text !!}
+            </div>
+
+            <div class="vp-modal--navigation">
+                <vp-button @click="modal.id = '##quiz'">
+                    <vp-icon type="user-tag"></vp-icon>
+                    Contact Our Team of Experts
+                </vp-button>
+            </div>
+        </div>
+    </template>
+</vp-modal>
 </div>

@@ -44,8 +44,8 @@
                             <img :src="slide.image" alt="">
                         </div>
                     </div>
-                    <div class="vp-item--text">
-                        {{ slide.text }}
+                    <div class="vp-item--text" v-html="slide.text">
+
                     </div>
                     <vp-button @click.prevent="openModal('##quiz')">
                         {{ slide.link.title }}
@@ -62,8 +62,8 @@
                             <img :src="slide.image" alt="">
                         </div>
                     </div>
-                    <div class="vp-item--text">
-                        {{ slide.text }}
+                    <div class="vp-item--text" v-html="slide.text">
+
                     </div>
                     <vp-button @click.prevent="openModal('##quiz')">
                         {{ slide.link.title }}

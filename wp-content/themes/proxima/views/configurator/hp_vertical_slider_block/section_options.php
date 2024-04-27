@@ -29,7 +29,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => '',
-            'new_lines' => '',
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_660fe9a929a56',
@@ -48,7 +48,7 @@ return [
             'placeholder' => '',
             'maxlength' => '',
             'rows' => 4,
-            'new_lines' => '',
+            'new_lines' => 'br',
         ),
         array(
             'key' => 'field_660fe9be29a57',

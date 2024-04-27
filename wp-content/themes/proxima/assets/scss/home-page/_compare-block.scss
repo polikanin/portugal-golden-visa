@@ -19,6 +19,12 @@
     backdrop-filter: blur(15.5px);
     background: $black15;
 
+    &:first-child{
+      .vp-item--country{
+        color: $gold;
+      }
+    }
+
     &:hover{
       .vp-item--head{
         img{

@@ -20,8 +20,7 @@
           <div class="vp-vertical-slide--img">
             <img :src="slide.icon" alt="">
           </div>
-          <div class="vp-vertical-slide--text">
-            {{ slide.text }}
+          <div class="vp-vertical-slide--text" v-html="slide.text">
           </div>
         </div>
       </swiper-slide>

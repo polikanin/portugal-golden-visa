@@ -6,12 +6,12 @@
         <div class="vp-successful-block--head">
             @if($title)
                 <h1 class="vp-title">
-                    {{ $title }}
+                    {!! $title !!}
                 </h1>
             @endif
             @if($text)
                 <p class="vp-text">
-                    {{ $text }}
+                    {!! $text !!}
                 </p>
             @endif
         </div>

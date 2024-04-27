@@ -1,7 +1,7 @@
 <template>
     <div class="vp-testimonials-block--head">
-        <h1 class="vp-title">
-            {{ title }}
+        <h1 class="vp-title" v-html="title">
+
         </h1>
 
         <div class="vp-testimonials-block--ctrl">

@@ -14,28 +14,26 @@
                 @foreach($items as $item)
                     <div class="vp-item">
                         <div class="vp-item--container">
-                            <div class="vp-item--left">
+                            <div class="vp-item--head">
                                 @if($item['title'])
                                     <div class="vp-item--title">
                                         {!! $item['title'] !!}
                                     </div>
                                 @endif
-                                @if($item['text'])
-                                    <div class="vp-item--text">
-                                        {!! $item['text'] !!}
-                                    </div>
-                                @endif
-                                @if($item['link'])
-                                        @include('components.button', ['button' => $item['link']])
-                                @endif
-                            </div>
-                            <div class="vp-item--right">
                                 <div class="vp-item--index">
                                     @foreach(range(1, $loop->index + 1) as $i)
                                         <span></span>
                                     @endforeach
                                 </div>
                             </div>
+                            @if($item['text'])
+                                <div class="vp-item--text">
+                                    {!! $item['text'] !!}
+                                </div>
+                            @endif
+                            @if($item['link'])
+                                @include('components.button', ['button' => $item['link']])
+                            @endif
                         </div>
                     </div>
                 @endforeach

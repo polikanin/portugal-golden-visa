@@ -51,7 +51,7 @@
                                             {{ $loop->index + 1 }}
                                         </div>
                                         <div class="vp-item--text">
-                                            {{ $item['text'] }}
+                                            {!! $item['text'] !!}
                                         </div>
                                     </div>
                                 @endif
@@ -77,7 +77,7 @@
                                             {{ $loop->index + 1 }}
                                         </div>
                                         <div class="vp-item--text">
-                                            {{ $item['text'] }}
+                                            {!! $item['text'] !!}
                                         </div>
                                     </div>
                                 @endif
@@ -98,7 +98,7 @@
                     <div class="vp-hello-block--contact">
                         @if($subtitle)
                             <p class="vp-subtitle">
-                                {{ $subtitle }}
+                                {!! $subtitle !!}
                             </p>
                         @endif
                         @if($type_3_text)
