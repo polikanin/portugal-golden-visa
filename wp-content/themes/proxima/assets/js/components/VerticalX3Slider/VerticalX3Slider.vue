@@ -4,6 +4,7 @@
         :slides-per-view="3"
         direction="vertical"
         :modules="modules"
+        :speed="1000"
         :autoplay="{
                         delay: 2000,
                         pauseOnMouseEnter: true

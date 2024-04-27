@@ -13,20 +13,29 @@
                     <div class="vp-form--group">
                         <div class="vp-form--block">
                             <input class="vp-input"
+                                   :class="{'vp-input--error': v$.form.firstName.$error}"
                                    type="text"
+                                   v-model="form.firstName"
                                    placeholder="First Name">
+                            <div class="vp-error--msg" v-if="v$.form.firstName.$error">${msg.firstName}</div>
                         </div>
                         <div class="vp-form--block">
                             <input class="vp-input"
+                                   :class="{'vp-input--error': v$.form.lastName.$error}"
                                    type="text"
+                                   v-model="form.lastName"
                                    placeholder="Last Name">
+                            <div class="vp-error--msg" v-if="v$.form.lastName.$error">${msg.lastName}</div>
                         </div>
                     </div>
                     <div class="vp-form--group">
                         <div class="vp-form--block">
                             <input class="vp-input"
+                                   :class="{'vp-input--error': v$.form.email.$error}"
                                    type="text"
+                                   v-model="form.email"
                                    placeholder="Email">
+                            <div class="vp-error--msg" v-if="v$.form.email.$error">${msg.email}</div>
                         </div>
                     </div>
                     <div class="vp-form--group">
@@ -34,9 +43,7 @@
                             <div class="vp-input--preview">
                                 <vp-dropdown :list="code" @select="select"></vp-dropdown>
                             </div>
-                            <input class="vp-input"
-                                   type="text"
-                                   :placeholder="selected.mask">
+                            <vp-mask class="vp-input" v-model="form.phone" :mask="selected.mask" :placeholder="selected.placeholder" />
                         </div>
                     </div>
                 </div>
@@ -54,14 +61,14 @@
                         €500,000?
                     </div>
                     <label class="vp-radio">
-                        <input type="radio">
+                        <input type="radio" value="Yes" name="capability" v-model="form.capability">
                         <span class="vp-radio--box"></span>
                         <span class="vp-radio--text">
            Yes
           </span>
                     </label>
                     <label class="vp-radio">
-                        <input type="radio">
+                        <input type="radio" value="No" name="capability" v-model="form.capability">
                         <span class="vp-radio--box"></span>
                         <span class="vp-radio--text">
            No
@@ -73,26 +80,10 @@
                     <div class="vp-form--box-title">
                         Time frame to investment?
                     </div>
-                    <label class="vp-radio">
-                        <input type="radio">
+                    <label class="vp-radio" v-for="item in fields.frameToInvestment">
+                        <input type="radio" name="frameToInvestment" :value="item" v-model="form.frameToInvestment">
                         <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           Immediate
-          </span>
-                    </label>
-                    <label class="vp-radio">
-                        <input type="radio">
-                        <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           2 months
-          </span>
-                    </label>
-                    <label class="vp-radio">
-                        <input type="radio">
-                        <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           > 4 months
-          </span>
+                        <span class="vp-radio--text">${item}</span>
                     </label>
                 </div>
 
@@ -100,33 +91,11 @@
                     <div class="vp-form--box-title">
                         Are you planning on relocating to Portugal?
                     </div>
-                    <label class="vp-radio">
-                        <input type="radio">
+
+                    <label class="vp-radio" v-for="item in fields.relocating">
+                        <input type="radio" name="relocating" :value="item" v-model="form.relocating">
                         <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           Relocation in 1 year
-          </span>
-                    </label>
-                    <label class="vp-radio">
-                        <input type="radio">
-                        <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           Relocation in 3+ years
-          </span>
-                    </label>
-                    <label class="vp-radio">
-                        <input type="radio">
-                        <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           Relocation in 5+ years
-          </span>
-                    </label>
-                    <label class="vp-radio">
-                        <input type="radio">
-                        <span class="vp-radio--box"></span>
-                        <span class="vp-radio--text">
-           No specific plans for now
-          </span>
+                        <span class="vp-radio--text">${item}</span>
                     </label>
                 </div>
 
@@ -135,26 +104,18 @@
                         Preferred type of investment?
                         <span>* Up to two responses</span>
                     </div>
-                    <label class="vp-checkbox">
-                        <input type="checkbox">
+
+                    <label class="vp-checkbox"
+                           v-for="item in fields.investment"
+                        :class="{
+                        'vp-disabled': form.investment.length >= 2 && form.investment.indexOf(item) === -1
+                        }">
+                        <input type="checkbox"
+                               :value="item"
+                               :disabled="form.investment.length >= 2 && form.investment.indexOf(item) === -1"
+                               v-model="form.investment">
                         <span class="vp-checkbox--box"></span>
-                        <span class="vp-checkbox--text">
-           Venture or private equity funds?
-          </span>
-                    </label>
-                    <label class="vp-checkbox">
-                        <input type="checkbox">
-                        <span class="vp-checkbox--box"></span>
-                        <span class="vp-checkbox--text">
-           Cultural heritage / artistic production?
-          </span>
-                    </label>
-                    <label class="vp-checkbox">
-                        <input type="checkbox">
-                        <span class="vp-checkbox--box"></span>
-                        <span class="vp-checkbox--text">
-           Direct investment that creates jobs?
-          </span>
+                        <span class="vp-checkbox--text">${item}</span>
                     </label>
                 </div>
             </div>
@@ -167,7 +128,7 @@
             </div>
 
             <div class="vp-form--ctrl">
-                <vp-button>
+                <vp-button @click="submit">
                     <span class="vp-btn--text">Submit</span>
                     <vp-icon type="arrow-next"></vp-icon>
                 </vp-button>

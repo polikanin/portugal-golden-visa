@@ -61,5 +61,10 @@
       }
     }
   }
-}
 
+  &--second{
+    position: absolute;
+    top: calc(100% + 50px);
+    right: 15px;
+  }
+}

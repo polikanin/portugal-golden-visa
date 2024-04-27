@@ -29,6 +29,7 @@
                 :slides-per-view="'auto'"
                 :centeredSlides="true"
                 :loop="true"
+                :speed="1000"
                 :autoplay="{
                         delay: 2000,
                         pauseOnMouseEnter: true

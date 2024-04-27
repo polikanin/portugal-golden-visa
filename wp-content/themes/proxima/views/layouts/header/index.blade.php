@@ -93,6 +93,12 @@
                 'depth'           => 2,
             ] ); !!}
 
+            {!! wp_nav_menu( [
+              'theme_location'  => 'primary_second',
+              'container_class' => 'vp-menu vp-menu--second',
+              'depth'           => 2,
+          ] ); !!}
+
             @include('components.button', ['button' => [
                 'url'=> '##quiz',
                 'title' => 'Speak with an expert'

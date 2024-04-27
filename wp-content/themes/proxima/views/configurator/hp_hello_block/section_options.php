@@ -329,6 +329,33 @@ return [
             'maxlength' => '',
         ),
         array(
+            'key' => 'field_662d1166ae846',
+            'label' => 'E-mail',
+            'name' => 'email',
+            'type' => 'text',
+            'instructions' => '',
+            'required' => 0,
+            'conditional_logic' => array(
+                array(
+                    array(
+                        'field' => 'field_661b46a46ca07',
+                        'operator' => '==',
+                        'value' => 'type_3',
+                    ),
+                ),
+            ),
+            'wrapper' => array(
+                'width' => '',
+                'class' => '',
+                'id' => '',
+            ),
+            'default_value' => '',
+            'placeholder' => '',
+            'prepend' => '',
+            'append' => '',
+            'maxlength' => '',
+        ),
+        array(
             'key' => 'field_661b48f8cdff7',
             'label' => 'Items (type 4)',
             'name' => 'items_type_4',

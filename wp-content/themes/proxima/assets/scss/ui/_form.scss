@@ -67,13 +67,20 @@
     border: 1px solid $white30;
     border-radius: 8px;
     padding: 16px;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 16px;
+    flex-grow: 1;
 
     &-title{
       font-weight: 400;
       font-size: 16px;
       margin-bottom: 4px;
+
+      span{
+        display: block;
+        color: $white30;
+      }
     }
   }
 

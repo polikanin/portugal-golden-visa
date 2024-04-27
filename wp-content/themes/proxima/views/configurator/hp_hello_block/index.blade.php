@@ -111,9 +111,9 @@
                                 {{ $label }}
                             </p>
                         @endif
-                            <a class="vp-mail-link" href="mailto:onboarding@advisorsportugal.com">
+                            <a class="vp-mail-link" href="mailto:{{ $email }}">
                                 <vp-icon type="sms"></vp-icon>
-                                onboarding@advisorsportugal.com
+                                {{ $email }}
                             </a>
                     </div>
                 </div>

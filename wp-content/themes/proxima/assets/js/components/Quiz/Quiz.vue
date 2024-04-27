@@ -443,6 +443,7 @@ export default {
             this.step--
         },
         submitStep () {
+            let self = this
             if(this.v$.$validationGroups['step_'+this.step]){
                 if(!this.v$.$validationGroups['step_'+this.step].$invalid){
                     this.step++;
@@ -450,6 +451,10 @@ export default {
                 }
                 else{
                     this.v$.$touch()
+
+                    setTimeout(function (){
+                        self.v$.$reset()
+                    }, 2000)
                 }
             }
             else{

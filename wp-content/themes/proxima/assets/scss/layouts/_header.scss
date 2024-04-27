@@ -11,12 +11,21 @@
   &.fixed{
     backdrop-filter: blur(10px);
     background-color: $secondary;
+
+    .vp-menu--second{
+      position: static;
+      margin: 14px auto 0 65px;
+    }
   }
 
   .vp-container{
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+  }
+
+  .vp-menu--second{
+    margin: 0 0 0 0;
   }
 
   .vp-menu{

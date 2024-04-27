@@ -11,7 +11,7 @@
             </div>
 
             @include('components.button', ['button' => [
-                'url'=> '##',
+                'url'=> '##quiz',
                 'title' => 'Scedule Your Free Video Call',
                 ], 'iconImg' => 'video'])
         </div>
@@ -125,7 +125,7 @@
 
 <vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"></vp-quiz>
 
-<vp-modal v-show="modal.id === '##disclamer'" class="vp-modal--big">
+<vp-modal v-show="modal.id === '##disclamer'" class="vp-modal--big" @close="modal.id = false">
     @php($disclaimer_title = get_field('disclaimer_title', 'options'))
     @php($disclaimer_subtitle = get_field('disclaimer_subtitle', 'options'))
     @php($disclaimer_text = get_field('disclaimer_text', 'options'))
