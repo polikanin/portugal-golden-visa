@@ -30,8 +30,8 @@
   }
 
   &--error{
-    background-color: rgba(232, 48, 48, 0.05);
-    border-color: $error;
-    color: $error;
+    background-color: rgba(232, 48, 48, 0.05)!important;
+    border-color: $error!important;
+    color: $error!important;
   }
 }

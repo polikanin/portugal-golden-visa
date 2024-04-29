@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
-    <div>
-
+    <div class="vp-default--page">
+        <div class="wrapper">
         <?php
 
         // echo get_post_meta( get_the_ID(), '_wp_page_template', true );
@@ -25,7 +25,7 @@
             endwhile;
 
         endif; ?>
-
+        </div>
     </div>
 
 <?php get_footer(); ?>

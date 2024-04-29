@@ -6,7 +6,7 @@ import 'swiper/css/effect-fade';
 
 //import '../scss/main.scss';
 import 'custom-vue-scrollbar/dist/style.css';
-import { Autoplay, Navigation } from 'swiper/modules';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useVuelidate } from '@vuelidate/core'
 import { required, email } from '@vuelidate/validators'
 import stepAnimation from "./stepAnimation";
@@ -18,48 +18,9 @@ createApp({
     },
     data() {
         return {
-            fields: {
-                motivation: [
-                    'Backup option if needed due to geopolitical & economical reasons',
-                    'Investment diversification',
-                    'Alternative future for my family',
-                    'Freedom of movement',
-                    'Retirement in the future',
-                    'Relocation in mid — long term',
-                ],
-                objectives: [
-                    'Capital preservation',
-                    'Moderate capital gains',
-                    'High capital gains',
-                ],
-                risk: [
-                    'Conservative',
-                    'Moderate',
-                    'High',
-                ],
-                investment: [
-                    'Venture or private equity funds?',
-                    'Cultural heritage / artistic production?',
-                    'Direct investment that creates jobs?',
-                ],
-                relocating: [
-                    'Relocation in 1 year',
-                    'Relocation in 3+ years',
-                    'Relocation in 5+ years',
-                    'No specific plans for now',
-                ],
-                frameToInvestment: [
-                    'Immediate',
-                    '2 months',
-                    '> 4 months',
-                ],
-            },
-            msg: {
-                terms: 'terms error',
-                firstName: 'firstName error',
-                lastName: 'lastName error',
-                email: 'email error',
-            },
+            isMenu: false,
+            fields: window.VpFormFields,
+            msg: window.VpErrorMsg,
             form: {
                 terms: false,
                 firstName: '',
@@ -89,7 +50,7 @@ createApp({
                 isModal: false,
                 id: false,
             },
-            modules: [Autoplay, Navigation],
+            modules: [Autoplay, Navigation, Pagination],
             selected: false,
             selectedTimeline: false,
             code: window.VpPhoneCode,
@@ -102,6 +63,11 @@ createApp({
                 firstName: {required},
                 lastName: {required},
                 email: {required, email},
+                phone: {required},
+                capability: {required},
+                frameToInvestment: {required},
+                relocating: {required},
+                investment: {required},
             },
         }
     },
@@ -168,12 +134,22 @@ createApp({
         start() {
             this.isSlideChange = false
         },
-        async submit() {
+        toggleMenu() {
+            this.isMenu = !this.isMenu
+        },
+        showMenu() {
+            this.isMenu = true
+        },
+        hideMenu() {
+            this.isMenu = false
+        },
+        async checkValidation() {
+            let self = this;
+            console.log(await this.v$)
+        },
+        submit() {
             let self = this;
             this.v$.$touch()
-            console.log(this.form)
-            console.log(await this.v$.$validate())
-
 
             setTimeout(function (){
                 self.v$.$reset()

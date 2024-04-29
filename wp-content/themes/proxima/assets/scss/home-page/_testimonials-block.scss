@@ -1,11 +1,20 @@
 .vp-testimonials-block{
   padding: 98px 0 100px 0;
 
+  @media(max-width: $width-md){
+    padding: 40px 0 40px 0;
+  }
+
   &--head{
     margin-bottom: 62px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    @media(max-width: $width-sm){
+      margin-bottom: 24px;
+      display: block;
+    }
   }
 
   &--ctrl{
@@ -14,6 +23,16 @@
     align-items: center;
     gap: 16px;
     padding: 0 0 2px 0;
+
+    @media(max-width: $width-sm){
+      margin: 45px 0 0 0;
+    }
+  }
+
+  .swiper{
+    @media(max-width: $width-md){
+
+    }
   }
 
   .vp-swiper-pagination{
@@ -26,6 +45,14 @@
   .vp-horizontal--swiper{
     .swiper-wrapper{
       align-items: flex-end;
+
+      @media(max-width: $width-md){
+        align-items: stretch;
+
+        .swiper-slide{
+          height: auto;
+        }
+      }
     }
   }
 
@@ -35,6 +62,14 @@
     border: 1px solid $line;
     border-radius: 10px;
     padding: 20px 20px 24px 20px;
+
+    @media(max-width: $width-md){
+      min-height: 100%;
+    }
+
+    @media(max-width: $width-sm){
+      padding: 16px;
+    }
 
     &--head{
       display: flex;

@@ -13,6 +13,7 @@
                     <div class="vp-form--group">
                         <div class="vp-form--block">
                             <input class="vp-input"
+                                   @blur="checkValidation"
                                    :class="{'vp-input--error': v$.form.firstName.$error}"
                                    type="text"
                                    v-model="form.firstName"
@@ -39,11 +40,20 @@
                         </div>
                     </div>
                     <div class="vp-form--group">
-                        <div class="vp-input--group">
-                            <div class="vp-input--preview">
-                                <vp-dropdown :list="code" @select="select"></vp-dropdown>
+                        <div class="vp-form--block">
+                            <div class="vp-input--group">
+                                <div class="vp-input--preview">
+                                    <vp-dropdown
+                                            :class="{'vp-input--error': v$.form.phone.$error}"
+                                            :list="code" @select="select"
+                                    ></vp-dropdown>
+                                </div>
+                                <vp-mask class="vp-input"
+                                         :class="{'vp-input--error': v$.form.phone.$error}"
+                                         v-model="form.phone" :mask="selected.mask"
+                                         :placeholder="selected.placeholder"/>
                             </div>
-                            <vp-mask class="vp-input" v-model="form.phone" :mask="selected.mask" :placeholder="selected.placeholder" />
+                            <div class="vp-error--msg" v-if="v$.form.phone.$error">${msg.phone}</div>
                         </div>
                     </div>
                 </div>
@@ -54,7 +64,7 @@
             </div>
 
             <div class="vp-form--grid-4x">
-                <div class="vp-form--box">
+                <div class="vp-form--box" :class="{'vp-form--box-error': v$.form.capability.$error}">
                     <div class="vp-form--box-title">
                         Do you have financial capability<br>
                         to support investment vehicles at<br>
@@ -74,9 +84,11 @@
            No
           </span>
                     </label>
+
+                    <div class="vp-error--msg" v-if="v$.form.capability.$error">${msg.capability}</div>
                 </div>
 
-                <div class="vp-form--box">
+                <div class="vp-form--box" :class="{'vp-form--box-error': v$.form.frameToInvestment.$error}">
                     <div class="vp-form--box-title">
                         Time frame to investment?
                     </div>
@@ -85,9 +97,11 @@
                         <span class="vp-radio--box"></span>
                         <span class="vp-radio--text">${item}</span>
                     </label>
+
+                    <div class="vp-error--msg" v-if="v$.form.frameToInvestment.$error">${msg.frameToInvestment}</div>
                 </div>
 
-                <div class="vp-form--box">
+                <div class="vp-form--box" :class="{'vp-form--box-error': v$.form.relocating.$error}">
                     <div class="vp-form--box-title">
                         Are you planning on relocating to Portugal?
                     </div>
@@ -97,9 +111,11 @@
                         <span class="vp-radio--box"></span>
                         <span class="vp-radio--text">${item}</span>
                     </label>
+
+                    <div class="vp-error--msg" v-if="v$.form.relocating.$error">${msg.relocating}</div>
                 </div>
 
-                <div class="vp-form--box">
+                <div class="vp-form--box" :class="{'vp-form--box-error': v$.form.investment.$error}">
                     <div class="vp-form--box-title">
                         Preferred type of investment?
                         <span>* Up to two responses</span>
@@ -107,7 +123,7 @@
 
                     <label class="vp-checkbox"
                            v-for="item in fields.investment"
-                        :class="{
+                           :class="{
                         'vp-disabled': form.investment.length >= 2 && form.investment.indexOf(item) === -1
                         }">
                         <input type="checkbox"
@@ -117,6 +133,8 @@
                         <span class="vp-checkbox--box"></span>
                         <span class="vp-checkbox--text">${item}</span>
                     </label>
+
+                    <div class="vp-error--msg" v-if="v$.form.investment.$error">${msg.investment}</div>
                 </div>
             </div>
 
@@ -128,7 +146,9 @@
             </div>
 
             <div class="vp-form--ctrl">
-                <vp-button @click="submit">
+                <vp-button @click="submit"
+                           :btn-disabled="v$.form.$silentErrors.length !== 0"
+                >
                     <span class="vp-btn--text">Submit</span>
                     <vp-icon type="arrow-next"></vp-icon>
                 </vp-button>

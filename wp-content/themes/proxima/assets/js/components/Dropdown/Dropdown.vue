@@ -33,7 +33,6 @@ export default {
   },
   mounted (){
     let self = this
-    console.log(this.list)
 
     if(self.list.length > 0){
       self.select(self.list[0])

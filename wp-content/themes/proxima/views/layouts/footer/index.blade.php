@@ -21,6 +21,10 @@
 
 @php($image = get_field('logo', 'options'))
 @php($locations = get_field('locations', 'options'))
+@php($copyright = get_field('copyright', 'options'))
+@php($disclaimer_text = get_field('preview_text', 'options'))
+@php($terms_and_conditions_link = get_field('terms_and_conditions_link', 'options'))
+@php($privacy_policy_link = get_field('privacy_policy_link', 'options'))
 
 <footer class="vp-footer">
     <div class="wrapper">
@@ -38,21 +42,33 @@
                                     <vp-icon type="location"></vp-icon>
                                     {{ $item['country'] }}
                                 </div>
-                                @if($item['city'] && $item['address'])
-                                    <div class="vp-locations--item-body">
-                                        @if($item['city'])
-                                            <div class="vp-locations--item-text">
-                                                {{ $item['city'] }}
-                                            </div>
-                                        @endif
-                                        @if($item['address'])
-                                            <div class="vp-locations--item-text">
-                                                {{ $item['address'] }}
-                                            </div>
-                                        @endif
+                                <div class="vp-locations--item-body">
+                                    <div class="vp-locations--item-text">
+                                        {{ $item['city'] }}
                                     </div>
-                                @endif
+                                    <div class="vp-locations--item-text">
+                                        {{ $item['address'] }}
+                                    </div>
+                                </div>
                             </div>
+{{--                            <vp-accordion class="vp-locations--item">--}}
+{{--                                <template #head>--}}
+{{--                                    <div class="vp-locations--item-head">--}}
+{{--                                        <vp-icon type="location"></vp-icon>--}}
+{{--                                        {{ $item['country'] }}--}}
+{{--                                    </div>--}}
+{{--                                </template>--}}
+{{--                                <template #body>--}}
+{{--                                    <div class="vp-locations--item-body">--}}
+{{--                                        <div class="vp-locations--item-text">--}}
+{{--                                            {{ $item['city'] }}--}}
+{{--                                        </div>--}}
+{{--                                        <div class="vp-locations--item-text">--}}
+{{--                                            {{ $item['address'] }}--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </template>--}}
+{{--                            </vp-accordion>--}}
                         @endforeach
                     </div>
                 @endif
@@ -62,16 +78,7 @@
                     Disclaimer
                 </div>
                 <div class="vp-footer--excerpt">
-                    We are an independent team of experts, working on behalf of our clients and advising the same
-                    throughout
-                    the Golden Visa process. Our clients have direct contact with accredited fund managers and advisors.
-                    All services are rendered by professionals duly accredited by their respective professional
-                    associations.
-                    No information on our site, emailed, or communicated via a meeting or phone call should be
-                    interpreted
-                    as legal or financial advice. Regulated investment opportunities are complex instruments. Therefore,
-                    we only work with investors who are sufficiently knowledgeable and experienced in dealing with these
-                    types of investments and are classified as professional investors.
+                    {!! $disclaimer_text !!}
                     <br>
                     <a href="" @click.prevent="modal.id = '##disclamer'">
                         Please read our full disclaimer.
@@ -104,16 +111,22 @@
     <div class="wrapper">
         <div class="vp-container">
             <p class="vp-text">
-                © 2024 Advisors Portugal. All Rights Reserved.
+                {{ $copyright }}
             </p>
             <p class="vp-text">
-                <a href="">
-                    Terms and Conditions
-                </a>
-                |
-                <a href="">
-                    Privacy Policy
-                </a>
+                @if($terms_and_conditions_link)
+                    <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
+                        {{ $terms_and_conditions_link['title'] }}
+                    </a>
+                @endif
+                @if($terms_and_conditions_link and $privacy_policy_link)
+                    |
+                @endif
+                @if($privacy_policy_link)
+                    <a href="{{ $privacy_policy_link['url'] }}" target="{{ $privacy_policy_link['target'] }}">
+                        {{ $privacy_policy_link['title'] }}
+                    </a>
+                @endif
             </p>
         </div>
     </div>
@@ -123,7 +136,10 @@
     <vp-icon type="arrow-narrow-up"></vp-icon>
 </button>
 
-<vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"></vp-quiz>
+<vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"
+         terms="@if($terms_and_conditions_link){{ $terms_and_conditions_link['url'] }}@endif"
+         privacy="@if($privacy_policy_link){{ $privacy_policy_link['url'] }}@endif"
+></vp-quiz>
 
 <vp-modal v-show="modal.id === '##disclamer'" class="vp-modal--big" @close="modal.id = false">
     @php($disclaimer_title = get_field('disclaimer_title', 'options'))
@@ -178,4 +194,61 @@
         </div>
     </template>
 </vp-modal>
+
+<transition name="vp-menu-anim">
+    <div class="vp-offcanvas" v-show="isMenu">
+        <div class="vp-offcanvas--layout">
+
+        </div>
+        <div class="vp-offcanvas--menu">
+            <div class="vp-offcanvas--menu-head">
+                @php($image = get_field('logo', 'options'))
+
+                <a href="/">
+                    {!! get_image_html($image, 'full') !!}
+                </a>
+
+                <button class="vp-menu-btn"
+                        :class="{active: isMenu}"
+                        @click.prevent="hideMenu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+            {!! wp_nav_menu( [
+               'theme_location'  => 'primary_mobile',
+               'container_class' => 'vp-menu',
+               'depth'           => 2,
+           ] ); !!}
+
+            <div class="vp-offcanvas--menu-footer">
+                @include('components.button', ['button' => [
+                         'url'=> '##quiz',
+                         'title' => 'Free Video Consultation',
+                         ], 'iconImg' => 'video'])
+
+                <p class="vp-offcanvas--menu-text">
+                    @if($terms_and_conditions_link)
+                        <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
+                            {{ $terms_and_conditions_link['title'] }}
+                        </a>
+                    @endif
+                    @if($terms_and_conditions_link and $privacy_policy_link)
+                        |
+                    @endif
+                    @if($privacy_policy_link)
+                        <a href="{{ $privacy_policy_link['url'] }}" target="{{ $privacy_policy_link['target'] }}">
+                            {{ $privacy_policy_link['title'] }}
+                        </a>
+                    @endif
+                </p>
+                <p class="vp-offcanvas--menu-text">
+                    {{ $copyright }}
+                </p>
+            </div>
+        </div>
+    </div>
+</transition>
 </div>

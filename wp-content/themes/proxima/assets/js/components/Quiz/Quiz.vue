@@ -18,7 +18,8 @@
                 </transition>
                 <div class="vp-modal--close" @click="$emit('close')" v-show="step !== 0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-linecap="round"
+                              stroke-linejoin="round"/>
                     </svg>
                 </div>
             </div>
@@ -34,19 +35,20 @@
                         Confidentiality and trust are at the core of our values. No information will be shared with
                         third parties.
                     </p>
+
                     <div class="vp-modal--terms">
                         <label class="vp-checkbox">
                             <input type="checkbox" v-model="quiz.terms">
                             <span class="vp-checkbox--box"></span>
                             <span class="vp-checkbox--text">
             I agree to the
-            <a href="">Terms and Conditions </a>
+            <a :href="terms" target="_blank">Terms and Conditions </a>
             <b>and </b>
-            <a href="">Privacy Policy</a>
+            <a :href="privacy" target="_blank">Privacy Policy</a>
           </span>
                         </label>
 
-                        <div class="vp-error--msg" v-if="v$.quiz.terms.$error">{{msg.terms}}</div>
+                        <div class="vp-error--msg" v-if="v$.quiz.terms.$error">{{ msg.terms }}</div>
                     </div>
                     <div class="vp-modal--navigation">
                         <vp-button @click="submitStep">
@@ -65,7 +67,7 @@
                                type="text"
                                v-model="quiz.firstName"
                                placeholder="First Name">
-                        <div class="vp-error--msg" v-if="v$.quiz.firstName.$error">{{msg.firstName}}</div>
+                        <div class="vp-error--msg" v-if="v$.quiz.firstName.$error">{{ msg.firstName }}</div>
                     </div>
                     <div class="vp-modal--group">
                         <input class="vp-input"
@@ -73,7 +75,7 @@
                                type="text"
                                v-model="quiz.lastName"
                                placeholder="Last Name">
-                        <div class="vp-error--msg" v-if="v$.quiz.lastName.$error">{{msg.lastName}}</div>
+                        <div class="vp-error--msg" v-if="v$.quiz.lastName.$error">{{ msg.lastName }}</div>
                     </div>
                     <div class="vp-modal--group">
                         <input class="vp-input"
@@ -81,18 +83,27 @@
                                type="text"
                                v-model="quiz.email"
                                placeholder="Email">
-                        <div class="vp-error--msg" v-if="v$.quiz.email.$error">{{msg.email}}</div>
+                        <div class="vp-error--msg" v-if="v$.quiz.email.$error">{{ msg.email }}</div>
                     </div>
                     <div class="vp-modal--group">
-                        <div class="vp-input--group">
-                            <div class="vp-input--preview">
-                                <vp-dropdown :list="code" @select="select"></vp-dropdown>
+                        <div class="vp-form--block">
+                            <div class="vp-input--group">
+                                <div class="vp-input--preview">
+                                    <vp-dropdown
+                                        :class="{'vp-input--error': v$.quiz.phone.$error}"
+                                        :list="code"
+                                        @select="select"></vp-dropdown>
+                                </div>
+                                <vp-mask class="vp-input"
+                                         :class="{'vp-input--error': v$.quiz.phone.$error}"
+                                         v-model="quiz.phone" :mask="selected.mask"
+                                         :placeholder="selected.placeholder"/>
                             </div>
-                            <vp-mask class="vp-input" v-model="quiz.phone" :mask="selected.mask" :placeholder="selected.placeholder" />
+                            <div class="vp-error--msg" v-if="v$.quiz.phone.$error">{{ msg.phone }}</div>
                         </div>
                     </div>
 
-                    <div class="vp-modal--block">
+                    <div class="vp-modal--block" :class="{'vp-input--error': v$.quiz.videoCall.$error}">
                         <div class="vp-modal--block-label">
                             Would you like to schedule a complimentary video call with an allocated advisor?
                         </div>
@@ -108,9 +119,11 @@
                                 <span class="vp-radio--text">No</span>
                             </label>
                         </div>
+
+                        <div class="vp-error--msg" v-if="v$.quiz.videoCall.$error">{{ msg.videoCall }}</div>
                     </div>
 
-                    <div class="vp-modal--block">
+                    <div class="vp-modal--block" :class="{'vp-input--error': v$.quiz.whatsAppCall.$error}">
                         <div class="vp-modal--block-label">
                             May we contact you via WhatsApp?
                         </div>
@@ -126,6 +139,8 @@
                                 <span class="vp-radio--text">No</span>
                             </label>
                         </div>
+
+                        <div class="vp-error--msg" v-if="v$.quiz.whatsAppCall.$error">{{ msg.whatsAppCall }}</div>
                     </div>
 
                     <div class="vp-modal--navigation">
@@ -146,19 +161,28 @@
                     <div class="vp-modal--group">
               <textarea class="vp-textarea"
                         v-model="quiz.message"
+                        :class="{'vp-textarea--error': v$.quiz.message.$error}"
                         placeholder="Family composition of the applicants including age?"></textarea>
+
+                        <div class="vp-error--msg" v-if="v$.quiz.message.$error">{{ msg.message }}</div>
                     </div>
 
                     <div class="vp-modal--group">
                         <div class="vp-input--group">
                             <div class="vp-input--preview">
-                                <vp-dropdown :list="timeline" @select="selectTimeline"></vp-dropdown>
+                                <vp-dropdown
+                                    :class="{'vp-input--error': v$.quiz.timelineCity.$error}"
+                                    :list="timeline"
+                                    @select="selectTimeline"></vp-dropdown>
                             </div>
                             <input class="vp-input"
                                    type="text"
+                                   :class="{'vp-input--error': v$.quiz.timelineCity.$error}"
                                    v-model="quiz.timelineCity"
                                    :placeholder="selectedTimeline.mask">
                         </div>
+
+                        <div class="vp-error--msg" v-if="v$.quiz.timelineCity.$error">{{ msg.timelineCity }}</div>
                     </div>
 
                     <div class="vp-modal--label">
@@ -172,9 +196,12 @@
                                    :value="item"
                                    v-model="quiz.motivation">
                             <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">{{item}}</span>
+                            <span class="vp-checkbox--text">{{ item }}</span>
                         </label>
+
                     </div>
+
+                    <div class="vp-error--msg" v-if="v$.quiz.motivation.$error">{{ msg.motivation }}</div>
 
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="stepBack">
@@ -199,11 +226,12 @@
                         <label class="vp-checkbox">
                             <input type="checkbox"
                                    :value="item"
-                            v-model="quiz.objectives">
+                                   v-model="quiz.objectives">
                             <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">{{item}}</span>
+                            <span class="vp-checkbox--text">{{ item }}</span>
                         </label>
                     </div>
+                    <div class="vp-error--msg" v-if="v$.quiz.objectives.$error">{{ msg.objectives }}</div>
 
                     <div class="vp-modal--label">
                         How would you describe your risk profile?
@@ -212,9 +240,10 @@
                         <label class="vp-radio">
                             <input type="radio" :value="item" name="risk" v-model="quiz.risk">
                             <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">{{item}}</span>
+                            <span class="vp-radio--text">{{ item }}</span>
                         </label>
                     </div>
+                    <div class="vp-error--msg" v-if="v$.quiz.risk.$error">{{ msg.risk }}</div>
 
                     <div class="vp-modal--label">
                         Preferred type of investment?
@@ -230,9 +259,10 @@
                                    :disabled="quiz.investment.length >= 2 && quiz.investment.indexOf(item) === -1"
                                    v-model="quiz.investment">
                             <span class="vp-checkbox--box"></span>
-                            <span class="vp-checkbox--text">{{item}}</span>
+                            <span class="vp-checkbox--text">{{ item }}</span>
                         </label>
                     </div>
+                    <div class="vp-error--msg" v-if="v$.quiz.investment.$error">{{ msg.investment }}</div>
 
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="stepBack">
@@ -249,7 +279,7 @@
 
             <transition>
                 <div class="vp-modal--body" v-show="step === 4">
-                    <div class="vp-modal--block">
+                    <div class="vp-modal--block" :class="{'vp-input--error': v$.quiz.capability.$error}">
                         <div class="vp-modal--block-label">
                             Do you have financial capability to support investment vehicles
                             at €500,000?
@@ -266,6 +296,8 @@
                                 <span class="vp-radio--text">No</span>
                             </label>
                         </div>
+
+                        <div class="vp-error--msg" v-if="v$.quiz.capability.$error">{{ msg.capability }}</div>
                     </div>
 
                     <div class="vp-modal--label">
@@ -275,9 +307,10 @@
                         <label class="vp-radio">
                             <input type="radio" name="relocating" :value="item" v-model="quiz.relocating">
                             <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">{{item}}</span>
+                            <span class="vp-radio--text">{{ item }}</span>
                         </label>
                     </div>
+                    <div class="vp-error--msg" v-if="v$.quiz.relocating.$error">{{ msg.relocating }}</div>
 
                     <div class="vp-modal--label">
                         Time frame to investment?
@@ -286,10 +319,10 @@
                         <label class="vp-radio">
                             <input type="radio" name="frameToInvestment" :value="item" v-model="quiz.frameToInvestment">
                             <span class="vp-radio--box"></span>
-                            <span class="vp-radio--text">{{item}}</span>
+                            <span class="vp-radio--text">{{ item }}</span>
                         </label>
                     </div>
-
+                    <div class="vp-error--msg" v-if="v$.quiz.frameToInvestment.$error">{{ msg.frameToInvestment }}</div>
 
                     <div class="vp-modal--navigation">
                         <vp-button btn-class="vp-btn--simple" @click="stepBack">
@@ -328,17 +361,18 @@
 </template>
 
 <script>
-import { useVuelidate } from '@vuelidate/core'
-import { required, email } from '@vuelidate/validators'
+import {useVuelidate} from '@vuelidate/core'
+import {required, email} from '@vuelidate/validators'
+
 const isChecked = (value) => {
     return value !== false
 }
 export default {
-    setup () {
-        return { v$: useVuelidate() }
+    setup() {
+        return {v$: useVuelidate()}
     },
     name: "Quiz",
-    props: ['isOpen'],
+    props: ['isOpen', 'terms', 'privacy'],
     data() {
         return {
             step: 0,
@@ -346,42 +380,7 @@ export default {
             selectedTimeline: false,
             code: window.VpPhoneCode,
             timeline: window.VpTimeline,
-            fields: {
-                motivation: [
-                    'Backup option if needed due to geopolitical & economical reasons',
-                    'Investment diversification',
-                    'Alternative future for my family',
-                    'Freedom of movement',
-                    'Retirement in the future',
-                    'Relocation in mid — long term',
-                ],
-                objectives: [
-                    'Capital preservation',
-                    'Moderate capital gains',
-                    'High capital gains',
-                ],
-                risk: [
-                    'Conservative',
-                    'Moderate',
-                    'High',
-                ],
-                investment: [
-                    'Venture or private equity funds?',
-                    'Cultural heritage / artistic production?',
-                    'Direct investment that creates jobs?',
-                ],
-                relocating: [
-                    'Relocation in 1 year',
-                    'Relocation in 3+ years',
-                    'Relocation in 5+ years',
-                    'No specific plans for now',
-                ],
-                frameToInvestment: [
-                    'Immediate',
-                    '2 months',
-                    '> 4 months',
-                ],
-            },
+            fields: window.VpFormFields,
             quiz: {
                 terms: false,
                 firstName: '',
@@ -402,25 +401,35 @@ export default {
                 relocating: '',
                 frameToInvestment: '',
             },
-            msg: {
-                terms: 'terms error',
-                firstName: 'firstName error',
-                lastName: 'lastName error',
-                email: 'email error',
-            }
+            msg: window.VpErrorMsg
         }
     },
-    validations () {
+    validations() {
         return {
             quiz: {
                 terms: {isChecked},
                 firstName: {required},
                 lastName: {required},
                 email: {required, email},
+                phone: {required},
+                videoCall: {required},
+                whatsAppCall: {required},
+                message: {required},
+                timelineCity: {required},
+                motivation: {required},
+                objectives: {required},
+                risk: {required},
+                investment: {required},
+                capability: {required},
+                relocating: {required},
+                frameToInvestment: {required},
             },
             $validationGroups: {
                 step_0: ['quiz.terms'],
-                step_1: ['quiz.firstName', 'quiz.lastName', 'quiz.email'],
+                step_1: ['quiz.firstName', 'quiz.lastName', 'quiz.email', 'quiz.phone', 'quiz.videoCall', 'quiz.whatsAppCall'],
+                step_2: ['quiz.message', 'quiz.timelineCity', 'quiz.motivation'],
+                step_3: ['quiz.objectives', 'quiz.risk', 'quiz.investment'],
+                step_4: ['quiz.capability', 'quiz.relocating', 'quiz.frameToInvestment'],
             }
         }
     },
@@ -439,30 +448,28 @@ export default {
             this.selectedTimeline = e
             this.quiz.timelineCode = e.value
         },
-        stepBack () {
+        stepBack() {
             this.step--
         },
-        submitStep () {
+        submitStep() {
             let self = this
-            if(this.v$.$validationGroups['step_'+this.step]){
-                if(!this.v$.$validationGroups['step_'+this.step].$invalid){
+            if (this.v$.$validationGroups['step_' + this.step]) {
+                if (!this.v$.$validationGroups['step_' + this.step].$invalid) {
                     this.step++;
                     this.v$.$reset()
-                }
-                else{
+                } else {
                     this.v$.$touch()
 
-                    setTimeout(function (){
+                    setTimeout(function () {
                         self.v$.$reset()
                     }, 2000)
                 }
-            }
-            else{
+            } else {
                 this.step++;
                 this.v$.$reset()
             }
         },
-        async submit () {
+        async submit() {
             console.log(this.quiz)
             console.log(await this.v$.$validate())
             this.$emit('close')

@@ -3,10 +3,22 @@
   $slide-height: 265px;
   $slide-offset: 60px;
 
+  @media(max-width: $width-minlg){
+    padding: 80px 0 80px 0;
+
+    br{
+      display: none;
+    }
+  }
+
   .vp-text{
     font-weight: 300;
     font-size: 18px;
     margin-top: 32px;
+
+    @media(max-height: 860px){
+      margin-top: 16px;
+    }
   }
 
   .vp-img-container{
@@ -26,12 +38,28 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media(max-width: $width-md){
+      padding-top: 32px;
+    }
+
+    @media(max-height: 860px){
+      padding-top: 32px;
+    }
   }
 
   .vp-container{
     display: grid;
     grid-template-columns: max(380px) 752px;
     justify-content: space-between;
+
+    @media(max-width: $width-minlg){
+      grid-template-columns: 300px 600px;
+    }
+
+    @media(max-width: $width-md){
+      grid-template-columns: 100%;
+    }
   }
 
   &--preview{
@@ -44,6 +72,27 @@
       padding-left: 64px;
       max-height: 332px;
       overflow: hidden;
+
+      @media(max-width: $width-minlg){
+        padding-left: 30px;
+        gap: 40px;
+        max-height: 265px;
+      }
+
+      @media(max-width: $width-md){
+        flex-direction: row;
+        max-height: 36px;
+        padding: 0 0 0 0;
+        gap: 8px;
+        justify-content: center;
+        margin-bottom: 32px;
+      }
+
+      @media(max-width: $width-sm){
+        flex-wrap: wrap;
+        max-height: none;
+        gap: 6px;
+      }
     }
 
     &-progress{
@@ -55,6 +104,10 @@
       height: 100%;
       overflow: hidden;
       background-color: $line;
+
+      @media(max-width: $width-md){
+        display: none;
+      }
 
       span{
         width: 3px;
@@ -105,6 +158,18 @@
     border: 1px solid $line;
     border-radius: 9px;
     padding: 17px;
+    transition: 0.2s linear;
+
+    @media(max-width: $width-minlg){
+      grid-template-columns: 250px 1fr;
+    }
+
+    @media(max-width: $width-sm){
+      grid-template-columns: 1fr;
+      height: auto;
+      width: 100%;
+      gap: 24px;
+    }
 
     &--btn{
       font-size: 24px;
@@ -113,9 +178,25 @@
       cursor: pointer;
       transition: 0.3s;
 
+      @media(max-width: $width-minlg){
+        font-size: 20px;
+      }
+
+      @media(max-width: $width-md){
+        font-size: 0;
+      }
+
       &.active,
       &:hover{
         color: $white;
+
+        @media(max-width: $width-md){
+          .vp-vertical-slide--btn-index{
+            color: #606060;
+            background-color: $white;
+            border-color: $white;
+          }
+        }
       }
 
       &-index{
@@ -130,10 +211,19 @@
         font-family: $second-family;
         font-weight: 400;
         font-size: 16px;
-        letter-spacing: -1.5px;
         line-height: 1;
         color: $white30;
         margin:  0 16px 0 0;
+
+        @media(max-width: $width-md){
+          margin: 0 0 0 0;
+        }
+
+        @media(max-width: $width-sm){
+          width: 34px;
+          min-width: 34px;
+          height: 34px;
+        }
       }
     }
 
@@ -142,6 +232,10 @@
       border-radius: 9px;
       overflow: hidden;
       height: $slide-height - 34px;
+
+      @media(max-width: $width-sm){
+        height: 135px;
+      }
 
       img{
         width: 100%;
@@ -153,11 +247,20 @@
     &--title{
       font-weight: 400;
       font-size: 24px;
+
+      @media(max-width: $width-sm){
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
     }
 
     &--text{
       font-weight: 300;
       //font-size: 14px;
+
+      @media(max-width: $width-sm){
+        font-size: 14px;
+      }
     }
 
     &--block{

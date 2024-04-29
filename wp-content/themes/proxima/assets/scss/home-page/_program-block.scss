@@ -2,10 +2,29 @@
   padding: 100px 0 100px 0;
   $offset-top: 200px;
 
+  @media(max-width: $width-minlg){
+    padding: 80px 0 80px 0;
+  }
+
+  @media(max-width: $width-sm){
+    br{
+      display: none;
+    }
+  }
+
   .vp-container{
     display: grid;
     justify-content: space-between;
     grid-template-columns: 500px 752px;
+
+    @media(max-width: $width-minlg){
+      grid-template-columns: 340px 1fr;
+    }
+
+    @media(max-width: $width-sm){
+      grid-template-columns: 100%;
+      margin-bottom: 55px;
+    }
 
     &--right{
       margin: 0 0 0 0;
@@ -15,9 +34,22 @@
   .vp-container--block{
     position: sticky;
     top: $offset-top;
-    height: calc(100vh - (#{$offset-top} + 100px));
+    max-height: calc(100vh - (#{$offset-top} + 100px));
+    height: 100%;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
+
+    @media(max-height: $width-sm){
+      $offset-top: 150px;
+      top: $offset-top;
+      max-height: calc(100vh - (#{$offset-top} + 100px));
+    }
+
+    @media(max-width: $width-sm){
+      height: auto;
+      display: block;
+    }
 
     .vp-text{
       margin-top: auto;
@@ -26,6 +58,10 @@
 
   .vp-btn{
     margin-bottom: 30px;
+
+    @media(max-width: $width-sm){
+      margin-top: 24px;
+    }
   }
 
   .vp-progress{
@@ -38,6 +74,10 @@
     position: relative;
     //position: sticky;
     //top: $offset-top;
+
+    @media(max-width: $width-sm){
+      display: none;
+    }
 
     &:before{
       content: '';
@@ -63,9 +103,32 @@
     align-items: flex-start;
     gap: 64px;
 
+    &:last-child{
+      padding-bottom: 0;
+    }
+
+    @media(max-width: $width-minlg){
+      padding-bottom: 24px;
+      padding-left: 24px;
+      padding-right: 24px;
+      gap: 24px;
+    }
+
+    @media(max-width: $width-sm){
+      border-bottom: 1px solid $line;
+    }
+
     &:not(:first-child){
       border-top: 1px solid $line;
       padding-top: 45px;
+
+      @media(max-width: $width-minlg){
+        padding-top: 24px;
+      }
+
+      @media(max-width: $width-sm){
+        border-top: none;
+      }
     }
 
     &--img{
@@ -80,6 +143,13 @@
       justify-content: center;
       align-items: center;
       padding: 20px;
+
+      @media(max-width: $width-minlg){
+        width: 48px;
+        min-width: 48px;
+        height: 48px;
+        padding: 14px;
+      }
 
       img{
         max-width: 100%;
@@ -96,10 +166,19 @@
       font-weight: 400;
       font-size: 32px;
       margin-bottom: 24px;
+
+      @media(max-width: $width-minlg){
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
     }
 
     &--text{
       font-weight: 300;
+
+      @media(max-width: $width-minlg){
+        font-size: 14px;
+      }
     }
   }
 }

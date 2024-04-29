@@ -13,10 +13,10 @@
             </div>
 
             @if($block_type === 'type_1')
-                <div class="vp-hello-block--col">
+                <div class="vp-hello-block--col vp-hidden-sm">
 
                 </div>
-                <div class="vp-hello-block--col">
+                <div class="vp-hello-block--col vp-hidden-sm">
 
                 </div>
                 <div class="vp-hello-block--col">
@@ -46,9 +46,10 @@
                                     <div class="vp-item">
                                         <div class="vp-item--index">
                                             @if($loop->index + 1 < 10)
-                                                0
+                                                0{{ $loop->index + 1 }}
+                                            @else
+                                                {{ $loop->index + 1 }}
                                             @endif
-                                            {{ $loop->index + 1 }}
                                         </div>
                                         <div class="vp-item--text">
                                             {!! $item['text'] !!}
@@ -72,9 +73,10 @@
                                     <div class="vp-item">
                                         <div class="vp-item--index">
                                             @if($loop->index + 1 < 10)
-                                                0
+                                                0{{ $loop->index + 1 }}
+                                            @else
+                                                {{ $loop->index + 1 }}
                                             @endif
-                                            {{ $loop->index + 1 }}
                                         </div>
                                         <div class="vp-item--text">
                                             {!! $item['text'] !!}

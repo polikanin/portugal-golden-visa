@@ -6,7 +6,7 @@
   "license": "ISC",
   "scripts": {
     "build:js": "webpack --watch",
-    "build:scss": "node-sass -b assets/scss/ -o dist/",
+    "build:scss": "node-sass -w -r assets/scss/ -o dist/",
     "prefix": "node-sass-chokidar assets/scss/main.scss --output-style compressed --quiet | postcss --use autoprefixer --no-map > ./dist/main.css",
     "build": "npm run build:scss & npm run build:js"
   },

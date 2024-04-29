@@ -1,12 +1,12 @@
 <template>
   <div class="vp-accordion">
-    <div class="vp-accordion--head" :class="{active: show||isShow}" @click="toggle">
+    <div class="vp-accordion--head" :class="{active: show}" @click="toggle">
       <slot name="head"></slot>
     </div>
     <transition name="vp-accordion"
                 v-on:before-enter="beforeEnter" v-on:enter="enter"
                 v-on:before-leave="beforeLeave" v-on:leave="leave">
-      <div class="vp-accordion--body" v-show="show||isShow">
+      <div class="vp-accordion--body" v-show="show">
         <slot name="body"></slot>
       </div>
     </transition>
@@ -23,7 +23,9 @@ export default {
     }
   },
   mounted (){
-
+      if(this.isShow){
+          this.show = this.isShow
+      }
   },
   methods: {
     toggle: function() {
@@ -33,10 +35,10 @@ export default {
       el.style.height = '0';
     },
     enter: function(el) {
-      el.style.height = el.scrollHeight + 'px';
+      el.style.height = el.scrollHeight + 1 + 'px';
     },
     beforeLeave: function(el) {
-      el.style.height = el.scrollHeight + 'px';
+      el.style.height = el.scrollHeight + 1 + 'px';
     },
     leave: function(el) {
       el.style.height = '0';

@@ -12,11 +12,13 @@
             <div class="vp-items">
                 @foreach($items as $item)
                     <div class="vp-item">
-                        <div class="vp-item--text">
-                            {!! $item['text'] !!}
-                        </div>
-                        <div class="vp-item--title">
-                            {{ $item['value'] }}
+                        <div class="vp-item--inner">
+                            <div class="vp-item--text">
+                                {!! $item['text'] !!}
+                            </div>
+                            <div class="vp-item--title">
+                                {{ $item['value'] }}
+                            </div>
                         </div>
                         <div class="vp-item--img">
                             {!! get_image_html($item['image'], 'full') !!}

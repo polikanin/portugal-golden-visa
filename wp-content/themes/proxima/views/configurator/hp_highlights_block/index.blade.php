@@ -9,7 +9,7 @@
         @endif
 
         @if($highlights)
-            <div class="vp-items">
+            <div class="vp-items vp-hidden-sm">
                 @foreach($highlights as $highlight)
                     <div class="vp-item">
                         <div class="vp-item--head">
@@ -34,6 +34,40 @@
                             @endforeach
                         </div>
                     </div>
+                @endforeach
+            </div>
+
+            <div class="vp-items vp-show-sm">
+                @foreach($highlights as $highlight)
+                    <vp-accordion class="vp-item">
+                        <template #head>
+                            <div class="vp-item--head">
+                                <div class="vp-item--title">
+                                    {{ $highlight['title'] }}
+
+                                    <vp-icon type="arrow-down"></vp-icon>
+                                </div>
+                                <div class="vp-item--subtitle">
+                                    {!! $highlight['description'] !!}
+                                </div>
+                            </div>
+                        </template>
+
+                        <template #body>
+                            <div class="vp-item--body">
+                                @foreach($highlight['items'] as $item)
+                                    <div class="vp-item--block">
+                                        <div class="vp-item--quote">
+                                            {{ $item['title'] }}
+                                        </div>
+                                        <div class="vp-item--text">
+                                            {!! $item['text'] !!}
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </template>
+                    </vp-accordion>
                 @endforeach
             </div>
         @endif

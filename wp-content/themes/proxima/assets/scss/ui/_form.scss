@@ -71,6 +71,11 @@
     flex-direction: column;
     gap: 16px;
     flex-grow: 1;
+    transition: 0.3s;
+
+    &-error{
+      border-color: $error;
+    }
 
     &-title{
       font-weight: 400;

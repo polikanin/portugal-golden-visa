@@ -29,9 +29,10 @@
                                 >
                                     <div class="vp-vertical-slide--btn-index">
                                         @if($loop->index + 1 < 10)
-                                            0
+                                            0{{ $loop->index + 1 }}
+                                        @else
+                                            {{ $loop->index + 1 }}
                                         @endif
-                                        {{ $loop->index + 1 }}
                                     </div>
                                     {{ $slide['title'] }}
                                 </div>

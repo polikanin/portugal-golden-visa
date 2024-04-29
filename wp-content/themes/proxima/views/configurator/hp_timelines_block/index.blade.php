@@ -23,9 +23,10 @@
                                 <div class="vp-table--col">
                                     <div class="vp-table--index">
                                         @if($loop->index + 1 < 10)
-                                            0
+                                            0{{ $loop->index + 1 }}
+                                        @else
+                                            {{ $loop->index + 1 }}
                                         @endif
-                                        {{ $loop->index + 1 }}
                                     </div>
                                 </div>
                                 <div class="vp-table--col">

@@ -2,12 +2,20 @@
   font-weight: 400;
   font-size: 50px;
   color: $white;
+
+  @media(max-width: $width-minlg){
+    font-size: 32px;
+  }
 }
 
 .vp-subtitle{
   font-weight: 400;
   font-size: 32px;
   color: $white;
+
+  @media(max-width: $width-minlg){
+    font-size: 18px;
+  }
 }
 
 .vp-text{

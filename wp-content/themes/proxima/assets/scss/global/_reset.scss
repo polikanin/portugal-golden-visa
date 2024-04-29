@@ -29,20 +29,8 @@ body{
   position: relative;
   padding: 0 15px;
 
-  @media(max-width: $width-lpt){
-    max-width: $width-lg;
-  }
-
-  @media(max-width: $width-lg){
-    max-width: $width-minlg;
-  }
-
   @media(max-width: $width-minlg){
-    max-width: $width-md;
-  }
-
-  @media(max-width: $width-sm){
-    padding: 0 20px;
+    padding: 0 24px;
   }
 }
 .wrapper-all{
@@ -147,6 +135,27 @@ button{
   }
 }
 
+.swiper{
+  .swiper-pagination{
+    position: static;
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+
+    &-bullet{
+      background-color: $secondary;
+      width: 9px;
+      height: 9px;
+      opacity: 1;
+      margin: 0 4px;
+
+      &-active{
+        background-color: $white;
+      }
+    }
+  }
+}
+
 .vp-swiper-button{
   &-next,
   &-prev{
@@ -179,5 +188,20 @@ button{
       width: 16px;
       height: 16px;
     }
+  }
+}
+
+.vp-default--page{
+  padding: 200px 0 40px 0;
+
+  h1,h2{
+    font-size: 32px;
+    margin-bottom: 32px;
+  }
+
+  p{
+    font-size: 18px;
+    line-height: 1.2;
+    margin: 16px 0;
   }
 }

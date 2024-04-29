@@ -1,11 +1,27 @@
 .vp-investments-block{
   padding: 92px 0 100px 0;
 
+  @media(max-width: $width-md){
+    padding: 80px 0 40px 0;
+  }
+
+  @media(max-width: $width-minlg){
+    br{
+      display: none;
+    }
+  }
+
   .vp-items{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
     margin-top: 30px;
+
+    @media(max-width: $width-md){
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
   }
 
   .vp-item{
@@ -15,6 +31,11 @@
     padding: 30px;
     backdrop-filter: blur(15.5px);
     background-color: $black15;
+
+    @media(max-width: $width-sm){
+      padding: 20px;
+      position: relative;
+    }
 
     &--index{
       border: 1px solid $line;
@@ -28,6 +49,15 @@
       align-items: center;
       flex-wrap: wrap;
       margin: 0 0 5px auto;
+
+      @media(max-width: $width-sm){
+        margin: 0 0 0 0;
+        width: 48px;
+        height: 48px;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+      }
 
       span{
         display: block;
@@ -43,6 +73,19 @@
       font-weight: 400;
       font-size: 48px;
       align-self: flex-end;
+
+      @media(max-width: $width-minlg){
+        font-size: 24px;
+      }
+
+      @media(max-width: $width-sm){
+        padding: 0 0 0 64px;
+        min-height: 48px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 16px;
+      }
     }
 
     &--text{
@@ -51,6 +94,15 @@
       display: flex;
       align-items: flex-end;
       height: calc(18px * 1.185 * 6);
+
+      @media(max-width: $width-minlg){
+        font-size: 16px;
+      }
+
+      @media(max-width: $width-sm){
+        height: auto;
+        margin-bottom: 6px;
+      }
     }
 
     &--list{
@@ -58,6 +110,10 @@
         font-weight: 300;
         color: $white30;
         margin: 14px 0;
+
+        @media(max-width: $width-minlg){
+          font-size: 14px;
+        }
 
         &:last-child{
           margin-bottom: 0;
@@ -79,16 +135,25 @@
     &--quote{
       border: 1px solid $line;
       border-radius: 10px;
-      padding: 10px 15px;
+      padding: 10px 14px;
       background-color: $black15;
       font-weight: 300;
       color: $white30;
       margin-top: 19px;
+
+      @media(max-width: $width-sm){
+        font-size: 14px;
+        margin-top: 16px;
+      }
     }
 
     &--container{
       display: grid;
       grid-template-columns: 62% 38%;
+
+      @media(max-width: $width-sm){
+        grid-template-columns: 1fr;
+      }
     }
 
     &--block{
@@ -101,11 +166,20 @@
       display: grid;
       grid-template-rows: 1fr 1fr;
       padding-right: 30px;
+
+      @media(max-width: $width-sm){
+        display: block;
+        padding: 0 0 0 0;
+      }
     }
 
     &--right{
       display: grid;
       grid-template-rows: 60px 1fr;
+
+      @media(max-width: $width-sm){
+        display: block;
+      }
     }
 
     &:nth-of-type(4){

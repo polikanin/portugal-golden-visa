@@ -1,11 +1,11 @@
 <template>
     <div :class="btnClass ?? 'vp-btn'">
-        <button :class="`${btnClass??'vp-btn'}--inner ${btnClass??'vp-btn'}--up`">
+        <button :class="`${btnClass??'vp-btn'}--inner ${btnClass??'vp-btn'}--up`" :disabled="btnDisabled">
             <slot name="left"></slot>
             <slot></slot>
             <slot name="right"></slot>
         </button>
-        <button :class="`${btnClass??'vp-btn'}--inner ${btnClass??'vp-btn'}--down`">
+        <button :class="`${btnClass??'vp-btn'}--inner ${btnClass??'vp-btn'}--down`" :disabled="btnDisabled">
             <slot name="left"></slot>
             <slot></slot>
             <slot name="right"></slot>
@@ -16,7 +16,7 @@
 <script>
 export default {
     name: "Button",
-    props: ['icon', 'text', 'btnClass'],
+    props: ['icon', 'text', 'btnClass', 'btnDisabled'],
     data() {
         return {}
     },

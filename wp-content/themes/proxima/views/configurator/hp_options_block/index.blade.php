@@ -19,7 +19,7 @@
                         </p>
                     @endif
                     @if($text)
-                        <div class="vp-text">
+                        <div class="vp-text vp-hidden-md">
                             {!! $text !!}
                         </div>
                     @endif
@@ -29,6 +29,10 @@
                 @if($program)
                     <vertical-x3-slider :slides="{{ json_encode($program) }}"></vertical-x3-slider>
                 @endif
+            </div>
+
+            <div class="vp-text vp-show-md">
+                {!! $text !!}
             </div>
         </div>
     </div>

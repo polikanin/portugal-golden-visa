@@ -23,4 +23,10 @@
     border-color: $white;
     background-color: rgba(255, 255, 255, 0.05);
   }
+
+  &--error{
+    background-color: rgba(232, 48, 48, 0.05);
+    border-color: $error;
+    color: $error;
+  }
 }

@@ -30,6 +30,17 @@
               el: '.vp-swiper-pagination',
                 clickable: true,
             }"
+            :breakpoints="{
+      '320': {
+        slidesPerView: 1,
+      },
+      '769': {
+        slidesPerView: 2,
+      },
+      '960': {
+        slidesPerView: 3,
+      },
+    }"
         >
             <swiper-slide v-for="(slide, index) in slides">
                 <div class="vp-horizontal-slide">
