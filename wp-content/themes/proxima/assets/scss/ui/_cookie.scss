@@ -1,3 +1,7 @@
+#cookie-notice{
+  pointer-events: none;
+}
+
 .cookie-notice{
   &-container{
     max-width: 560px;
@@ -7,6 +11,7 @@
     text-align: left;
     margin: 0 0 32px 64px;
     font-family: $font-family;
+    pointer-events: auto;
   }
 
   &-title{

@@ -13,9 +13,12 @@
         </div>
 
         <div class="cookie-notice-footer">
-            <a href="" class="cookie-notice-more">
-                More information
-            </a>
+            @if($options['see_more'])
+                <a href="{{ get_permalink($options['see_more_opt']['id']) }}" target="_blank"
+                   class="cookie-notice-more">
+                    {{ $options['see_more_opt']['text'] }}
+                </a>
+            @endif
 
             @include('components.button', ['button' => [
     'url'=> '##',
