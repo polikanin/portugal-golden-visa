@@ -1,5 +1,6 @@
 .vp-steps-block{
   padding: 120px 0 100px 0;
+  overflow: hidden;
   //padding: 32px 0 100px 0;
 
   .vp-title{
@@ -7,63 +8,105 @@
     font-size: 32px;
   }
 
-  &--items{
-    margin-top: 46px;
-    position: relative;
-    height: 500px;
-    overflow: hidden;
+  .swiper-slide{
+    width: auto;
+  }
+
+  &--head{
+    margin-bottom: 62px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    @media(max-width: $width-sm){
+      margin-bottom: 24px;
+      display: block;
+    }
+  }
+
+  &--ctrl{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+    padding: 0 0 2px 0;
+
+    @media(max-width: $width-sm){
+      margin: 45px 0 0 0;
+    }
+  }
+
+  .swiper{
+    overflow: visible;
+    margin-top: 135px;
+    position: relative;
+    cursor: grab;
+
+    &:active{
+      cursor: grabbing;
+    }
 
     &:before{
       content: '';
       position: absolute;
-      top: 6px;
-      left: 0;
-      width: 100%;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100vw;
       border-top: 1px solid $line;
     }
   }
 
   .vp-step-slide{
-    position: absolute;
-    top: 0;
-    width: 425px;
-    //opacity: 0;
-
-    &--dot{
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      margin: 0 auto 0 auto;
-      border: 1px solid transparent;
-      transition: 0.3s;
-      background: radial-gradient(circle, $gray 40%, rgba(0,0,0,0) 40%);
-    }
-
-    &--line{
-      width: 1px;
-      height: 24px;
-      margin: 0 auto;
-      transition: 0.3s;
-      background-color: $line;
-    }
-
     &--index{
       border: 1px solid $line;
       border-radius: 47px;
       padding: 8px 12px;
-      width: 43px;
-      height: 35px;
+      width: 44px;
+      height: 36px;
       display: flex;
       justify-content: center;
       align-items: center;
       line-height: 1;
       font-family: $second-family;
+      background-color: $black;
       color: $white30;
       transition: 0.3s;
       margin: 0 auto 0 auto;
+      position: relative;
+
+      &:before{
+        content: '';
+        position: absolute;
+        top: 18px;
+        right: 100%;
+        width: 425px;
+        height: 1px;
+        z-index: -1;
+        background: linear-gradient(to right, transparent 0%, #E9A900 100%);
+        transition: 0.3s;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: 100% 0;
+      }
+
+      &:after{
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: -1px;
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+        z-index: -1;
+        border-radius: 47px;
+        background: linear-gradient(to left, transparent 0%, #E9A900 100%);
+        transition: 0.3s 0.3s;
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: 0 0;
+      }
     }
+
 
     &--day{
       font-weight: 300;
@@ -71,6 +114,9 @@
       text-align: center;
       margin-top: 16px;
       transition: 0.3s;
+      position: absolute;
+      width: 100%;
+      top: -50px;
     }
 
     &--body{
@@ -91,14 +137,18 @@
     }
 
     &--title{
-      font-weight: 500;
-      font-size: 18px;
+      color: rgba(255, 255, 255, 0.5);
+      font-weight: 400;
+      font-size: 24px;
       margin-bottom: 32px;
+      transition: 0.3s;
     }
 
     &--text{
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.5);
+      font-size: 18px;
+      color: $secondary;
+      transition: 0.3s;
     }
   }
 
@@ -106,18 +156,30 @@
     transition: 0.3s linear;
   }
 
-  .vp-step-slide.active{
+  .swiper-slide-active{
     .vp-step-slide--dot{
       border-color: $white30;
-    }
-
-    .vp-step-slide--line{
-      height: 75px;
     }
 
     .vp-step-slide--day,
     .vp-step-slide--index{
       color: $white;
+    }
+
+    .vp-step-slide--index{
+      &:after,
+      &:before{
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+
+    .vp-step-slide--title{
+      color: $white;
+    }
+
+    .vp-step-slide--text{
+      color: rgba(255, 255, 255, 0.5);
     }
 
     .vp-step-slide--body{

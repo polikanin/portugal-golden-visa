@@ -52,6 +52,21 @@ return [
                     'display' => 'block',
                     'sub_fields' => array(
                         array(
+                            'key' => 'field_6630ff4397f6a',
+                            'label' => 'Link',
+                            'name' => 'link',
+                            'type' => 'link',
+                            'instructions' => '',
+                            'required' => 0,
+                            'conditional_logic' => 0,
+                            'wrapper' => array(
+                                'width' => '',
+                                'class' => '',
+                                'id' => '',
+                            ),
+                            'return_format' => 'array',
+                        ),
+                        array(
                             'key' => 'field_661016b7952c6',
                             'label' => 'Title',
                             'name' => 'title',

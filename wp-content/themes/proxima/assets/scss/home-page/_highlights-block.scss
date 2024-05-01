@@ -27,6 +27,7 @@
       background-color: $gold20;
       padding: 24px;
       text-align: center;
+      display: block;
 
       @media(max-width: $width-sm){
         text-align: left;
@@ -48,14 +49,17 @@
         font-size: 18px;
         font-weight: 500;
         display: grid;
-        grid-template-columns: 1fr 16px;
+        grid-template-columns: 1fr 48px;
         align-items: center;
         gap: 10px;
 
         .vp-icon{
-          width: 16px;
-          height: 16px;
+          width: 48px;
+          height: 48px;
           transition: 0.3s;
+          padding: 14px;
+          border: 1px solid currentColor;
+          border-radius: 10px;
         }
       }
     }
@@ -65,6 +69,10 @@
         .vp-icon{
           transform: rotate(180deg);
         }
+      }
+
+      .vp-item--subtitle{
+        display: block;
       }
     }
 
@@ -76,6 +84,7 @@
       @media(max-width: $width-sm){
         font-size: 16px;
         margin: 24px 0 0 0;
+        display: none;
       }
     }
 

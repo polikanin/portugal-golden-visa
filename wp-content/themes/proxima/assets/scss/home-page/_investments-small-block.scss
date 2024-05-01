@@ -2,7 +2,11 @@
   padding: 80px 0 80px 0;
 
   .vp-title{
-    max-width: 440px;
+    margin-bottom: 32px;
+  }
+
+  .vp-text{
+    margin-bottom: 64px;
   }
 
   .vp-items{
@@ -21,7 +25,8 @@
 
     &--container{
       min-height: 100%;
-      display: grid;
+      display: flex;
+      flex-direction: column;
     }
 
     &--index{
@@ -56,6 +61,9 @@
     &--text{
       font-weight: 300;
       font-size: 16px;
+    }
+
+    &--space{
       margin-bottom: 32px;
     }
 

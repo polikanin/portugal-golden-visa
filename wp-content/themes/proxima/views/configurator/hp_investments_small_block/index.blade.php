@@ -8,6 +8,11 @@
                 {{ $title }}
             </h1>
         @endif
+        @if($text)
+            <div class="vp-text">
+                {!! $text !!}
+            </div>
+        @endif
 
         @if($items)
             <div class="vp-items">
@@ -32,6 +37,7 @@
                                 </div>
                             @endif
                             @if($item['link'])
+                                <div class="vp-item--space"></div>
                                 @include('components.button', ['button' => $item['link']])
                             @endif
                         </div>

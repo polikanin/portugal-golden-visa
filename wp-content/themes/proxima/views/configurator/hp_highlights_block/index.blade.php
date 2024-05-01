@@ -12,14 +12,14 @@
             <div class="vp-items vp-hidden-sm">
                 @foreach($highlights as $highlight)
                     <div class="vp-item">
-                        <div class="vp-item--head">
+                        <a href="{{ $highlight['link']['url'] }}" class="vp-item--head">
                             <div class="vp-item--title">
                                 {{ $highlight['title'] }}
                             </div>
                             <div class="vp-item--subtitle">
                                 {!! $highlight['description'] !!}
                             </div>
-                        </div>
+                        </a>
 
                         <div class="vp-item--body">
                             @foreach($highlight['items'] as $item)
@@ -43,12 +43,23 @@
                         <template #head>
                             <div class="vp-item--head">
                                 <div class="vp-item--title">
-                                    {{ $highlight['title'] }}
-
+                                    @if($highlight['link'])
+                                        <a href="{{ $highlight['link']['url'] }}">
+                                            @endif
+                                            {{ $highlight['title'] }}
+                                            @if($highlight['link'])
+                                        </a>
+                                    @endif
                                     <vp-icon type="arrow-down"></vp-icon>
                                 </div>
                                 <div class="vp-item--subtitle">
-                                    {!! $highlight['description'] !!}
+                                    @if($highlight['link'])
+                                        <a href="{{ $highlight['link']['url'] }}">
+                                            @endif
+                                        {!! $highlight['description'] !!}
+                                            @if($highlight['link'])
+                                        </a>
+                                    @endif
                                 </div>
                             </div>
                         </template>

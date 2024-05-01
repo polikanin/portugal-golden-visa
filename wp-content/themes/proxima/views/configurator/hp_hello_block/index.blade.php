@@ -113,10 +113,10 @@
                                 {{ $label }}
                             </p>
                         @endif
-                            <a class="vp-mail-link" href="mailto:{{ $email }}">
+                            <div class="vp-mail-link">
                                 <vp-icon type="sms"></vp-icon>
                                 {{ $email }}
-                            </a>
+                            </div>
                     </div>
                 </div>
             @endif
