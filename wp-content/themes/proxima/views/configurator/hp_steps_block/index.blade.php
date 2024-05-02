@@ -4,9 +4,9 @@
     <div class="wrapper">
         <div class="vp-steps-block--head">
             @if($title)
-                <h1 class="vp-title">
+                <h2 class="vp-subtitle">
                     {!! $title !!}
-                </h1>
+                </h2>
             @endif
 
             <div class="vp-steps-block--ctrl">
@@ -28,6 +28,24 @@
         nextEl: '.vp-swiper-button-next',
         prevEl: '.vp-swiper-button-prev',
       }"
+                    :breakpoints="{
+      '320': {
+     spaceBetween:20,
+     slidesPerView: 1,
+     autoHeight: true,
+      },
+      '661': {
+      spaceBetween:20,
+     slidesPerView: 'auto',
+      autoHeight: false,
+      },
+      '769': {
+      spaceBetween:20,
+      },
+      '961': {
+        spaceBetween:64,
+      },
+    }"
             >
                 @foreach($steps as $item)
                     <swiper-slide>
@@ -64,7 +82,7 @@
                         </div>
                     </swiper-slide>
                 @endforeach
-                <swiper-slide style="width: 811px"></swiper-slide>
+                <swiper-slide class="vp-last-slide vp-hidden-mob"></swiper-slide>
             </swiper>
         @endif
     </div>

@@ -55,6 +55,9 @@ createApp({
             selectedTimeline: false,
             code: window.VpPhoneCode,
             timeline: window.VpTimeline,
+            helloActiveSlide: '0',
+            helloSlider: false,
+            showClipBoardNotice: false,
         }
     },
     validations () {
@@ -115,6 +118,28 @@ createApp({
 
     },
     methods: {
+        copyToClipBoard(e) {
+            let self = this;
+            navigator.clipboard.writeText(e);
+            self.showClipBoardNotice = true
+
+            setTimeout(function (){
+                self.showClipBoardNotice = false
+            }, 2000)
+        },
+        getRef(e) {
+            this.helloSlider = e
+        },
+        onHelloSlideChange(e) {
+            console.log(e.activeIndex)
+            this.helloActiveSlide = e.activeIndex
+        },
+        setHelloSlide(e) {
+            console.log(e)
+            this.helloActiveSlide = e
+            //console.log(this.$refs.helloSlider)
+            this.helloSlider.slideTo(e)
+        },
         select(e) {
             this.selected = e
         },

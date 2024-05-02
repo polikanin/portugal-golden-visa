@@ -6,9 +6,9 @@
             <div class="vp-container--left">
                 <div class="">
                     @if($title)
-                        <h1 class="vp-title">
+                        <h2 class="vp-title">
                             {!! $title !!}
-                        </h1>
+                        </h2>
                     @endif
                     @include('components.button', ['button' => $button, 'iconImg' => 'export'])
                 </div>

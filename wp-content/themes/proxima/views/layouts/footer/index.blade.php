@@ -25,6 +25,13 @@
 @php($disclaimer_text = get_field('preview_text', 'options'))
 @php($terms_and_conditions_link = get_field('terms_and_conditions_link', 'options'))
 @php($privacy_policy_link = get_field('privacy_policy_link', 'options'))
+@php($copy_text = get_field('copy_text', 'options'))
+
+<transition name="vp-copy">
+    <div class="vp-copy-msg" v-show="showClipBoardNotice">
+        {!! $copy_text !!}
+    </div>
+</transition>
 
 <footer class="vp-footer">
     <div class="wrapper">
@@ -51,29 +58,29 @@
                                     </div>
                                 </div>
                             </div>
-{{--                            <vp-accordion class="vp-locations--item">--}}
-{{--                                <template #head>--}}
-{{--                                    <div class="vp-locations--item-head">--}}
-{{--                                        <vp-icon type="location"></vp-icon>--}}
-{{--                                        {{ $item['country'] }}--}}
-{{--                                    </div>--}}
-{{--                                </template>--}}
-{{--                                <template #body>--}}
-{{--                                    <div class="vp-locations--item-body">--}}
-{{--                                        <div class="vp-locations--item-text">--}}
-{{--                                            {{ $item['city'] }}--}}
-{{--                                        </div>--}}
-{{--                                        <div class="vp-locations--item-text">--}}
-{{--                                            {{ $item['address'] }}--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </template>--}}
-{{--                            </vp-accordion>--}}
+                            {{--                            <vp-accordion class="vp-locations--item">--}}
+                            {{--                                <template #head>--}}
+                            {{--                                    <div class="vp-locations--item-head">--}}
+                            {{--                                        <vp-icon type="location"></vp-icon>--}}
+                            {{--                                        {{ $item['country'] }}--}}
+                            {{--                                    </div>--}}
+                            {{--                                </template>--}}
+                            {{--                                <template #body>--}}
+                            {{--                                    <div class="vp-locations--item-body">--}}
+                            {{--                                        <div class="vp-locations--item-text">--}}
+                            {{--                                            {{ $item['city'] }}--}}
+                            {{--                                        </div>--}}
+                            {{--                                        <div class="vp-locations--item-text">--}}
+                            {{--                                            {{ $item['address'] }}--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </template>--}}
+                            {{--                            </vp-accordion>--}}
                         @endforeach
                     </div>
                 @endif
             </div>
-            <div class="vp-footer--col">
+            <div class="vp-footer--col vp-hidden-sm">
                 <div class="vp-footer--title">
                     Disclaimer
                 </div>
@@ -84,6 +91,25 @@
                         Please read our full disclaimer.
                     </a>
                 </div>
+            </div>
+            <div class="vp-footer--col vp-show-sm">
+                <vp-accordion class="vp-locations--item">
+                    <template #head>
+                        <div class="vp-footer--title">
+                            Disclaimer
+                            <vp-icon type="arrow-down"></vp-icon>
+                        </div>
+                    </template>
+                    <template #body>
+                        <div class="vp-footer--excerpt">
+                            {!! $disclaimer_text !!}
+                            <br>
+                            <a href="" @click.prevent="modal.id = '##disclamer'">
+                                Please read our full disclaimer.
+                            </a>
+                        </div>
+                    </template>
+                </vp-accordion>
             </div>
             <div class="vp-footer--col">
                 <div class="vp-footer--title">
@@ -115,7 +141,8 @@
             </p>
             <p class="vp-text">
                 @if($terms_and_conditions_link)
-                    <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
+                    <a href="{{ $terms_and_conditions_link['url'] }}"
+                       target="{{ $terms_and_conditions_link['target'] }}">
                         {{ $terms_and_conditions_link['title'] }}
                     </a>
                 @endif
@@ -231,7 +258,8 @@
 
                 <p class="vp-offcanvas--menu-text">
                     @if($terms_and_conditions_link)
-                        <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
+                        <a href="{{ $terms_and_conditions_link['url'] }}"
+                           target="{{ $terms_and_conditions_link['target'] }}">
                             {{ $terms_and_conditions_link['title'] }}
                         </a>
                     @endif

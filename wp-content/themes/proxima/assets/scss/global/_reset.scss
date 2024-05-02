@@ -122,6 +122,18 @@ button{
   }
 }
 
+.vp-hidden-mob{
+  @media(max-width: $width-max-sm){
+    display: none!important;
+  }
+}
+
+.vp-show-mob{
+  @media(min-width: $width-min-sm){
+    display: none!important;
+  }
+}
+
 .vp-hidden-xs{
   @media(max-width: $width-xs){
     display: none!important;

@@ -58,7 +58,7 @@
                     </div>
                 </div>
 
-                <div class="vp-form--img">
+                <div class="vp-form--img vp-hidden-md">
                     {!! get_image_html($image, 'full') !!}
                 </div>
             </div>
@@ -138,11 +138,24 @@
                 </div>
             </div>
 
-            <div class="vp-form--terms">
+            @php($terms_and_conditions_link = get_field('terms_and_conditions_link', 'options'))
+            @php($privacy_policy_link = get_field('privacy_policy_link', 'options'))
+
+            <div class="vp-form--terms vp-hidden-sm">
                 By clicking “Submit” you agree to our
-                <a href="">Terms and Conditions </a>
-                and
-                <a href="">Privacy Policy</a>
+                @if($terms_and_conditions_link)
+                    <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
+                        {{ $terms_and_conditions_link['title'] }}
+                    </a>
+                @endif
+                @if($terms_and_conditions_link and $privacy_policy_link)
+                    and
+                @endif
+                @if($privacy_policy_link)
+                    <a href="{{ $privacy_policy_link['url'] }}" target="{{ $privacy_policy_link['target'] }}">
+                        {{ $privacy_policy_link['title'] }}
+                    </a>
+                @endif
             </div>
 
             <div class="vp-form--ctrl">
@@ -152,6 +165,23 @@
                     <span class="vp-btn--text">Submit</span>
                     <vp-icon type="arrow-next"></vp-icon>
                 </vp-button>
+            </div>
+
+            <div class="vp-form--terms vp-show-sm">
+                By clicking “Submit” you agree to our
+                @if($terms_and_conditions_link)
+                    <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
+                        {{ $terms_and_conditions_link['title'] }}
+                    </a>
+                @endif
+                @if($terms_and_conditions_link and $privacy_policy_link)
+                    and
+                @endif
+                @if($privacy_policy_link)
+                    <a href="{{ $privacy_policy_link['url'] }}" target="{{ $privacy_policy_link['target'] }}">
+                        {{ $privacy_policy_link['title'] }}
+                    </a>
+                @endif
             </div>
         </div>
     </div>

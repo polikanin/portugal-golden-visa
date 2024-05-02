@@ -1,23 +1,43 @@
 .vp-form{
   padding: 80px 0 80px 0;
 
+  @media(max-width: $width-md){
+    padding: 40px 0 80px 0;
+  }
+
   &--inner{
     margin: 0 auto;
     max-width: calc(100% - 60px);
     background-color: #1e1e1e;
     border-radius: 10px;
     padding: 24px;
+
+    @media(max-width: $width-md){
+      max-width: none;
+    }
+
+    @media(max-width: $width-sm){
+      padding: 16px 12px;
+    }
   }
 
   &--title{
     font-size: 24px;
     margin-bottom: 8px;
+
+    @media(max-width: $width-sm){
+      font-size: 18px;
+    }
   }
 
   &--subtitle{
     font-weight: 300;
     font-size: 16px;
     margin-bottom: 16px;
+
+    @media(max-width: $width-sm){
+      font-size: 14px;
+    }
   }
 
   &--grid{
@@ -30,6 +50,15 @@
       display: flex;
       gap: 8px;
       margin-top: 16px;
+
+      @media(max-width: $width-md){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @media(max-width: $width-sm){
+        grid-template-columns: 1fr;
+      }
     }
   }
 
@@ -37,6 +66,10 @@
     width: 100%;
     display: grid;
     gap: 16px;
+
+    @media(max-width: $width-sm){
+      gap: 12px;
+    }
   }
 
   &--img{
@@ -56,6 +89,11 @@
   &--group{
     display: flex;
     gap: 8px;
+
+    @media(max-width: $width-sm){
+      flex-wrap: wrap;
+      gap: 12px;
+    }
   }
 
   &--block{
@@ -95,6 +133,10 @@
     font-size: 14px;
     margin-top: 32px;
 
+    @media(max-width: $width-sm){
+      margin-top: 16px;
+    }
+
     a{
       font-weight: 400;
       color: $gold;
@@ -106,5 +148,9 @@
     justify-content: center;
     gap: 8px;
     margin-top: 16px;
+
+    @media(max-width: $width-sm){
+      margin-top: 32px;
+    }
   }
 }

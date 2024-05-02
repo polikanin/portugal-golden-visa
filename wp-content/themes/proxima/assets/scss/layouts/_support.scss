@@ -1,6 +1,10 @@
 .vp-support{
   padding: 64px 0 0 0;
 
+  @media(max-width: $width-sm){
+    padding: 32px 0 0 0;
+  }
+
   .vp-container{
     border: 1px solid $line;
     border-radius: 10px;
@@ -10,6 +14,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 20px;
+
+    @media(max-width: $width-md){
+      flex-direction: column;
+      text-align: center;
+      padding: 24px;
+    }
   }
 
   &--head{
@@ -20,6 +31,10 @@
     text-transform: uppercase;
     margin-bottom: 10px;
     max-width: 400px;
+
+    @media(max-width: $width-md){
+      max-width: none;
+    }
   }
 
   .vp-text{

@@ -5,9 +5,9 @@
         <div class="vp-x3-slider-block--head">
             <div class="">
                 @if($title)
-                    <h1 class="vp-title">
+                    <h2 class="vp-title">
                         {!! $title !!}
-                    </h1>
+                    </h2>
                 @endif
                 @if($subtitle)
                     <div class="vp-text">

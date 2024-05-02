@@ -1,6 +1,10 @@
 .vp-compare-block{
   padding: 100px 0 70px 0;
 
+  @media(max-width: $width-minlg){
+    padding: 20px 0 40px 0;
+  }
+
   .vp-items{
     display: flex;
     justify-content: center;
@@ -8,6 +12,19 @@
     flex-wrap: wrap;
     gap: 32px;
     margin-top: 32px;
+
+    @media(max-width: $width-minlg){
+      gap: 24px;
+    }
+
+    @media(max-width: $width-md){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media(max-width: $width-sm){
+      grid-template-columns: 1fr;
+    }
   }
 
   .vp-item{
@@ -18,6 +35,10 @@
     border-radius: 10px;
     backdrop-filter: blur(15.5px);
     background: $black15;
+
+    @media(max-width: $width-md){
+      max-width: none;
+    }
 
     &:first-child{
       .vp-item--country{
@@ -35,6 +56,10 @@
 
     &--inner{
       padding: 20px;
+
+      @media(max-width: $width-minlg){
+        padding: 16px;
+      }
     }
 
     &--head{
@@ -44,6 +69,10 @@
       border-radius: 10px;
       overflow: hidden;
       margin-bottom: 24px;
+
+      @media(max-width: $width-sm){
+        height: 155px;
+      }
 
       img{
         position: absolute;
@@ -66,6 +95,12 @@
       position: absolute;
       top: 16px;
       left: 16px;
+
+      @media(max-width: $width-minlg){
+        left: 10px;
+        right: 10px;
+        text-align: center;
+      }
     }
 
     &--country{
@@ -80,6 +115,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      @media(max-width: $width-minlg){
+        font-size: 24px;
+      }
     }
 
     &--price{
@@ -98,11 +137,20 @@
       gap: 16px;
       margin-top: 24px;
 
+      @media(max-width: $width-minlg){
+        margin-top: 16px;
+      }
+
       &-el{
         display: grid;
         grid-template-columns: 48px 1fr;
         gap: 16px;
         align-items: center;
+
+        @media(max-width: $width-minlg){
+          gap: 8px;
+          grid-template-columns: 40px 1fr;
+        }
 
         &--icon{
           border: 1px solid $line;
@@ -114,9 +162,20 @@
           justify-content: center;
           align-items: center;
 
+          @media(max-width: $width-minlg){
+            width: 40px;
+            min-width: 40px;
+            height: 40px;
+          }
+
           img{
             width: 20px;
             height: 20px;
+
+            @media(max-width: $width-minlg){
+              width: 16px;
+              height: 16px;
+            }
           }
         }
 
@@ -124,8 +183,16 @@
           font-weight: 300;
           font-size: 18px;
 
+          @media(max-width: $width-minlg){
+            font-size: 16px;
+          }
+
           span{
             color: $white30;
+
+            @media(max-width: $width-minlg){
+              font-size: 14px;
+            }
           }
         }
       }

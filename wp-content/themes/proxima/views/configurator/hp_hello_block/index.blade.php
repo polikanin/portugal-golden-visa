@@ -35,12 +35,12 @@
             @endif
 
             @if($block_type === 'type_2')
-                <div class="vp-hello-block--col">
+                <div class="vp-hello-block--col vp-hidden-sm">
 
                 </div>
                 <div class="vp-hello-block--col">
-                    <div class="vp-items">
-                        @if($items)
+                    @if($items)
+                        <div class="vp-items vp-hidden-sm">
                             @foreach($items as $item)
                                 @if($loop->index < 2)
                                     <div class="vp-item">
@@ -57,15 +57,55 @@
                                     </div>
                                 @endif
                             @endforeach
-                        @endif
-                    </div>
+                        </div>
+                    @endif
+
+                    @if($items)
+                        <div class="vp-items vp-show-sm">
+                            <div class="vp-items--head">
+                                @foreach($items as $item)
+                                    <div class="vp-item">
+                                        <div class="vp-item--index"
+                                             :class="{active: helloActiveSlide == '{{ $loop->index }}'}"
+                                             @click="setHelloSlide('{{ $loop->index }}')">
+                                            @if($loop->index + 1 < 10)
+                                                0{{ $loop->index + 1 }}
+                                            @else
+                                                {{ $loop->index + 1 }}
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+
+                            <swiper
+                                    @swiper="getRef"
+                                    @slide-change="onHelloSlideChange"
+                                    :space-between="8"
+                                    :modules="modules"
+                                    :slides-per-view="1"
+                            >
+                                @foreach($items as $item)
+                                    <swiper-slide>
+                                        <div class="vp-item">
+                                            <div class="vp-item--text">
+                                                {!! $item['text'] !!}
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                @endforeach
+                            </swiper>
+                        </div>
+                    @endif
+
+
                     <div class="vp-hello-block--content">
                         @if($link)
                             @include('components.button', ['button' => $link, 'iconId' => $icon])
                         @endif
                     </div>
                 </div>
-                <div class="vp-hello-block--col">
+                <div class="vp-hello-block--col vp-hidden-sm">
                     <div class="vp-items">
                         @if($items)
                             @foreach($items as $item)
@@ -113,16 +153,16 @@
                                 {{ $label }}
                             </p>
                         @endif
-                            <div class="vp-mail-link">
-                                <vp-icon type="sms"></vp-icon>
-                                {{ $email }}
-                            </div>
+                        <div class="vp-mail-link" @click="copyToClipBoard('{{ $email }}')">
+                            <vp-icon type="sms"></vp-icon>
+                            {{ $email }}
+                        </div>
                     </div>
                 </div>
             @endif
 
             @if($block_type === 'type_4')
-                <div class="vp-hello-block--col">
+                <div class="vp-hello-block--col vp-hidden-sm">
                     <div class="vp-items-type_4">
                         @if($items_type_4)
                             @foreach($items_type_4 as $item)
@@ -140,7 +180,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="vp-hello-block--col">
+                <div class="vp-hello-block--col vp-hidden-sm">
                     <div class="vp-items-type_4">
                         @if($items_type_4)
                             @foreach($items_type_4 as $item)
@@ -170,6 +210,28 @@
                             @include('components.button', ['button' => $link, 'iconId' => $icon])
                         @endif
                     </div>
+                    @if($items_type_4)
+                        <div class="vp-items-type_4 vp-show-sm">
+                            <swiper
+                                    :space-between="8"
+                                    :modules="modules"
+                                    :slides-per-view="1"
+                            >
+                                @foreach($items_type_4 as $item)
+                                    <swiper-slide>
+                                        <div class="vp-item">
+                                            <div class="vp-item--text">
+                                                {{ $item['text'] }}
+                                            </div>
+                                            <div class="vp-item--title">
+                                                {{ $item['title'] }}
+                                            </div>
+                                        </div>
+                                    </swiper-slide>
+                                @endforeach
+                            </swiper>
+                        </div>
+                    @endif
                 </div>
             @endif
         </div>

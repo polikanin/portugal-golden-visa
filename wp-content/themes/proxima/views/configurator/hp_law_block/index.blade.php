@@ -12,6 +12,8 @@
             <div class="vp-items">
                 @foreach($updates as $item)
                     <div class="vp-item">
+                        <div class="vp-item--dot vp-item--dot-top vp-show-sm"></div>
+                        <div class="vp-item--dot vp-item--dot-bottom vp-show-sm"></div>
                         <div class="vp-item--container">
                             @if($item['image'])
                                 <div class="vp-item--img">

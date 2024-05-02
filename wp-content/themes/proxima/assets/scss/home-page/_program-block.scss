@@ -49,6 +49,8 @@
     @media(max-width: $width-sm){
       height: auto;
       display: block;
+      max-height: none;
+      min-height: 0;
     }
 
     .vp-text{
@@ -127,7 +129,7 @@
       }
 
       @media(max-width: $width-sm){
-        border-top: none;
+        border-bottom: none;
       }
     }
 

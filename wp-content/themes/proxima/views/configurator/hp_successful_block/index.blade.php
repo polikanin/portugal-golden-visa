@@ -5,9 +5,9 @@
     <div class="wrapper">
         <div class="vp-successful-block--head">
             @if($title)
-                <h1 class="vp-title">
+                <h2 class="vp-title">
                     {!! $title !!}
-                </h1>
+                </h2>
             @endif
             @if($text)
                 <p class="vp-text">

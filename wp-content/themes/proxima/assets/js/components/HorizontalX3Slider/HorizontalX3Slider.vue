@@ -1,8 +1,8 @@
 <template>
     <div class="vp-testimonials-block--head">
-        <h1 class="vp-title" v-html="title">
+        <h2 class="vp-title" v-html="title">
 
-        </h1>
+        </h2>
 
         <div class="vp-testimonials-block--ctrl">
             <div class="vp-swiper-button-prev">

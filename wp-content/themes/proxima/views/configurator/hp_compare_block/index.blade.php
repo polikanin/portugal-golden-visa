@@ -3,9 +3,9 @@
 >
     <div class="wrapper">
         @if($title)
-            <h1 class="vp-title">
+            <h2 class="vp-title">
                 {{ $title }}
-            </h1>
+            </h2>
         @endif
 
         @if($items)
