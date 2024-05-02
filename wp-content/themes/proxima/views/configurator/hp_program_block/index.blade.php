@@ -54,7 +54,7 @@
                 :slides-per-view="1"
                 :pagination="{ clickable: true }"
         >
-            @foreach(range(1, count($program)/4) as $i)
+            @foreach(range(1, ceil(count($program)/4)) as $i)
                 <swiper-slide>
                     @foreach($program as $item)
                         @if($loop->index >= ($i - 1) * 4 and $loop->index < $i * 4)

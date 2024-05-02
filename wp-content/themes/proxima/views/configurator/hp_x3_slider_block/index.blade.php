@@ -16,7 +16,7 @@
                 @endif
             </div>
             @if($text)
-                <div class="vp-text">
+                <div class="vp-text vp-hidden-sm">
                     {!! $text !!}
                 </div>
             @endif
@@ -34,6 +34,25 @@
                         delay: 2000,
                         pauseOnMouseEnter: true
                     }"
+                :pagination="{ clickable: true }"
+                :breakpoints="{
+          '320': {
+            spaceBetween: 0,
+            slidesPerView: 1,
+          },
+          '768': {
+            spaceBetween: 24,
+            slidesPerView: 2,
+          },
+          '960': {
+            spaceBetween: 24,
+            slidesPerView: 3,
+          },
+          '1280': {
+            spaceBetween: 0,
+            slidesPerView: 'auto',
+          }
+      }"
                 @slide-change-transition-end="onSlideChange"
                 @slide-change-transition-start="start"
         >
@@ -63,4 +82,12 @@
             @endforeach
         </swiper>
     @endif
+
+    <div class="wrapper">
+        @if($text)
+            <div class="vp-text v-show-sm">
+                {!! $text !!}
+            </div>
+        @endif
+    </div>
 </div>

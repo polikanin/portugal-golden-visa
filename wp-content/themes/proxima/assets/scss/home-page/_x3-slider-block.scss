@@ -2,6 +2,10 @@
   padding: 50px 0 100px 0;
   overflow: hidden;
 
+  @media(max-width: $width-sm){
+    padding: 40px 0 0px 0;
+  }
+
   &--head{
     display: flex;
     justify-content: space-between;
@@ -9,6 +13,10 @@
 
     .vp-title{
       margin-bottom: 30px;
+
+      @media(max-width: $width-sm){
+        margin-bottom: 24px;
+      }
     }
   }
 
@@ -19,44 +27,63 @@
     padding-bottom: 40px;
     overflow: visible;
     cursor: grab;
+
+    @media(max-width: $width-sm){
+      padding: 32px 0;
+      margin: 0 0 0 0;
+    }
     
     &:active{
       cursor: grabbing;
     }
   }
+
+  @media(min-width: $width-sm-min){
+    .swiper-pagination{
+      display: none;
+    }
+  }
+
   .swiper-slide{
-    width: calc(#{$width-lpt}/3)!important;
     min-height: 265px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 0.3s;
-    transform: translate3d(0, 40px,0);
 
-    &.swiper-slide-next{
-      z-index: 100!important;
-      transform: translate3d(0, -48px, 0);
+    @media(min-width: $width-lg-min){
+      transform: translate3d(0, 40px,0);
+      width: calc(#{$width-lpt}/3)!important;
 
-      .vp-item{
-        //padding-top: 55px;
-        padding-top: 30px;
+      &.swiper-slide-next{
+        z-index: 100!important;
+        transform: translate3d(0, -48px, 0);
+
+        .vp-item{
+          //padding-top: 55px;
+          padding-top: 30px;
+        }
+
+        & + .swiper-slide{
+          transform: translate3d(0, 0, 0);
+        }
       }
 
-      & + .swiper-slide{
+      &.swiper-slide-active{
+        z-index: 40!important;
         transform: translate3d(0, 0, 0);
       }
-    }
 
-    &.swiper-slide-active{
-      z-index: 40!important;
-      transform: translate3d(0, 0, 0);
-    }
-
-    @for $i from 1 through 30 {
-      &:nth-child(#{$i}) {
-        z-index: 30 - $i;
+      @for $i from 1 through 30 {
+        &:nth-child(#{$i}) {
+          z-index: 30 - $i;
+        }
       }
+    }
+
+    @media(max-width: $width-sm){
+      padding: 0 20px;
     }
   }
 
@@ -72,6 +99,14 @@
     text-align: center;
     padding: 24px 24px 20px 24px;
     transition: 0.3s;
+
+    @media(max-width: $width-lg){
+      min-width: 0;
+      max-width: none;
+      width: 100%;
+      padding: 12px;
+      min-height: 240px;
+    }
 
     &--title{
       font-weight: 400;

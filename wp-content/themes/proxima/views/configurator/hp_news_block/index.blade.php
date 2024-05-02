@@ -18,12 +18,14 @@
                                     {!! get_image_html($item['image'], 'full') !!}
                                 </div>
                             @endif
+                                <div class="vp-item--dot vp-item--dot-top vp-show-sm"></div>
                         </div>
                         @foreach($item['blocks'] as $block)
                             <div class="vp-item--container">
                                 @if($block['text'])
                                         {!! $block['text'] !!}
                                 @endif
+                                <div class="vp-item--dot vp-item--dot-bottom vp-show-sm"></div>
                             </div>
                         @endforeach
                     </div>

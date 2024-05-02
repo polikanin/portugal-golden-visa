@@ -26,6 +26,10 @@
       font-size: 14px;
     }
 
+    @media(max-width: $width-sm){
+      padding: 0 12px;
+    }
+
     &[disabled]{
       background-color: rgba(255, 255, 255, 0.05)!important;
       border-color: $white30!important;
@@ -53,6 +57,7 @@
 
   .vp-icon{
     width: 24px;
+    min-width: 24px;
     height: 24px;
 
     svg{
@@ -108,10 +113,19 @@ a.vp-btn{
     display: flex;
     align-items: center;
     gap: 8px;
+
+    @media(max-width: $width-minlg){
+      font-size: 14px;
+    }
+
+    @media(max-width: $width-sm){
+      padding: 0 12px;
+    }
   }
 
   .vp-icon{
     width: 24px;
+    min-width: 24px;
     height: 24px;
 
     svg{

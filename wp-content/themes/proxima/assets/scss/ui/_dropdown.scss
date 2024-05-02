@@ -6,6 +6,10 @@
   height: 58px;
   transition: 0.3s;
 
+  @media(max-width: $width-sm){
+    height: 44px;
+  }
+
   &.vp-input--error{
     background-color: rgba(232, 48, 48, 0.05);
     border-color: $error;
