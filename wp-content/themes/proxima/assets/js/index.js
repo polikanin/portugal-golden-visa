@@ -8,6 +8,7 @@ import 'swiper/css/effect-fade';
 import 'custom-vue-scrollbar/dist/style.css';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { useVuelidate } from '@vuelidate/core'
+import axios from 'axios'
 import { required, email } from '@vuelidate/validators'
 import stepAnimation from "./stepAnimation";
 
@@ -81,11 +82,26 @@ createApp({
         let setupScrollSettings = function (){
             if(window.scrollY > 50){
                 header.classList.add('fixed')
-                self.topBtnActive = true
             }
             else{
                 header.classList.remove('fixed')
-                self.topBtnActive = false
+            }
+
+            if(window.innerWidth > 1024){
+                if(window.scrollY > 50){
+                    self.topBtnActive = true
+                }
+                else{
+                    self.topBtnActive = false
+                }
+            }
+            else{
+                if(window.scrollY > document.body.offsetHeight - document.body.offsetHeight * .1){
+                    self.topBtnActive = true
+                }
+                else{
+                    self.topBtnActive = false
+                }
             }
         }
 
@@ -111,6 +127,15 @@ createApp({
             })
         })
 
+        document.addEventListener('wheel', (e) => {
+            if (e.wheelDeltaY < 0) {
+                header.classList.add('hide-header')
+            } else {
+                header.classList.remove('hide-header')
+            }
+        })
+
+
         verticalAnimation()
         stepAnimation()
     },
@@ -118,6 +143,57 @@ createApp({
 
     },
     methods: {
+        oAuth(e) {
+            const portalId = window.portal_id; // Замените на ваш HubSpot портал ID
+            const formId = window.form_id; // Замените на ваш HubSpot форм GUID
+
+            const formData = {
+                fields: [
+                    {
+                        name: "email",
+                        value: "test@example.com"
+                    },
+                    {
+                        name: "firstname",
+                        value: "John Snow 4"
+                    },
+                    {
+                        name: "gender",
+                        value: "VASILIY"
+                    },
+                    {
+                        name: "whats_app",
+                        value: "Yes"
+                    },
+                    {
+                        name: "motivation",
+                        value: 'Backup option if needed due to geopolitical & economical reasons'
+                    },
+                    {
+                        name: "motivation",
+                        value: 'Alternative future for my family'
+                    }
+                ],
+                context: {
+                    pageUri: "www.example.com/form-page",
+                    pageName: "Form Page"
+                }
+            };
+
+            let url = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`
+
+            axios.post(url, formData, {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        },
         copyToClipBoard(e) {
             let self = this;
             navigator.clipboard.writeText(e);

@@ -33,12 +33,15 @@
             :breakpoints="{
       '320': {
         slidesPerView: 1,
+        autoHeight: true,
       },
       '769': {
         slidesPerView: 2,
+autoHeight: true,
       },
       '960': {
         slidesPerView: 3,
+        autoHeight: false,
       },
     }"
         >

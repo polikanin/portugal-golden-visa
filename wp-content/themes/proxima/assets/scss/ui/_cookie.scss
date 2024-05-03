@@ -12,6 +12,15 @@
     margin: 0 0 32px 64px;
     font-family: $font-family;
     pointer-events: auto;
+
+    @media(max-width: $width-md){
+      margin: 20px;
+    }
+
+    @media(max-width: $width-sm){
+      margin: 0px;
+      max-width: calc(100% - 20px);
+    }
   }
 
   &-title{
@@ -49,5 +58,20 @@
 .cookies-set{
   #cookie-notice{
     display: none!important;
+  }
+}
+
+body{
+  .cky-consent-container .cky-consent-bar{
+    box-shadow: none;
+    border-radius: 10px;
+  }
+
+  button.cky-show-desc-btn:not(:hover):not(:active),
+  button.cky-show-desc-btn:hover:not(:active),
+  button.cky-show-desc-btn:hover:active,
+  button.cky-show-desc-btn:hover,
+  .cky-accordion-header .cky-always-active{
+    color: $gold!important;
   }
 }

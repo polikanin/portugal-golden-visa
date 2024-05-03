@@ -1,5 +1,6 @@
 .vp-vertical-slider-block{
   padding: 106px 0 175px 0;
+  overflow: hidden;
   $slide-height: 265px;
   $slide-offset: 60px;
 
@@ -189,7 +190,9 @@
       &.active,
       &:hover{
         color: $white;
+      }
 
+      &.active{
         @media(max-width: $width-md){
           .vp-vertical-slide--btn-index{
             color: #606060;

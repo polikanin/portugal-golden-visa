@@ -56,8 +56,12 @@
 @php($timelines = get_field('timeline', 'options'))
 @php($error_messages = get_field('error_messages', 'options'))
 @php($form_fields = get_field('form_fields', 'options'))
+@php($portal_id = get_field('portal_id', 'options'))
+@php($form_id = get_field('form_id', 'options'))
 
 <script>
+    window.portal_id = '{{ $portal_id }}'
+    window.form_id = '{{ $form_id }}'
     window.VpPhoneCode = [
             @foreach($phone_code as $code)
         {

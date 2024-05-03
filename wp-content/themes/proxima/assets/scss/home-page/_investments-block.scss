@@ -1,5 +1,6 @@
 .vp-investments-block{
   padding: 92px 0 100px 0;
+  overflow: hidden;
 
   @media(max-width: $width-md){
     padding: 80px 0 40px 0;
@@ -66,6 +67,11 @@
         width: 8px;
         height: 8px;
         margin: 2px;
+
+        @media(max-width: $width-sm){
+          width: 6px;
+          height: 6px;
+        }
       }
     }
 

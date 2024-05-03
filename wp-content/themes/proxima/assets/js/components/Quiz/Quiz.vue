@@ -144,10 +144,10 @@
                     </div>
 
                     <div class="vp-modal--navigation">
-                        <vp-button btn-class="vp-btn--simple" @click="stepBack">
-                            <vp-icon type="arrow-prev"></vp-icon>
-                            <span class="vp-btn--text">Go Back</span>
-                        </vp-button>
+<!--                        <vp-button btn-class="vp-btn&#45;&#45;simple" @click="stepBack">-->
+<!--                            <vp-icon type="arrow-prev"></vp-icon>-->
+<!--                            <span class="vp-btn&#45;&#45;text">Go Back</span>-->
+<!--                        </vp-button>-->
                         <vp-button @click="submitStep">
                             <span class="vp-btn--text">Next Step</span>
                             <vp-icon type="arrow-next"></vp-icon>
@@ -177,6 +177,7 @@
                             </div>
                             <input class="vp-input"
                                    type="text"
+                                   disabled
                                    :class="{'vp-input--error': v$.quiz.timelineCity.$error}"
                                    v-model="quiz.timelineCity"
                                    :placeholder="selectedTimeline.mask">

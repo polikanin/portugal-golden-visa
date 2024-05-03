@@ -23,6 +23,7 @@
                     :modules="modules"
                     :slides-per-view="'auto'"
                     :loop="true"
+                    :allow-touch-move="false"
                     :autoplay="{
                         delay: 0,
                         disableOnInteraction: false
@@ -61,6 +62,7 @@
                     :modules="modules"
                     :slides-per-view="'auto'"
                     :loop="true"
+                    :allow-touch-move="false"
                     :autoplay="{
                         delay: 0,
                         disableOnInteraction: false

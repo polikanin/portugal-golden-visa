@@ -1,5 +1,6 @@
 .vp-terms-block{
   padding: 80px 0 100px 0;
+  overflow: hidden;
 
   @media(max-width: $width-sm){
     padding: 40px 0 40px 0;

@@ -1,5 +1,6 @@
 .vp-options-block{
   padding: 102px 0 40px 0;
+  overflow: hidden;
 
   @media(max-width: $width-md){
     padding: 40px 0 40px 0;
@@ -113,6 +114,20 @@
           transform: none;
         }
 
+        &--title{
+          color: $white;
+        }
+
+        &--img{
+          filter: none;
+        }
+      }
+    }
+  }
+
+  @media(max-width: $width-sm){
+    .swiper-slide-active{
+      .vp-vertical-slide{
         &--title{
           color: $white;
         }

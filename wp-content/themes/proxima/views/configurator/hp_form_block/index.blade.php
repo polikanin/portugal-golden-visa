@@ -168,7 +168,7 @@
             </div>
 
             <div class="vp-form--terms vp-show-sm">
-                By clicking “Submit” you agree to our
+                <div class="">By clicking “Submit” you agree to our</div>
                 @if($terms_and_conditions_link)
                     <a href="{{ $terms_and_conditions_link['url'] }}" target="{{ $terms_and_conditions_link['target'] }}">
                         {{ $terms_and_conditions_link['title'] }}

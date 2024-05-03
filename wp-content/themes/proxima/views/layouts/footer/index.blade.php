@@ -231,7 +231,7 @@
             <div class="vp-offcanvas--menu-head">
                 @php($image = get_field('logo', 'options'))
 
-                <a href="/">
+                <a href="/" class="vp-offcanvas--menu-logo">
                     {!! get_image_html($image, 'full') !!}
                 </a>
 

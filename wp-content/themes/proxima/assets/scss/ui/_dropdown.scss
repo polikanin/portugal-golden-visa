@@ -33,7 +33,9 @@
     padding: 13px 36px 13px 16px;
 
     @media(max-width: $width-sm){
-      padding: 13px 30px 13px 16px;
+      padding: 13px 25px 13px 10px;
+      font-size: 14px;
+      white-space: nowrap;
     }
 
     img{
@@ -54,7 +56,7 @@
       color: $white30;
 
       @media(max-width: $width-sm){
-        right: 10px;
+        right: 5px;
       }
 
       .vp-icon{

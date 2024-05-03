@@ -26,6 +26,12 @@
     padding: 24px 0;
   }
 
+  @media(max-width: $width-md){
+    &.hide-header{
+      transform: translateY(-100%);
+    }
+  }
+
   &.fixed{
     &:after{
       opacity: 1;

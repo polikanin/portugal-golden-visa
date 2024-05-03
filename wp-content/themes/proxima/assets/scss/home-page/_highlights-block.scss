@@ -1,5 +1,6 @@
 .vp-highlights-block {
   padding: 100px 0 100px 0;
+  overflow: hidden;
 
   @media(max-width: $width-md){
     padding: 40px 0 40px 0;

@@ -50,6 +50,9 @@ body{
 *{
   box-sizing: border-box;
 }
+h1, h2, h3, h4, h5, h6{
+  font-weight: 400;
+}
 h1, h2, h3, h4, p, a, img, ul, li{
   padding: 0;
   margin: 0;
@@ -226,3 +229,4 @@ button{
     margin: 16px 0;
   }
 }
+
