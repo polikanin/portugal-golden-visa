@@ -12,6 +12,24 @@ import axios from 'axios'
 import {required, email} from '@vuelidate/validators'
 import stepAnimation from "./stepAnimation";
 
+window.defaultFields = {
+    terms: false,
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    videoCall: '',
+    whatsAppCall: '',
+    message: '',
+    motivation: [],
+    objectives: [],
+    risk: '',
+    investment: [],
+    capability: '',
+    relocating: '',
+    frameToInvestment: '',
+}
+
 createApp({
     delimiters: ['${', '}'],
     setup() {
@@ -148,13 +166,10 @@ createApp({
             this.helloSlider = e
         },
         onHelloSlideChange(e) {
-            console.log(e.activeIndex)
             this.helloActiveSlide = e.activeIndex
         },
         setHelloSlide(e) {
-            console.log(e)
             this.helloActiveSlide = e
-            //console.log(this.$refs.helloSlider)
             this.helloSlider.slideTo(e)
         },
         select(e) {
@@ -187,15 +202,11 @@ createApp({
         },
         async checkValidation() {
             let self = this;
-            console.log(await this.v$)
         },
         submit() {
             let self = this;
-            this.v$.$touch()
 
-            setTimeout(function () {
-                self.v$.$reset()
-            }, 2000)
+            this.sendForm(this.form)
         },
         serialize(form) {
             let result = []
@@ -307,17 +318,22 @@ createApp({
                     rest += '\n'
                 })
                 rest += '\n'
+                rest += '\n'
             }
             // 3 step end
 
+
+            // 4 step start
             if (form.capability) {
                 rest += 'Do you have financial capability to support investment vehicles at €500,000? - '
                 rest += form.capability
+                rest += '\n'
                 rest += '\n'
             }
             if (form.relocating) {
                 rest += 'Are you planning on relocating to Portugal? - '
                 rest += form.relocating
+                rest += '\n'
                 rest += '\n'
             }
             if (form.frameToInvestment) {
@@ -325,6 +341,8 @@ createApp({
                 rest += form.frameToInvestment
                 rest += '\n'
             }
+            // 4 step end
+
 
             if (rest) {
                 result.push(
@@ -338,11 +356,20 @@ createApp({
             return result;
         },
         closeQuiz(e) {
-            this.sendForm(e)
+            this.sendForm(e, true)
             this.modal.id = false
         },
-        sendForm(e) {
+        resetForm() {
+            Object.keys(window.defaultFields).forEach(item => {
+                this.form[item] = window.defaultFields[item]
+            });
+
+            let phone = document.querySelector('.vp-form .vp-input[name="phone"]')
+            phone.value = ''
+        },
+        sendForm(e, silence) {
             if(!e || !e.email) return
+            let self = this
             let fields = this.serialize(e)
             const portalId = window.portal_id; // Замените на ваш HubSpot портал ID
             const formId = window.form_id; // Замените на ваш HubSpot форм GUID
@@ -362,7 +389,13 @@ createApp({
                 }
             })
                 .then(function (response) {
-                    console.log(response);
+                    self.resetForm()
+
+                    if(!silence){
+                        let event = new CustomEvent('clear')
+                        document.body.dispatchEvent(event)
+                    }
+
                 })
                 .catch(function (error) {
                     console.log(error);

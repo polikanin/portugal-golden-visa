@@ -49,6 +49,7 @@
                                     ></vp-dropdown>
                                 </div>
                                 <vp-mask class="vp-input"
+                                         name="phone"
                                          :class="{'vp-input--error': v$.form.phone.$error}"
                                          v-model="form.phone" :mask="selected.mask"
                                          :placeholder="selected.placeholder"/>

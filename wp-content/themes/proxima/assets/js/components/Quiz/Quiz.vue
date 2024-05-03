@@ -95,11 +95,13 @@
                                         @select="select"></vp-dropdown>
                                 </div>
                                 <vp-mask class="vp-input"
+                                         name="phone"
                                          :class="{'vp-input--error': v$.quiz.phone.$error}"
                                          v-model="quiz.phone" :mask="selected.mask"
                                          :placeholder="selected.placeholder"/>
                             </div>
                             <div class="vp-error--msg" v-if="v$.quiz.phone.$error">{{ msg.phone }}</div>
+                            {{quiz.phone}}
                         </div>
                     </div>
 
@@ -435,9 +437,20 @@ export default {
         }
     },
     mounted() {
-
+        let self = this;
+        document.body.addEventListener('clear', function (){
+            self.resetForm()
+        })
     },
     methods: {
+        resetForm() {
+            Object.keys(window.defaultFields).forEach(item => {
+                this.quiz[item] = window.defaultFields[item]
+            });
+            let phone = document.querySelector('.vp-modal--body .vp-input[name="phone"]')
+            phone.value = ''
+            this.step = 0
+        },
         close() {
             this.$emit('close', this.quiz)
         },
@@ -458,7 +471,7 @@ export default {
             if (this.v$.$validationGroups['step_' + this.step]) {
                 if (!this.v$.$validationGroups['step_' + this.step].$invalid) {
                     if(this.step > 0){
-                        this.sendForm()
+                        this.sendForm(true)
                     }
 
                     this.step++;
@@ -480,8 +493,8 @@ export default {
             this.sendForm()
             this.step = 0
         },
-        sendForm() {
-            this.$emit('send-form', this.quiz)
+        sendForm(e) {
+            this.$emit('send-form', this.quiz, e)
         }
     }
 }
