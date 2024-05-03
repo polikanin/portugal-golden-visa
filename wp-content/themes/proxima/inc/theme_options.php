@@ -826,6 +826,43 @@ if ( function_exists( 'acf_add_local_field_group' ) ) {
                 'append' => '',
                 'maxlength' => '',
             ],
+
+            // CSS TAB
+            [
+                'key'               => 'field_66355fb353ec3',
+                'label'             => 'Css',
+                'name'              => '',
+                'type'              => 'tab',
+                'instructions'      => '',
+                'required'          => 0,
+                'conditional_logic' => 0,
+                'wrapper'           => [
+                    'width' => '',
+                    'class' => '',
+                    'id'    => '',
+                ],
+                'placement'         => 'top',
+                'endpoint'          => 0,
+            ],
+            [
+                'key' => 'field_66355f610d603',
+                'label' => 'Critical Css',
+                'name' => 'critical_css',
+                'type' => 'textarea',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'default_value' => '',
+                'placeholder' => '',
+                'maxlength' => '',
+                'rows' => '',
+                'new_lines' => '',
+            ],
         ],
         'location'              => [
             [

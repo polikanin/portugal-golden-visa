@@ -59,6 +59,8 @@
 @php($portal_id = get_field('portal_id', 'options'))
 @php($form_id = get_field('form_id', 'options'))
 
+@include('components.critical')
+
 <style>
     .vp-preloader{
         position: fixed;
