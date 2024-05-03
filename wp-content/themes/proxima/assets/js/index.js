@@ -255,20 +255,23 @@ createApp({
 
             // 2 step start
             if (form.message) {
+                rest += 'Family composition of the applicants including age? - '
                 rest += form.message
                 rest += '\n'
             }
             if (form.timelineCode) {
+                rest += 'Time zone - ';
                 rest += form.timelineCode
-                rest += '\n'
-            }
-            if (form.timelineCity) {
+                rest += ' ';
                 rest += form.timelineCity
                 rest += '\n'
             }
             if (form.motivation && form.motivation.length > 0) {
                 rest += '\n'
+                rest += 'What is the motivation behind obtaining the Portuguese Golden Visa: ';
+                rest += '\n'
                 form.motivation.forEach(item => {
+                    rest += ' - '
                     rest += item
                     rest += '\n'
                 })
@@ -280,19 +283,26 @@ createApp({
             // 3 step start
             if (form.objectives && form.objectives.length > 0) {
                 rest += '\n'
+                rest += 'What are your objectives in regards to the investment vehicle chosen: '
+                rest += '\n'
                 form.objectives.forEach(item => {
+                    rest += ' - '
                     rest += item
                     rest += '\n'
                 })
                 rest += '\n'
             }
             if (form.risk) {
+                rest += 'How would you describe your risk profile? - '
                 rest += form.risk
                 rest += '\n'
             }
             if (form.investment && form.investment.length > 0) {
                 rest += '\n'
+                rest += 'Preferred type of investment? - '
+                rest += '\n'
                 form.investment.forEach(item => {
+                    rest += ' - '
                     rest += item
                     rest += '\n'
                 })
@@ -301,14 +311,17 @@ createApp({
             // 3 step end
 
             if (form.capability) {
+                rest += 'Do you have financial capability to support investment vehicles at €500,000? - '
                 rest += form.capability
                 rest += '\n'
             }
             if (form.relocating) {
+                rest += 'Are you planning on relocating to Portugal? - '
                 rest += form.relocating
                 rest += '\n'
             }
             if (form.frameToInvestment) {
+                rest += 'Time frame to investment? - '
                 rest += form.frameToInvestment
                 rest += '\n'
             }
@@ -337,8 +350,7 @@ createApp({
             const formData = {
                 fields: fields,
                 context: {
-                    pageUri: "www.example.com/form-page",
-                    pageName: "Form Page"
+                    pageUri: location.href
                 }
             };
 
