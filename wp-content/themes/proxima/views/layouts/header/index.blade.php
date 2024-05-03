@@ -59,6 +59,46 @@
 @php($portal_id = get_field('portal_id', 'options'))
 @php($form_id = get_field('form_id', 'options'))
 
+<style>
+    .vp-preloader{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1e1e1e;
+        z-index: 10000000000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .vp-preloader.page-load{
+        transform: scale(1.05);
+        opacity: 0;
+        pointer-events: none;
+    }
+    /* HTML: <div class="loader"></div> */
+    .loader {
+        width: 50px;
+        aspect-ratio: 1;
+        --_c:no-repeat radial-gradient(farthest-side,#e9a900 92%,#0000);
+        background:
+                var(--_c) top,
+                var(--_c) left,
+                var(--_c) right,
+                var(--_c) bottom;
+        background-size: 12px 12px;
+        animation: l7 1s infinite;
+    }
+    @keyframes l7 {to{transform: rotate(.5turn)}}
+</style>
+
+<div class="vp-preloader">
+    <div class="loader"></div>
+</div>
+
 <script>
     window.portal_id = '{{ $portal_id }}'
     window.form_id = '{{ $form_id }}'

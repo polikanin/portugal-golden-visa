@@ -95,6 +95,7 @@ createApp({
     },
     mounted() {
         let self = this;
+        const preloader = document.querySelector('.vp-preloader')
         const header = document.querySelector('.vp-header')
         const progress = document.querySelectorAll('[data-progress-container]')
         let setupScrollSettings = function () {
@@ -118,6 +119,8 @@ createApp({
                 }
             }
         }
+
+        preloader.classList.add('page-load')
 
         setupScrollSettings()
 
