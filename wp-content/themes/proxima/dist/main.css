@@ -1050,7 +1050,7 @@ a.vp-btn--simple {
     .vp-modal--terms .vp-checkbox {
       align-items: center; }
       .vp-modal--terms .vp-checkbox--text {
-        margin: 3px 0 0 0; }
+        margin: 0 0 0 0; }
         .vp-modal--terms .vp-checkbox--text a {
           font-weight: 400;
           color: var(--gold); }

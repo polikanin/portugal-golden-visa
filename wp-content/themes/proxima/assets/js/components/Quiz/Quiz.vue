@@ -16,7 +16,7 @@
                         <div class="vp-modal--step" :class="{active: step === 4, passed: step > 4}">04</div>
                     </div>
                 </transition>
-                <div class="vp-modal--close" @click="$emit('close')" v-show="step !== 0">
+                <div class="vp-modal--close" @click="close" v-show="step !== 0">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-linecap="round"
                               stroke-linejoin="round"/>
@@ -439,7 +439,7 @@ export default {
     },
     methods: {
         close() {
-            console.log('close')
+            this.$emit('close', this.quiz)
         },
         select(e) {
             this.selected = e
@@ -448,6 +448,7 @@ export default {
         selectTimeline(e) {
             this.selectedTimeline = e
             this.quiz.timelineCode = e.value
+            this.quiz.timelineCity = e.mask
         },
         stepBack() {
             this.step--
@@ -456,6 +457,10 @@ export default {
             let self = this
             if (this.v$.$validationGroups['step_' + this.step]) {
                 if (!this.v$.$validationGroups['step_' + this.step].$invalid) {
+                    if(this.step > 0){
+                        this.sendForm()
+                    }
+
                     this.step++;
                     this.v$.$reset()
                 } else {
@@ -471,11 +476,13 @@ export default {
             }
         },
         async submit() {
-            console.log(this.quiz)
-            console.log(await this.v$.$validate())
-            this.$emit('close')
+            this.close()
+            this.sendForm()
             this.step = 0
         },
+        sendForm() {
+            this.$emit('send-form', this.quiz)
+        }
     }
 }
 </script>

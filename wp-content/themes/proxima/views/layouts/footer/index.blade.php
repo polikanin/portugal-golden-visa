@@ -163,7 +163,8 @@
     <vp-icon type="arrow-narrow-up"></vp-icon>
 </button>
 
-<vp-quiz :is-open="modal.id === '##quiz'" @close="modal.id = false"
+<vp-quiz :is-open="modal.id === '##quiz'" @close="closeQuiz"
+         @send-form="sendForm"
          terms="@if($terms_and_conditions_link){{ $terms_and_conditions_link['url'] }}@endif"
          privacy="@if($privacy_policy_link){{ $privacy_policy_link['url'] }}@endif"
 ></vp-quiz>
