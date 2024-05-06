@@ -10,7 +10,7 @@ let verticalAnimation = function (){
         let progress = item.querySelector('.vp-vertical-slider-block--preview-progress span')
         let items = item.querySelector('.vp-vertical-slider-block--preview-items')
         let btns = item.querySelectorAll('.vp-vertical-slide--btn')
-        let durationPerSlide = 1000
+        let durationPerSlide = 500
 
         let s2a1 = {
             targets: item.querySelectorAll('.vp-vertical-slide[data-animated-slide]'),
