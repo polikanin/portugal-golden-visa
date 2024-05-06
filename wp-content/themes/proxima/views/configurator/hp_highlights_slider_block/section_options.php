@@ -1,12 +1,12 @@
 <?php
 
 return [
-    'label' => __('Highlights Block', 'proxima'),
+    'label' => __('Highlights Slider Block', 'proxima'),
     'key' => basename(__DIR__),
     'tab_demo_preview' => [
         'key' => 'field_auto_key', // $section->field_auto_key(),
         'type' => 'message',
-        'message' => 'Highlights Block', // marck_section_demo_preview( $section->key ),
+        'message' => 'Highlights Slider Block', // marck_section_demo_preview( $section->key ),
         'new_lines' => 'wpautop',
         'esc_html' => 0,
     ],
