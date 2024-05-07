@@ -230,3 +230,13 @@ button{
   }
 }
 
+div:not(.home){
+  .vp-highlights-block{
+    .vp-item{
+      &:nth-child(5),
+      &:nth-child(6){
+        display: none;
+      }
+    }
+  }
+}
