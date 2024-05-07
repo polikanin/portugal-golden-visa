@@ -121,6 +121,27 @@ createApp({
             }
         }
 
+        let touchstartY = 0
+        let touchendY = 0
+
+        function checkDirection() {
+            if (touchendY < touchstartY) {
+                header.classList.add('hide-header')
+            }
+            if (touchendY > touchstartY) {
+                header.classList.remove('hide-header')
+            }
+        }
+
+        document.addEventListener('touchstart', e => {
+            touchstartY = e.changedTouches[0].screenY
+        })
+
+        document.addEventListener('touchend', e => {
+            touchendY = e.changedTouches[0].screenY
+            checkDirection()
+        })
+
         preloader.classList.add('page-load')
 
         setupScrollSettings()
