@@ -85,7 +85,7 @@
 
     <div class="wrapper">
         @if($text)
-            <div class="vp-text v-show-sm">
+            <div class="vp-text vp-show-sm">
                 {!! $text !!}
             </div>
         @endif
