@@ -13,7 +13,7 @@
             </h2>
         @endif
         @if($link)
-            <vp-button @click.prevent="openModal('{{ $link['url'] }}')">
+            <vp-button @click.prevent="modal.id = '{{ $link['url'] }}'">
                 <vp-icon type="subtitle"></vp-icon>
                 <span class="vp-btn--text">{{ $link['title'] }}</span>
             </vp-button>

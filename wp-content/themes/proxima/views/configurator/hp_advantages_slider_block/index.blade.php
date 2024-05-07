@@ -39,7 +39,7 @@
                         <div class="vp-item--img">
                             <img src="{{ $item['image'] }}" alt="pic">
                         </div>
-                        <vp-button @click.prevent="openModal('##quiz')">
+                        <vp-button @click.prevent="modal.id ='##quiz'">
                             <span class="vp-btn--text">{{ $item['link']['title'] }}</span>
                         </vp-button>
                     </div>

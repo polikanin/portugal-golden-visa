@@ -77,6 +77,7 @@ createApp({
             helloActiveSlide: '0',
             helloSlider: false,
             showClipBoardNotice: false,
+            isShowMore: false,
         }
     },
     validations() {
@@ -156,6 +157,9 @@ createApp({
     },
     computed: {},
     methods: {
+        showMore() {
+            this.isShowMore = true
+        },
         copyToClipBoard(e) {
             let self = this;
             navigator.clipboard.writeText(e);
