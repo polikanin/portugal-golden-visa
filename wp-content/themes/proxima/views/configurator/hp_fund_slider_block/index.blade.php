@@ -12,7 +12,7 @@
                 {!! $subtitle !!}
             </h2>
         @endif
-        <div class="vp-fund-block--head vp-hidden-sm">
+        <div class="vp-fund-block--head">
             @if($link)
                 <vp-button @click.prevent="modal.id = '{{ $link['url'] }}'">
                     <vp-icon type="subtitle"></vp-icon>
@@ -20,7 +20,7 @@
                 </vp-button>
             @endif
 
-            <div class="vp-fund-block--ctrl">
+            <div class="vp-fund-block--ctrl vp-hidden-sm">
                 <div class="vp-swiper-button-prev swiper-button-disabled">
                     <svg class="vp-icon">
                         <use xlink:href="/wp-content/themes/proxima/assets/images/sprite.svg#arrow-left"></use>
