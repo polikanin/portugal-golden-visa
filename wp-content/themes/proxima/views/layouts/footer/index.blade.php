@@ -93,23 +93,18 @@
                 </div>
             </div>
             <div class="vp-footer--col vp-show-sm">
-                <vp-accordion class="vp-locations--item">
-                    <template #head>
-                        <div class="vp-footer--title">
-                            Disclaimer
-                            <vp-icon type="arrow-down"></vp-icon>
-                        </div>
-                    </template>
-                    <template #body>
-                        <div class="vp-footer--excerpt">
-                            {!! $disclaimer_text !!}
-                            <br>
-                            <a href="" @click.prevent="modal.id = '##disclamer'">
-                                Please read our full disclaimer.
-                            </a>
-                        </div>
-                    </template>
-                </vp-accordion>
+                <div class="vp-locations--item">
+                    <div class="vp-footer--title">
+                        Disclaimer
+                    </div>
+                    <div class="vp-footer--excerpt">
+                        {!! $disclaimer_text !!}
+                        <br>
+                        <a href="" @click.prevent="modal.id = '##disclamer'">
+                            Please read our full disclaimer.
+                        </a>
+                    </div>
+                </div>
             </div>
             <div class="vp-footer--col">
                 <div class="vp-footer--title">
@@ -118,7 +113,13 @@
                 {!! wp_nav_menu( [
                 'theme_location'  => 'footer',
                 'menu_id'         => 'footer-menu',
-                'container_class' => 'vp-menu',
+                'container_class' => 'vp-menu vp-hidden-sm',
+                'depth'           => 2,
+            ] ); !!}
+                {!! wp_nav_menu( [
+                'theme_location'  => 'footer_tiny',
+                'menu_id'         => 'footer-menu-2',
+                'container_class' => 'vp-menu vp-show-sm',
                 'depth'           => 2,
             ] ); !!}
             </div>

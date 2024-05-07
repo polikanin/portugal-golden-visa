@@ -14,7 +14,7 @@
         @endif
         <div class="vp-vertical-slider-block--wrapper">
             @if($image)
-                <div class="vp-img-container">
+                <div class="vp-img-container vp-hidden-sm">
                     {!! get_image_html($image, 'full') !!}
                 </div>
             @endif
