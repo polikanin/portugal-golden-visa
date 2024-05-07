@@ -23,11 +23,17 @@ let verticalAnimation = function (){
 
         tl2.add(s2a1);
 
+        let offset = -50
+
+        if(window.innerWidth < 768){
+            offset = 50
+        }
+
         let scene2 = new ScrollMagic.Scene({
             triggerElement: item,
             duration: durationPerSlide * btns.length,
             triggerHook: 0,
-            offset: -50
+            offset: offset
         })
             .on("progress", function (event) {
                 if(tl2.children && tl2.children[0] && tl2.children[0].animatables){
