@@ -92,7 +92,7 @@
                 </swiper>
 
                 <div class="vp-items vp-show-sm" :class="{active: isShowMore}">
-                    @foreach($slider as $highlight)
+                    @foreach($slider as $item)
                         <vp-accordion class="vp-item">
                             <template #head>
                                 <div class="vp-item--head">
