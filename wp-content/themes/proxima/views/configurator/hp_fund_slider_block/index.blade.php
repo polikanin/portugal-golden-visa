@@ -140,7 +140,7 @@
                 </div>
 
                 @if(count($slider) > 4)
-                <div class="vp-items--show-more" v-show="!isShowMore">
+                <div class="vp-items--show-more vp-show-sm" v-show="!isShowMore">
                     <a href="" @click.prevent="showMore">Show More</a>
                 </div>
                 @endif
