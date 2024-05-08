@@ -181,7 +181,7 @@
 
         @media(max-width: $width-sm){
           text-align: left;
-          padding: 16px;
+          padding: 8px;
           cursor: pointer;
 
           br{
@@ -199,13 +199,13 @@
           font-size: 18px;
           font-weight: 500;
           display: grid;
-          grid-template-columns: 1fr 48px;
+          grid-template-columns: 1fr 40px;
           align-items: center;
           gap: 10px;
 
           .vp-icon{
-            width: 48px;
-            height: 48px;
+            width: 40px;
+            height: 40px;
             transition: 0.3s;
             padding: 14px;
             border: 1px solid currentColor;

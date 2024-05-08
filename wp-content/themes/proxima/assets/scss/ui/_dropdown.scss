@@ -39,9 +39,9 @@
     }
 
     img{
-      width: 32px;
-      min-width: 32px;
-      height: 32px;
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
       object-fit: contain;
 
       @media(max-width: $width-sm){
@@ -103,8 +103,9 @@
       justify-content: flex-start;
       align-items: center;
       gap: 12px;
-      padding: 12px;
+      padding: 12px 12px 12px 6px;
       cursor: pointer;
+      white-space: nowrap;
       border-bottom: 1px solid $white30;
 
       @media(max-width: $width-sm){
@@ -114,9 +115,9 @@
 
       img{
         object-fit: contain;
-        width: 24px;
-        min-width: 24px;
-        height: 24px;
+        width: 20px;
+        min-width: 20px;
+        height: 20px;
 
         @media(max-width: $width-sm){
           display: none;

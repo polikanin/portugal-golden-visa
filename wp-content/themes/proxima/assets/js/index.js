@@ -1,6 +1,26 @@
 import {createApp} from 'vue'
 import Components from "./components";
 import verticalAnimation from "./verticalAnimation";
+import Codes from "./codes.json";
+import Gmt from "./gmt.json";
+const countryCodes = require('country-codes-list')
+const myCountryCodesObject = countryCodes.customList('countryCode',
+    '+({countryCallingCode})'
+)
+let vp_codes = []
+
+Object.keys(myCountryCodesObject).forEach(item => {
+    vp_codes.push({
+        mask: Codes[item],
+        value: myCountryCodesObject[item],
+        placeholder: Codes[item],
+        icon: `https://purecatamphetamine.github.io/country-flag-icons/3x2/${item}.svg`,
+    })
+})
+
+window.VpPhoneCode = vp_codes
+window.VpTimeline = Gmt
+
 
 import 'swiper/css/effect-fade';
 

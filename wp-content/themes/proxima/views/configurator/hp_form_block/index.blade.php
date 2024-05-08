@@ -8,6 +8,8 @@
                 Schedule a 45 minute introductory confidential video call
             </p>
 
+            <input type="text" id="phone" placeholder="13">
+
             <div class="vp-form--grid-2x">
                 <div class="vp-form--container">
                     <div class="vp-form--group">

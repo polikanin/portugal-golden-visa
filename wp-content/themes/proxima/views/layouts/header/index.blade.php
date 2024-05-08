@@ -104,16 +104,16 @@
 <script>
     window.portal_id = '{{ $portal_id }}'
     window.form_id = '{{ $form_id }}'
-    window.VpPhoneCode = [
-            @foreach($phone_code as $code)
-        {
-            value: '{{$code['value']}}',
-            mask: '{{$code['mask']}}',
-            placeholder: '{{$code['placeholder']}}',
-            icon: '{{$code['icon']}}',
-        },
-        @endforeach
-    ]
+    {{--window.VpPhoneCode = [--}}
+    {{--        @foreach($phone_code as $code)--}}
+    {{--    {--}}
+    {{--        value: '{{$code['value']}}',--}}
+    {{--        mask: '{{$code['mask']}}',--}}
+    {{--        placeholder: '{{$code['placeholder']}}',--}}
+    {{--        icon: '{{$code['icon']}}',--}}
+    {{--    },--}}
+    {{--    @endforeach--}}
+    {{--]--}}
     window.VpTimeline = [
             @foreach($timelines as $timeline)
         {
