@@ -54,6 +54,33 @@
         margin: 10px 0;
       }
     }
+
+    ul{
+      margin: 16px 0;
+      padding: 0 0 0 23px;
+
+      li{
+        font-weight: 300;
+        font-size: 18px;
+        position: relative;
+        margin: 16px 0;
+
+        @media(max-width: $width-sm){
+          font-size: 16px;
+        }
+
+        &:before{
+          content: '';
+          position: absolute;
+          top: 8px;
+          left: -15px;
+          width: 4px;
+          height: 4px;
+          background-color: $white;
+          border-radius: 50%;
+        }
+      }
+    }
   }
 
   &--table{
