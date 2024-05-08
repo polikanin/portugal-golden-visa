@@ -13,6 +13,13 @@
                 @foreach($highlights as $highlight)
                     <div class="vp-item">
                         @php($url = get_permalink())
+                        <pre>
+                            {{$highlight['link']['url'] === $url}}
+                            <br>
+                            {{$highlight['link']['url']}}
+                            <br>
+                            {{$url}}
+                        </pre>
                         <a href="{{ $highlight['link']['url'] }}" class="vp-item--head"
                             @if($highlight['link']['url'] === $url)
                                 @click.prevent="modal.id = '##quiz'"
