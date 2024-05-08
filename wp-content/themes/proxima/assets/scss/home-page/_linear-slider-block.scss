@@ -2,6 +2,10 @@
   padding: 100px 0 40px 0;
   overflow: hidden;
 
+  br{
+    display: block!important;
+  }
+
   @media(max-width: $width-md){
     padding: 40px 0 40px 0;
     overflow: hidden;

@@ -40,7 +40,7 @@
 
       @media(max-width: $width-sm){
         text-align: left;
-        padding: 16px;
+        padding: 8px 8px 8px 16px;
         cursor: pointer;
 
         br{
@@ -92,7 +92,7 @@
 
       @media(max-width: $width-sm){
         font-size: 16px;
-        margin: 24px 0 0 0;
+        margin: 16px 0 8px 0;
         display: none;
       }
     }
@@ -107,6 +107,11 @@
         grid-template-columns: 1fr;
         gap: 8px;
         margin-bottom: 8px;
+        border: 1px solid $line;
+        border-radius: 10px;
+        backdrop-filter: blur(15.5px);
+        background-color: $black15;
+        padding: 20px;
       }
     }
 
@@ -114,9 +119,17 @@
       border: 1px solid $line;
       border-radius: 10px;
       backdrop-filter: blur(15.5px);
-      background: $black15;
-      text-align: center;
+      background-color: $black15;
       padding: 20px;
+      text-align: center;
+
+      @media(max-width: $width-sm){
+        padding: 8px 0;
+        background-color: transparent;
+        backdrop-filter: none;
+        border-radius: 0;
+        border: none;
+      }
     }
 
     &--quote{
@@ -127,6 +140,13 @@
       margin: 0 auto 14px auto;
       font-family: $second-family;
       color: $white30;
+
+      @media(max-width: $width-sm){
+        border-radius: 0;
+        border: none;
+        padding: 0;
+        margin: 0 auto 8px auto;
+      }
     }
 
     &--text{
@@ -139,6 +159,10 @@
 
       @media(max-width: $width-minlg){
         font-size: 16px;
+      }
+
+      @media(max-width: $width-sm){
+        height: auto;
       }
     }
   }

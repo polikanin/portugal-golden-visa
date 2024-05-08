@@ -54,17 +54,12 @@
                     @foreach($slider as $item)
                         <swiper-slide>
                             <div class="vp-fund-slide">
-                                <div class="vp-fund-slide--head">
+                                <div class="vp-fund-slide--body">
                                     <div class="vp-fund-slide--label">
                                         <span>
-                                            {{ $label }} <span class="vp-show-sm"> {{ $sm_label }}</span> #{{ $loop->index+1 }}
+                                            <span class="vp-show-sm"> {{ $label }}</span> #{{ $loop->index+1 }}
                                         </span>
                                     </div>
-                                    <div class="vp-fund-slide--title">
-                                        {!! $item['title'] !!}
-                                    </div>
-                                </div>
-                                <div class="vp-fund-slide--body">
                                     <div class="vp-fund-slide--subtitle">
                                         {!! $item['subtitle'] !!}
                                     </div>
@@ -85,6 +80,12 @@
                                             @endforeach
                                         </div>
                                     @endif
+                                </div>
+                                <div class="vp-fund-slide--head">
+
+                                    <div class="vp-fund-slide--title">
+                                        {!! $item['title'] !!}
+                                    </div>
                                 </div>
                             </div>
                         </swiper-slide>
