@@ -85,6 +85,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: absolute;
+      top: 12px;
+      left: 12px;
     }
 
     &--body{
@@ -93,6 +96,16 @@
       border: 1px solid $line;
       border-radius: 10px;
       padding: 16px;
+    }
+
+    &--title{
+      @media (max-width: $width-sm){
+        backdrop-filter: blur(15.5px);
+        background-color: $black15;
+        border: 1px solid $line;
+        border-radius: 10px;
+        padding: 16px;
+      }
     }
 
     &--subtitle{
