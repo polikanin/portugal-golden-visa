@@ -230,7 +230,7 @@ button{
   }
 }
 
-div:not(.home){
+body:not(.home){
   .vp-highlights-block{
     .vp-item{
       &:nth-child(5),

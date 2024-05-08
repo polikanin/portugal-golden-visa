@@ -4,7 +4,7 @@
     <div class="wrapper">
         <div class="vp-container" style="--progress: 0%;" data-progress>
             <div class="vp-container--left">
-                <div class="vp-container--block">
+                <div class="vp-container--block @if(count($program) < 4) vp-no-min-height @endif">
                     @if($title)
                         <h2 class="vp-title">
                             {!! $title !!}

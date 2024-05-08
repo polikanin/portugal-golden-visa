@@ -2,13 +2,14 @@
      class="vp-x3-slider-block"
 >
     <div class="wrapper">
+        @if($title)
+            <h2 class="vp-title">
+                {!! $title !!}
+            </h2>
+        @endif
         <div class="vp-x3-slider-block--head">
             <div class="">
-                @if($title)
-                    <h2 class="vp-title">
-                        {!! $title !!}
-                    </h2>
-                @endif
+
                 @if($subtitle)
                     <div class="vp-text">
                         {!! $subtitle !!}

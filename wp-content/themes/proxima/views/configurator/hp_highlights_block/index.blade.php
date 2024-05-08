@@ -12,7 +12,12 @@
             <div class="vp-items vp-hidden-sm">
                 @foreach($highlights as $highlight)
                     <div class="vp-item">
-                        <a href="{{ $highlight['link']['url'] }}" class="vp-item--head">
+                        @php($url = get_permalink())
+                        <a href="{{ $highlight['link']['url'] }}" class="vp-item--head"
+                            @if($highlight['link']['url'] === $url)
+                                @click.prevent="modal.id = '##quiz'"
+                                    @endif
+                        >
                             <div class="vp-item--title">
                                 {{ $highlight['title'] }}
                             </div>

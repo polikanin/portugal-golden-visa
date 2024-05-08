@@ -101,7 +101,6 @@
                                          :placeholder="selected.placeholder"/>
                             </div>
                             <div class="vp-error--msg" v-if="v$.quiz.phone.$error">{{ msg.phone }}</div>
-                            {{quiz.phone}}
                         </div>
                     </div>
 

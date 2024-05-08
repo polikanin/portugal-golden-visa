@@ -40,6 +40,10 @@
     display: flex;
     flex-direction: column;
 
+    &.vp-no-min-height{
+      min-height: 0;
+    }
+
     @media(max-height: $width-sm){
       $offset-top: 150px;
       top: $offset-top;
