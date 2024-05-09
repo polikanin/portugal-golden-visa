@@ -59,19 +59,19 @@
                                     @endif
                                     <vp-icon type="arrow-down"></vp-icon>
                                 </div>
-                                <div class="vp-item--subtitle">
-                                    @if($highlight['link'])
-                                        <a href="{{ $highlight['link']['url'] }}">
-                                            @endif
-                                        {!! $highlight['description'] !!}
-                                            @if($highlight['link'])
-                                        </a>
-                                    @endif
-                                </div>
                             </div>
                         </template>
 
                         <template #body>
+                            <div class="vp-item--subtitle">
+                                @if($highlight['link'])
+                                    <a href="{{ $highlight['link']['url'] }}">
+                                        @endif
+                                        {!! $highlight['description'] !!}
+                                        @if($highlight['link'])
+                                    </a>
+                                @endif
+                            </div>
                             <div class="vp-item--body">
                                 @foreach($highlight['items'] as $item)
                                     <div class="vp-item--block">

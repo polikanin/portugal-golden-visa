@@ -8,6 +8,14 @@
   }
 }
 
+#bs-creation{
+  .vp-title{
+    @media(max-width: $width-minlg){
+      font-size: 28px;
+    }
+  }
+}
+
 .vp-subtitle{
   font-weight: 400;
   font-size: 32px;

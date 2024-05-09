@@ -23,51 +23,50 @@
         nextEl: '.vp-swiper-button-next',
         prevEl: '.vp-swiper-button-prev',
       }"
-            :pagination="{
-              type: 'fraction',
-              el: '#vp-swiper-pagination2',
-                clickable: true,
-            }"
             :space-between="24"
             :modules="modules"
             :slides-per-view="'auto'"
             :centeredSlides="true"
             :loop="true"
         >
-            <swiper-slide v-for="slide in slides">
+            <swiper-slide v-for="(slide, index) in slides">
                 <div class="vp-item">
                     <div class="vp-item--inner">
                         <div class="vp-item--title">
-                            {{ slide.value }}
+                            #{{ index+1 }}
                         </div>
                         <div class="vp-item--img">
                             <img :src="slide.image" alt="">
                         </div>
                     </div>
-                    <div class="vp-item--text" v-html="slide.text">
+                    <div class="vp-item--container">
+                        <div class="vp-item--text" v-html="slide.text">
 
+                        </div>
+                        <vp-button @click.prevent="openModal('##quiz')">
+                            <span class="vp-btn--text">{{ slide.link.title }}</span>
+                        </vp-button>
                     </div>
-                    <vp-button @click.prevent="openModal('##quiz')">
-                        <span class="vp-btn--text">{{ slide.link.title }}</span>
-                    </vp-button>
                 </div>
             </swiper-slide>
-            <swiper-slide v-for="slide in slides">
+            <swiper-slide v-for="(slide, index) in slides">
                 <div class="vp-item">
                     <div class="vp-item--inner">
                         <div class="vp-item--title">
-                            {{ slide.value }}
+                            #{{ index+1 }}
                         </div>
                         <div class="vp-item--img">
                             <img :src="slide.image" alt="">
                         </div>
                     </div>
-                    <div class="vp-item--text" v-html="slide.text">
+                    <div class="vp-item--container">
+                        <div class="vp-item--text" v-html="slide.text">
 
+                        </div>
+                        <vp-button @click.prevent="openModal('##quiz')">
+                            <span class="vp-btn--text">{{ slide.link.title }}</span>
+                        </vp-button>
                     </div>
-                    <vp-button @click.prevent="openModal('##quiz')">
-                        <span class="vp-btn--text">{{ slide.link.title }}</span>
-                    </vp-button>
                 </div>
             </swiper-slide>
         </swiper>
