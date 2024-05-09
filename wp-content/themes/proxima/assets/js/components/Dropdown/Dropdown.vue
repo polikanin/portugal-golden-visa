@@ -14,7 +14,8 @@
       <div class="vp-dropdown--menu-inner">
         <div class="vp-dropdown--menu-item" @click="select(item)" v-for="item in list">
             <img v-show="item.icon" :src="item.icon">
-          {{ item.value }}
+            <span class="vp-dropdown--menu-item--val">{{ item.value }}</span>
+            <span class="vp-dropdown--menu-item--name">{{ item.name }}</span>
         </div>
       </div>
     </div>

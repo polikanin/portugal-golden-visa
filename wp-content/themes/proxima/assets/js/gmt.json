@@ -395,11 +395,6 @@
     "name": "Kolkata"
   },
   {
-    "mask": "Asia/Kathmandu",
-    "value": "(GMT+05:45)",
-    "name": "Kathmandu"
-  },
-  {
     "mask": "Asia/Yekaterinburg",
     "value": "(GMT+06)",
     "name": "Yekaterinburg"

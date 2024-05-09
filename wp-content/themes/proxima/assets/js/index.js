@@ -7,15 +7,29 @@ const countryCodes = require('country-codes-list')
 const myCountryCodesObject = countryCodes.customList('countryCode',
     '+({countryCallingCode})'
 )
+const myCountryNamesObject = countryCodes.customList('countryCode',
+    '{countryNameEn}'
+)
 let vp_codes = []
 
 Object.keys(myCountryCodesObject).forEach(item => {
-    vp_codes.push({
-        mask: Codes[item],
-        value: myCountryCodesObject[item],
-        placeholder: Codes[item],
-        icon: `https://purecatamphetamine.github.io/country-flag-icons/3x2/${item}.svg`,
-    })
+    if(Codes[item]){
+        vp_codes.push({
+            mask: Codes[item],
+            value: myCountryCodesObject[item],
+            name: myCountryNamesObject[item],
+            placeholder: Codes[item],
+            icon: `https://purecatamphetamine.github.io/country-flag-icons/3x2/${item}.svg`,
+        })
+    }
+})
+vp_codes.sort(function(a, b){
+    let nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+    if (nameA < nameB)
+        return -1
+    if (nameA > nameB)
+        return 1
+    return 0
 })
 
 window.VpPhoneCode = vp_codes

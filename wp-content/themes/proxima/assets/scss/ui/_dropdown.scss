@@ -78,7 +78,8 @@
     position: absolute;
     top: calc(100% + 3px);
     left: 0;
-    width: 100%;
+    //width: 100%;
+    max-width: 360px;
     border: 1px solid $white30;
     background-color: $line;
     border-radius: 8px;
@@ -105,7 +106,7 @@
       gap: 12px;
       padding: 12px 12px 12px 6px;
       cursor: pointer;
-      white-space: nowrap;
+      //white-space: nowrap;
       border-bottom: 1px solid $white30;
 
       @media(max-width: $width-sm){
@@ -122,6 +123,16 @@
         @media(max-width: $width-sm){
           display: none;
         }
+      }
+
+      &--val{
+        width: 75px;
+        min-width: 75px;
+        white-space: nowrap;
+      }
+
+      &--name{
+
       }
     }
   }
