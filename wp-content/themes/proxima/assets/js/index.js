@@ -19,6 +19,7 @@ Object.keys(myCountryCodesObject).forEach(item => {
             value: myCountryCodesObject[item],
             name: myCountryNamesObject[item],
             placeholder: Codes[item],
+            countryCode: item,
             icon: `https://purecatamphetamine.github.io/country-flag-icons/3x2/${item}.svg`,
         })
     }
@@ -130,6 +131,7 @@ createApp({
     },
     mounted() {
         let self = this;
+
         const preloader = document.querySelector('.vp-preloader')
         const header = document.querySelector('.vp-header')
         const progress = document.querySelectorAll('[data-progress-container]')
