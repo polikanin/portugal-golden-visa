@@ -39,12 +39,13 @@ export default {
 
         if (self.list.length > 0) {
             //axios.get("http://ip-api.com/json")
-            axios.get("https://members.ip-api.com/")
+            axios.get("https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=at_x0KCz8bh4His2XcWGebpOAFzxTkel")
                 .then(function (response) {
-                    let payload = response.data
+                    console.log(response.data)
+                    let payload = response.data.location
                     if(self.list[0].countryCode){
                         let currentCountry = self.list.find(item => {
-                            return item.countryCode.toLowerCase() === payload.countryCode.toLowerCase()
+                            return item.countryCode.toLowerCase() === payload.country.toLowerCase()
                         })
                         if(!currentCountry){
                             self.select(self.list[0])
@@ -56,7 +57,7 @@ export default {
                     }
                     else if(self.list[0].mask){
                         let currentCountry = self.list.find(item => {
-                            return item.mask.toLowerCase() === payload.timezone.toLowerCase()
+                            return item.mask.toLowerCase() === Intl.DateTimeFormat().resolvedOptions().timeZone.toLowerCase()
                         })
                         if(!currentCountry){
                             self.select(self.list[0])
