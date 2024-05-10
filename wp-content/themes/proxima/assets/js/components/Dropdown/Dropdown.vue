@@ -38,7 +38,8 @@ export default {
         let self = this
 
         if (self.list.length > 0) {
-            axios.get("http://ip-api.com/json")
+            //axios.get("http://ip-api.com/json")
+            axios.get("https://members.ip-api.com/")
                 .then(function (response) {
                     let payload = response.data
                     if(self.list[0].countryCode){
