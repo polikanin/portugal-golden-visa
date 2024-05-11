@@ -39,11 +39,9 @@ export default {
         let self = this
 
         if (self.list.length > 0) {
-            //axios.get("http://ip-api.com/json")
-            axios.get("https://ip-geolocation.whoisxmlapi.com/api/v1?apiKey=at_x0KCz8bh4His2XcWGebpOAFzxTkel")
+            axios.get("https://ipinfo.io/?token=9381d644f087f7")
                 .then(function (response) {
-                    console.log(response.data)
-                    let payload = response.data.location
+                    let payload = response.data
                     if(self.list[0].countryCode){
                         let currentCountry = self.list.find(item => {
                             return item.countryCode.toLowerCase() === payload.country.toLowerCase()
