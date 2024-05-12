@@ -33,6 +33,10 @@
     &:active{
       cursor: grabbing;
     }
+
+    @media(max-width: $width-sm){
+      margin-top: 24px;
+    }
   }
 
   &--head{
@@ -41,6 +45,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    @media(max-width: $width-sm){
+      margin-top: 32px;
+      margin-bottom: 24px;
+    }
   }
 
   &--ctrl{
@@ -49,6 +58,7 @@
     align-items: center;
     gap: 16px;
     padding: 0 0 2px 0;
+    margin: 0 0 0 auto;
   }
 
   .vp-swiper-pagination{
@@ -66,18 +76,31 @@
 
   .vp-subtitle{
     margin-top: 60px;
+
+    @media(max-width: $width-sm){
+      margin-top: 32px;
+    }
   }
 
   .swiper-slide{
-    width: 420px!important;
+    width: 300px!important;
 
     .vp-item{
+      $self: &;
       border: 1px solid $secondary;
       border-radius: 10px;
       backdrop-filter: blur(15.5px);
       background-color: $black15;
       padding: 0;
       overflow: hidden;
+
+      &:hover{
+        .vp-item--img{
+          &:before{
+            opacity: 1;
+          }
+        }
+      }
 
       &--inner{
         position: relative;
@@ -87,6 +110,19 @@
       &--img{
         height: 184px;
         border-radius: 0;
+        position: relative;
+
+        &:before{
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0,0,0,0.3);
+          opacity: 0;
+          transition: 0.3s;
+        }
       }
 
       &--container{

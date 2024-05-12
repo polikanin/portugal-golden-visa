@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
         <div class="vp-advantages-block--head">
-            <vp-button @click.prevent="openModal('##quiz')">
+            <vp-button @click.prevent="openModal('##quiz')" class="vp-hidden-sm">
                 <vp-icon type="subtitle"></vp-icon>
                 <span class="vp-btn--text">More Information from Fund Advisors</span>
             </vp-button>
@@ -43,9 +43,9 @@
                         <div class="vp-item--text" v-html="slide.text">
 
                         </div>
-                        <vp-button @click.prevent="openModal('##quiz')">
-                            <span class="vp-btn--text">{{ slide.link.title }}</span>
-                        </vp-button>
+                        <vp-link @click.prevent="openModal('##quiz')">
+                            {{ slide.link.title }}
+                        </vp-link>
                     </div>
                 </div>
             </swiper-slide>
@@ -63,9 +63,9 @@
                         <div class="vp-item--text" v-html="slide.text">
 
                         </div>
-                        <vp-button @click.prevent="openModal('##quiz')">
-                            <span class="vp-btn--text">{{ slide.link.title }}</span>
-                        </vp-button>
+                        <vp-link @click.prevent="openModal('##quiz')">
+                            {{ slide.link.title }}
+                        </vp-link>
                     </div>
                 </div>
             </swiper-slide>

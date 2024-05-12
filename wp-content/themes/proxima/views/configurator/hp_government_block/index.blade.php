@@ -8,6 +8,11 @@
                 {{ $title }}
             </h2>
         @endif
+        @if($text)
+            <div class="vp-text">
+                {!! $text !!}
+            </div>
+        @endif
 
         @if($items)
             <div class="vp-items">

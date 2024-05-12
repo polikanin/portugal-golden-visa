@@ -17,36 +17,11 @@
     </div>
 
     @if($items)
-        <div class="vp-hidden-md">
+        <div class="">
             <horizontal-x3-v2-slider
                     @open-modal="modal.id = $event"
                     :slides="{{ json_encode($items) }}"
             ></horizontal-x3-v2-slider>
-        </div>
-
-        <div class="wrapper vp-show-md">
-            <div class="vp-items ">
-                @foreach($items as $item)
-                    <div class="vp-item">
-                        <div class="vp-item--inner">
-                            <div class="vp-item--text">
-                                {!! $item['text'] !!}
-                            </div>
-                            <div class="vp-item--title">
-                                {{ $item['value'] }}
-                            </div>
-                        </div>
-                        <div class="">
-                            <div class="vp-item--img">
-                                <img src="{{ $item['image'] }}" alt="pic">
-                            </div>
-                            <vp-button @click.prevent="modal.id ='##quiz'">
-                                <span class="vp-btn--text">{{ $item['link']['title'] }}</span>
-                            </vp-button>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
         </div>
     @endif
 </div>

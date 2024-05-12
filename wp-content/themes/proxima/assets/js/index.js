@@ -72,6 +72,7 @@ createApp({
     },
     data() {
         return {
+            color: false,
             isMenu: false,
             fields: window.VpFormFields,
             msg: window.VpErrorMsg,
