@@ -2,12 +2,12 @@
      class="vp-fund-step-block"
 >
     <div class="wrapper">
-        @if($title)
+        @if($title and ($link or $subtitle))
             <h2 class="vp-title">
                 {!! $title !!}
             </h2>
         @endif
-        @if($subtitle)
+        @if($subtitle and $link)
             <h2 class="vp-subtitle">
                 {!! $subtitle !!}
             </h2>
@@ -19,6 +19,18 @@
                     <span class="vp-btn--text">{{ $link['title'] }}</span>
                 </vp-button>
             @endif
+
+                @if(!$link and $subtitle)
+                    <h2 class="vp-subtitle">
+                        {!! $subtitle !!}
+                    </h2>
+                @endif
+
+                @if(!$link and !$subtitle and $title)
+                    <h2 class="vp-title">
+                        {!! $title !!}
+                    </h2>
+                @endif
 
             <div class="vp-fund-step-block--ctrl vp-hidden-mob">
                 <div class="vp-swiper-button-prev swiper-button-disabled">

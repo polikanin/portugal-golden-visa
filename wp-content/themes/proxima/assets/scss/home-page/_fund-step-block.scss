@@ -47,12 +47,20 @@
     }
   }
 
-  &--head {
+  .vp-title + .vp-fund-step-block--head,
+  .vp-subtitle + .vp-fund-step-block--head{
     margin-top: 62px;
+  }
+
+  &--head {
     margin-bottom: 62px;
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+
+    .vp-subtitle{
+      margin: 0 0 0 0;
+    }
 
     @media (max-width: $width-sm) {
       margin: 32px 0 32px 0;
