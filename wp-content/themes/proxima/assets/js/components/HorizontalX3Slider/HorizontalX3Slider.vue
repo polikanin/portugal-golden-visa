@@ -8,7 +8,7 @@
             <div class="vp-swiper-button-prev">
                 <vp-icon type="arrow-left"></vp-icon>
             </div>
-            <div class="vp-swiper-pagination"></div>
+            <div id="vp-swiper-pagination3" class="vp-swiper-pagination"></div>
             <div class="vp-swiper-button-next">
                 <vp-icon type="arrow-right"></vp-icon>
             </div>
@@ -27,8 +27,8 @@
       }"
             :pagination="{
               type: 'fraction',
-              el: '.vp-swiper-pagination',
-                clickable: true,
+              el: '#vp-swiper-pagination3',
+              clickable: true,
             }"
             :breakpoints="{
       '320': {

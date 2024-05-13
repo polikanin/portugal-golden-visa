@@ -14,14 +14,14 @@
                 {!! $subtitle !!}
             </h2>
         @endif
-    </div>
 
-    @if($items)
-        <div class="">
-            <horizontal-x3-v2-slider
-                    @open-modal="modal.id = $event"
-                    :slides="{{ json_encode($items) }}"
-            ></horizontal-x3-v2-slider>
-        </div>
-    @endif
+        @if($items)
+            <div class="">
+                <horizontal-x3-v2-slider
+                        @open-modal="modal.id = $event"
+                        :slides="{{ json_encode($items) }}"
+                ></horizontal-x3-v2-slider>
+            </div>
+        @endif
+    </div>
 </div>

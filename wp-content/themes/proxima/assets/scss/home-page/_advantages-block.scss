@@ -26,9 +26,10 @@
 
   .swiper{
     margin-top: 60px;
-    margin-left: -$offset;
-    margin-right: -$offset;
+    //margin-left: -$offset;
+    //margin-right: -$offset;
     cursor: grab;
+    overflow: visible;
 
     &:active{
       cursor: grabbing;
@@ -83,7 +84,7 @@
   }
 
   .swiper-slide{
-    width: 300px!important;
+    width: 304px!important;
 
     .vp-item{
       $self: &;
@@ -100,6 +101,10 @@
             opacity: 1;
           }
         }
+      }
+
+      .vp-link{
+        margin-bottom: 8px;
       }
 
       &--inner{

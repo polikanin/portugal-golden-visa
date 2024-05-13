@@ -72,6 +72,13 @@ createApp({
     },
     data() {
         return {
+            pagination: {
+                el: '#vp-swiper-pagination2',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return '<span class="' + className + '">' + (index + 1) + '</span>';
+                },
+            },
             color: false,
             isMenu: false,
             fields: window.VpFormFields,

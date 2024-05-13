@@ -1,19 +1,16 @@
 <template>
-    <div class="wrapper">
-        <div class="vp-advantages-block--head">
-            <vp-button @click.prevent="openModal('##quiz')" class="vp-hidden-sm">
-                <vp-icon type="subtitle"></vp-icon>
-                <span class="vp-btn--text">More Information from Fund Advisors</span>
-            </vp-button>
+    <div class="vp-advantages-block--head">
+        <vp-button @click.prevent="openModal('##quiz')" class="vp-hidden-sm">
+            <vp-icon type="subtitle"></vp-icon>
+            <span class="vp-btn--text">More Information from Fund Advisors</span>
+        </vp-button>
 
-            <div class="vp-advantages-block--ctrl">
-                <div class="vp-swiper-button-prev">
-                    <vp-icon type="arrow-left"></vp-icon>
-                </div>
-                <div id="vp-swiper-pagination2" class="vp-swiper-pagination"></div>
-                <div class="vp-swiper-button-next">
-                    <vp-icon type="arrow-right"></vp-icon>
-                </div>
+        <div class="vp-advantages-block--ctrl">
+            <div class="vp-swiper-button-prev">
+                <vp-icon type="arrow-left"></vp-icon>
+            </div>
+            <div class="vp-swiper-button-next">
+                <vp-icon type="arrow-right"></vp-icon>
             </div>
         </div>
     </div>
@@ -26,8 +23,6 @@
             :space-between="24"
             :modules="modules"
             :slides-per-view="'auto'"
-            :centeredSlides="true"
-            :loop="true"
         >
             <swiper-slide v-for="(slide, index) in slides">
                 <div class="vp-item">
