@@ -110,32 +110,47 @@
             }
           }
 
-          @media(max-width: $width-xs) {
+          &:nth-last-child(5):has(~ .swiper-pagination-bullet-active),
+          &:nth-last-child(4):has(~ .swiper-pagination-bullet-active),
+          &:nth-last-child(3):has(~ .swiper-pagination-bullet-active),
+          &:has(+ .swiper-pagination-bullet-active){
+            display: flex;
+          }
 
+          &:nth-last-child(1){
+            display: flex;
+
+              &:not(.swiper-pagination-bullet-active):before{
+                content: '...';
+                margin: 0 16px 0 0;
+
+                @media(max-width: $width-xs) {
+                  margin: 0 8px 0 0;
+                }
+              }
           }
 
           &-active {
             display: flex;
             color: $gold;
 
-            & + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet,
             & + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet,
             & + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet,
             & + .swiper-pagination-bullet + .swiper-pagination-bullet,
-            & + .swiper-pagination-bullet{
-              display: block;
+            & + .swiper-pagination-bullet {
+              display: flex;
             }
 
-            & + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet{
-              &:after{
-                content: '...';
-                margin: 0 0 0 16px;
-
-                @media(max-width: $width-xs) {
-                  margin: 0 0 0 8px;
-                }
-              }
-            }
+            //& + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet + .swiper-pagination-bullet{
+            //  &:after{
+            //    content: '...';
+            //    margin: 0 0 0 16px;
+            //
+            //    @media(max-width: $width-xs) {
+            //      margin: 0 0 0 8px;
+            //    }
+            //  }
+            //}
           }
         }
       }
