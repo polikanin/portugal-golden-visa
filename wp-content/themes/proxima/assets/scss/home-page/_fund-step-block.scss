@@ -288,9 +288,9 @@
 
     &--item {
       display: grid;
-      grid-template-columns: 116px 1fr;
+      grid-template-columns: 125px 1fr;
       align-items: center;
-      gap: 16px;
+      gap: 12px;
 
       &-title {
         font-weight: 300;
