@@ -25,9 +25,9 @@
             :slides-per-view="'auto'"
         >
             <swiper-slide v-for="(slide, index) in slides">
-                <div class="vp-item">
+                <div class="vp-item" :class="{'vp-item--special': slide.special}">
                     <div class="vp-item--inner">
-                        <div class="vp-item--title">
+                        <div class="vp-item--title" v-show="!slide.special">
                             #{{ index+1 }}
                         </div>
                         <div class="vp-item--img">
@@ -38,7 +38,7 @@
                         <div class="vp-item--text" v-html="slide.text">
 
                         </div>
-                        <vp-link @click.prevent="openModal('##quiz')">
+                        <vp-link v-show="!slide.special" @click.prevent="openModal('##quiz')">
                             {{ slide.link.title }}
                         </vp-link>
                     </div>

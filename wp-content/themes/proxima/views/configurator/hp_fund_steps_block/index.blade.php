@@ -6,7 +6,11 @@
                 <fund-slider
                             @open-modal="modal.id = $event"
                             :title="`{{ $title }}`"
+                            :has-hash="`{{ $is_number_with }}`"
+                            :label="`{{ $label }}`"
+                            :mobile-label="`{{ $sm_label }}`"
                             :id="`{{ $section_id }}`"
+                            :label-on-mobile="`{{ $show_label_on_mobile }}`"
                             :subtitle="`{{ $subtitle }}`"
                             :link="{{ json_encode($link) }}"
                             :slides="{{ json_encode($slider) }}"

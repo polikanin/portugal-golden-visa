@@ -187,21 +187,24 @@ button{
     min-width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 1px solid $white;
+    color: $white30;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: $white;
+    border: 1px solid $white30;
     transition: 0.3s;
 
-    &.swiper-button-disabled{
-      border-color: $white30;
-      color: $white30;
+    @media(max-width: $width-maxsm){
+      border-color: $white;
+      color: $white;
     }
+
 
     &:hover{
       background-color: rgba(255, 255, 255, 0.1);
+      border-color: $white;
+      color: $white;
     }
 
     &:active{

@@ -20,11 +20,11 @@
 
         </h2>
 
-        <div class="vp-fund-step-block--ctrl vp-hidden-mob">
+        <div class="vp-fund-step-block--ctrl vp-hidden-mob" :class="{'set-ellipse': slides.length > 6}">
             <div class="vp-swiper-button-prev swiper-button-disabled">
                 <vp-icon type="arrow-left"></vp-icon>
             </div>
-
+            <div class="vp-swiper-pagination" v-if="!isMobile"></div>
             <div class="vp-swiper-button-next">
                 <vp-icon type="arrow-right"></vp-icon>
             </div>
@@ -32,7 +32,7 @@
     </div>
 
     <swiper
-        v-if="slides"
+        v-if="slides && isLoad"
         :modules="modules"
         :navigation="{
                         nextEl: '#'+ id + ' .vp-swiper-button-next',
@@ -49,23 +49,28 @@
                         slidesPerView: 1,
                         spaceBetween: 20
                       },
-                      '660': {
+                      '661': {
                         slidesPerView: 'auto',
                         spaceBetween: 34
                       },
                     }"
     >
         <swiper-slide v-for="(slide, index) in slides">
-            <div class="vp-fund-slide">
-                <div class="vp-fund-slide--index vp-hidden-mob" data-step-btn="{{ $loop->index }}">
-                    {{ index + 1 }}
+            <div class="vp-fund-slide" :class="{'vp-fund-slide--special': slide.special_design}">
+                <div class="vp-fund-slide--index"
+                     :class="{'vp-hidden-mob': !labelOnMobile}"
+                     data-step-btn="{{ $loop->index }}">
+                    <div class="">
+                        <span class="vp-hidden-mob">{{label}} </span>
+                        <span class="vp-show-mob">{{mobileLabel}} </span> <template v-if="hasHash">#</template>{{ index + 1 }}
+                    </div>
                 </div>
-                <div class="vp-fund-slide--head">
+                <div class="vp-fund-slide--head" v-show="!slide.special_design">
                     <div class="vp-fund-slide--title" v-html="slide['title']">
 
                     </div>
                 </div>
-                <div class="vp-fund-slide--body" v-if="slide['points']">
+                <div class="vp-fund-slide--body" v-show="!slide.special_design" v-if="slide['points']">
                     <div class="vp-fund-slide--items">
                         <div class="vp-fund-slide--item" v-for="point in slide['points']">
                             <div class="vp-fund-slide--item-title" v-html="point['title']">
@@ -77,17 +82,26 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="vp-fund-slide--special-container" v-show="slide.special_design">
+                    <div class="vp-fund-slide--layout" v-html="slide['title']">
+
+                    </div>
+                    <div class="vp-fund-slide--img">
+                        <img :src="slide.image.url" alt="">
+                    </div>
+                </div>
             </div>
         </swiper-slide>
 
         <swiper-slide class="vp-last-slide vp-hidden-mob"></swiper-slide>
     </swiper>
 
-    <div class="vp-fund-step-block--ctrl vp-show-mob">
+    <div class="vp-fund-step-block--ctrl vp-show-mob" :class="{'set-ellipse': slides.length > 6}">
         <div class="vp-swiper-button-prev swiper-button-disabled">
             <vp-icon type="arrow-left"></vp-icon>
         </div>
-        <div id="vp-swiper-pagination2" class="vp-swiper-pagination"></div>
+        <div class="vp-swiper-pagination" v-if="isMobile"></div>
         <div class="vp-swiper-button-next">
             <vp-icon type="arrow-right"></vp-icon>
         </div>
@@ -101,9 +115,11 @@ import 'swiper/css/navigation';
 
 export default {
     name: "HorizontalX3Slider",
-    props: ['slides', 'title', 'subtitle', 'link', 'id'],
+    props: ['slides', 'title', 'subtitle', 'link', 'id', 'hasHash', 'label', 'mobileLabel', 'labelOnMobile'],
     data() {
         return {
+            isLoad: false,
+            isMobile: false,
             modules: [Pagination, Navigation],
             activeSlide: 0,
             slider: false,
@@ -117,7 +133,27 @@ export default {
         }
     },
     mounted() {
+        let self = this;
 
+        if(window.innerWidth < 661){
+            self.isMobile = true
+        }
+
+        setTimeout(function () {
+            self.isLoad = true
+        }, 100)
+
+        window.addEventListener('resize', function(){
+            self.isLoad = false
+            if(window.innerWidth < 661){
+                self.isMobile = true
+                self.isLoad = true
+            }
+            else {
+                self.isMobile = false
+                self.isLoad = true
+            }
+        })
     },
     methods: {
         getRef(e) {
