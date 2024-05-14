@@ -44,26 +44,6 @@
                     </div>
                 </div>
             </swiper-slide>
-            <swiper-slide v-for="(slide, index) in slides">
-                <div class="vp-item">
-                    <div class="vp-item--inner">
-                        <div class="vp-item--title">
-                            #{{ index+1 }}
-                        </div>
-                        <div class="vp-item--img">
-                            <img :src="slide.image" alt="">
-                        </div>
-                    </div>
-                    <div class="vp-item--container">
-                        <div class="vp-item--text" v-html="slide.text">
-
-                        </div>
-                        <vp-link @click.prevent="openModal('##quiz')">
-                            {{ slide.link.title }}
-                        </vp-link>
-                    </div>
-                </div>
-            </swiper-slide>
         </swiper>
     </div>
 </template>
