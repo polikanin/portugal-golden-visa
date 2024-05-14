@@ -179,6 +179,11 @@ createApp({
             checkDirection()
         })
 
+        document.addEventListener('touchmove', e => {
+            touchendY = e.changedTouches[0].screenY
+            checkDirection()
+        })
+
         preloader.classList.add('page-load')
 
         setupScrollSettings()
