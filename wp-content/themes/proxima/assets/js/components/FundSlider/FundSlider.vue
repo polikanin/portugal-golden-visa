@@ -73,14 +73,14 @@
                 </div>
                 <div class="vp-fund-slide--body" v-show="!slide.special_design" v-if="slide['points']">
                     <div class="vp-fund-slide--items">
-                        <div class="vp-fund-slide--item" v-for="point in slide['points']">
+                        <template v-for="point in slide['points']">
                             <div class="vp-fund-slide--item-title" v-html="point['title']">
 
                             </div>
                             <div class="vp-fund-slide--item-value" v-html="point['value']">
 
                             </div>
-                        </div>
+                        </template>
                     </div>
                 </div>
 

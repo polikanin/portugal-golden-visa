@@ -335,7 +335,9 @@
 
     &--items {
       display: grid;
-      gap: 16px;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 16px 12px;
     }
 
     &--item {
@@ -348,6 +350,8 @@
         font-weight: 300;
         color: $white30;
         position: relative;
+        white-space: nowrap;
+        padding-right: 12px;
 
         &:after {
           content: '';
