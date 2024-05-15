@@ -117,7 +117,7 @@
         &:nth-last-child(5):has(~ .swiper-pagination-bullet-active),
         &:nth-last-child(4):has(~ .swiper-pagination-bullet-active),
         &:nth-last-child(3):has(~ .swiper-pagination-bullet-active),
-        &:has(+ .swiper-pagination-bullet-active){
+        &:nth-last-child(2):has(~ .swiper-pagination-bullet-active){
           display: flex;
         }
 
