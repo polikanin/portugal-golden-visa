@@ -1,4 +1,4 @@
-<div id="{{ $section_id }}"
+<div id="vp-steps-block_{{$index}}"
      class="vp-steps-block"
 >
     <div class="wrapper">
@@ -25,8 +25,8 @@
                     :space-between="64"
                     :modules="modules"
                     :navigation="{
-        nextEl: '.vp-swiper-button-next',
-        prevEl: '.vp-swiper-button-prev',
+        nextEl: '#vp-steps-block_{{$index}} .vp-swiper-button-next',
+        prevEl: '#vp-steps-block_{{$index}} .vp-swiper-button-prev',
       }"
                     :breakpoints="{
       '320': {

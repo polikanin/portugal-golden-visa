@@ -9,6 +9,7 @@
 function get_configurator( bool $post_id = false, string $prefix = '' ): void
 {
     global $blade;
+    $index = 1;
 
     if ( class_exists( 'acf_pro' ) && have_rows( $prefix . 'configurator', $post_id ) ) {
         $data = get_field( $prefix . 'field_configurator' );
@@ -33,8 +34,9 @@ function get_configurator( bool $post_id = false, string $prefix = '' ): void
             }
 
             // if ( 'hp_hello_block' == get_row_layout() ) dd( $data, array_shift( $data ), get_row_layout() );
-
+            $output[ 'index' ] = $index;
             if ( get_row_layout() ) echo $blade->run( implode( '.', [ 'configurator', get_row_layout(), 'index' ] ), $output );
+            $index++;
         }
     }
 }

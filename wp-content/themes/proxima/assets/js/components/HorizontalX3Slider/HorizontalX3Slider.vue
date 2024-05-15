@@ -8,12 +8,13 @@
             <div class="vp-swiper-button-prev">
                 <vp-icon type="arrow-left"></vp-icon>
             </div>
-            <div id="vp-swiper-pagination3" class="vp-swiper-pagination"></div>
+            <div class="vp-swiper-pagination"></div>
             <div class="vp-swiper-button-next">
                 <vp-icon type="arrow-right"></vp-icon>
             </div>
         </div>
     </div>
+
     <div class="vp-horizontal--swiper" v-if="slides">
         <swiper
             :slides-per-view="3"
@@ -22,28 +23,28 @@
             @slide-change="onSlideChange"
             :modules="modules"
             :navigation="{
-        nextEl: '.vp-swiper-button-next',
-        prevEl: '.vp-swiper-button-prev',
-      }"
+                nextEl: '#'+ id + ' .vp-swiper-button-next',
+                prevEl: '#'+ id + ' .vp-swiper-button-prev',
+            }"
             :pagination="{
-              type: 'fraction',
-              el: '#vp-swiper-pagination3',
-              clickable: true,
+                type: 'fraction',
+                el: '#'+ id + ' .vp-swiper-pagination',
+                clickable: true,
             }"
             :breakpoints="{
-      '320': {
-        slidesPerView: 1,
-        autoHeight: true,
-      },
-      '769': {
-        slidesPerView: 2,
-autoHeight: true,
-      },
-      '960': {
-        slidesPerView: 3,
-        autoHeight: false,
-      },
-    }"
+                '320': {
+                    slidesPerView: 1,
+                    autoHeight: true,
+                },
+                '769': {
+                    slidesPerView: 2,
+                    autoHeight: true,
+                },
+                '960': {
+                    slidesPerView: 3,
+                    autoHeight: false,
+                },
+            }"
         >
             <swiper-slide v-for="(slide, index) in slides">
                 <div class="vp-horizontal-slide">
@@ -68,13 +69,13 @@ autoHeight: true,
 </template>
 
 <script>
-import { Pagination, Navigation } from 'swiper/modules';
+import {Pagination, Navigation} from 'swiper/modules';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 export default {
     name: "HorizontalX3Slider",
-    props: ['slides', 'title'],
+    props: ['slides', 'title', 'id'],
     data() {
         return {
             modules: [Pagination, Navigation],

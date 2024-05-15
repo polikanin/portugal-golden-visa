@@ -1,4 +1,4 @@
-<div id="{{ $section_id }}"
+<div id="vp-fund-step-block_{{$index}}"
      class="vp-fund-step-block"
 >
     <div class="wrapper">
@@ -9,7 +9,7 @@
                             :has-hash="`{{ $is_number_with }}`"
                             :label="`{{ $label }}`"
                             :mobile-label="`{{ $sm_label }}`"
-                            :id="`{{ $section_id }}`"
+                            :id="`vp-fund-step-block_{{$index}}`"
                             :label-on-mobile="`{{ $show_label_on_mobile }}`"
                             :subtitle="`{{ $subtitle }}`"
                             :link="{{ json_encode($link) }}"

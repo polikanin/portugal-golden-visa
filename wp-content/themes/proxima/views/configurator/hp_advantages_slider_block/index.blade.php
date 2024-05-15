@@ -1,8 +1,6 @@
-<div id="{{ $section_id }}"
+<div id="vp-advantages-block_{{$index}}"
      class="vp-advantages-block"
 >
-
-
     <div class="wrapper">
         @if($title)
             <h2 class="vp-title">
@@ -18,6 +16,7 @@
         @if($items)
             <div class="">
                 <horizontal-x3-v2-slider
+                        :id="`vp-advantages-block_{{$index}}`"
                         @open-modal="modal.id = $event"
                         :slides="{{ json_encode($items) }}"
                 ></horizontal-x3-v2-slider>

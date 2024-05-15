@@ -17,9 +17,9 @@
     <div class="vp-horizontal--swiper" v-if="slides">
         <swiper
             :navigation="{
-        nextEl: '.vp-swiper-button-next',
-        prevEl: '.vp-swiper-button-prev',
-      }"
+                nextEl: '#'+ id + ' .vp-swiper-button-next',
+                prevEl: '#'+ id + ' .vp-swiper-button-prev',
+            }"
             :space-between="24"
             :modules="modules"
             :slides-per-view="'auto'"
@@ -55,7 +55,7 @@ import 'swiper/css/navigation';
 
 export default {
     name: "HorizontalX3Slider",
-    props: ['slides', 'title', 'subtitle'],
+    props: ['slides', 'title', 'subtitle', 'id'],
     data() {
         return {
             modules: [Pagination, Navigation],
