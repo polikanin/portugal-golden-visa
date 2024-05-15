@@ -59,10 +59,10 @@
             <div class="vp-fund-slide" :class="{'vp-fund-slide--special': slide.special_design}">
                 <div class="vp-fund-slide--index"
                      :class="{'vp-hidden-mob': !labelOnMobile}"
-                     data-step-btn="{{ $loop->index }}">
+                >
                     <div class="">
-                        <span class="vp-hidden-mob">{{label}} </span>
-                        <span class="vp-show-mob">{{mobileLabel}} </span> <template v-if="hasHash">#</template>{{ index + 1 }}
+                        <span class="vp-hidden-mob">{{slide.label}} </span>
+                        <span class="vp-show-mob">{{slide.sm_label}} </span> <template v-if="hasHash">#</template>{{ index + 1 }}
                     </div>
                 </div>
                 <div class="vp-fund-slide--head" v-show="!slide.special_design">
