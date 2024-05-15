@@ -58,7 +58,7 @@
         <swiper-slide v-for="(slide, index) in slides">
             <div class="vp-fund-slide" :class="{'vp-fund-slide--special': slide.special_design}">
                 <div class="vp-fund-slide--index"
-                     :class="{'vp-hidden-mob': !slide.labelOnMobile}"
+                     :class="{'vp-hidden-mob': !labelOnMobile}"
                 >
                     <div class="">
                         <span class="vp-hidden-mob">{{slide.label}} </span>
