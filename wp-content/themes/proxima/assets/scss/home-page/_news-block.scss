@@ -1,10 +1,10 @@
 .vp-news-block{
   //padding: 100px 0 50px 0;
-  padding: 50px 0;
   overflow: hidden;
+  padding: $main-offset 0;
 
   @media(max-width: $width-sm){
-    padding: 40px 0 40px 0;
+    padding: $main-sm-offset 0;
   }
 
   .vp-title{

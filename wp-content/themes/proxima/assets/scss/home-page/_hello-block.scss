@@ -7,6 +7,11 @@
   overflow: hidden;
   min-height: 100vh;
   display: flex;
+  margin-bottom: $main-offset;
+
+  @media(max-width: $width-sm){
+    margin-bottom: $main-sm-offset;
+  }
 
   @media(max-width: $width-md){
     br{

@@ -1,7 +1,11 @@
 .vp-faq-block{
   //padding: 80px 0 78px 0;
-  padding: 50px 0;
   overflow: hidden;
+  padding: $main-offset 0;
+
+  @media(max-width: $width-sm){
+    padding: $main-sm-offset 0;
+  }
 
   .vp-title{
     margin-bottom: 32px;

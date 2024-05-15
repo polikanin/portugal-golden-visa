@@ -1,10 +1,10 @@
 .vp-x3-slider-block{
   //padding: 50px 0 100px 0;
-  padding: 50px 0;
   overflow: hidden;
+  padding: $main-offset 0;
 
   @media(max-width: $width-sm){
-    padding: 40px 0 0px 0;
+    padding: $main-sm-offset 0;
   }
 
   &--head{

@@ -1,8 +1,12 @@
 .vp-steps-block{
   //padding: 120px 0 100px 0;
-  padding: 50px 0;
   overflow: hidden;
   //padding: 32px 0 100px 0;
+  padding: $main-offset 0;
+
+  @media(max-width: $width-sm){
+    padding: $main-sm-offset 0;
+  }
 
   .vp-title{
     font-weight: 400;
