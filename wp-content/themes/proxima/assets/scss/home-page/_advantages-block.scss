@@ -85,7 +85,11 @@
   }
 
   .swiper-slide{
-    width: 308px!important;
+
+
+    @media(min-width: 350px){
+      width: 308px!important;
+    }
 
     .vp-item{
       $self: &;
@@ -168,6 +172,10 @@
 
       &--special{
         position: relative;
+
+        br{
+          display: block;
+        }
 
         .vp-item--img{
           height: 370px;
