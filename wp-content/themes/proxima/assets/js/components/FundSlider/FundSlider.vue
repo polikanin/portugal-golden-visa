@@ -58,11 +58,12 @@
         <swiper-slide v-for="(slide, index) in slides">
             <div class="vp-fund-slide" :class="{'vp-fund-slide--special': slide.special_design}">
                 <div class="vp-fund-slide--index"
-                     :class="{'vp-hidden-mob': !labelOnMobile}"
+                     :class="{'vp-hidden-mob': !slide.labelOnMobile}"
                 >
                     <div class="">
                         <span class="vp-hidden-mob">{{slide.label}} </span>
-                        <span class="vp-show-mob">{{slide.sm_label}} </span> <template v-if="hasHash">#</template>{{ index + 1 }}
+                        <span class="vp-show-mob">{{slide.sm_label}} </span> <template v-if="slide.is_number_with">#</template>
+                        <template v-if="slide.show_number">{{ index + 1 }}</template>
                     </div>
                 </div>
                 <div class="vp-fund-slide--head" v-show="!slide.special_design">
