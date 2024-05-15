@@ -114,6 +114,10 @@
       font-weight: 400;
       font-size: 32px;
       margin-bottom: 20px;
+
+      @media(max-width: $width-sm){
+        font-size: 18px;
+      }
     }
 
     &--text{
@@ -125,8 +129,16 @@
       flex-direction: column;
       justify-content: center;
 
+      @media(max-width: $width-sm){
+        font-size: 16px;
+      }
+
       p{
         margin: 8px 0;
+
+        @media(max-width: $width-sm){
+          margin: 6px 0;
+        }
       }
     }
   }

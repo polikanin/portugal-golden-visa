@@ -1,13 +1,13 @@
 .vp-vertical-slider-block{
-  //padding: 106px 0 175px 0;
+  padding: 106px 0 175px 0;
   overflow: hidden;
   $slide-height: 265px;
   $slide-offset: 60px;
-  padding: $main-offset 0;
-
-  @media(max-width: $width-sm){
-    padding: $main-sm-offset 0;
-  }
+  //padding: $main-offset 0;
+  //
+  //@media(max-width: $width-sm){
+  //  padding: $main-sm-offset 0;
+  //}
 
   @media(max-width: $width-minlg){
     br{
