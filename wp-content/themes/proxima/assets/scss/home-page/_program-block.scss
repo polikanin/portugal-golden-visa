@@ -106,6 +106,12 @@
         padding-left: 0;
         padding-right: 0;
 
+        &:first-child{
+          &:after{
+            display: none;
+          }
+        }
+
         &:after{
           width: calc(100% + 48px);
           left: -24px;
