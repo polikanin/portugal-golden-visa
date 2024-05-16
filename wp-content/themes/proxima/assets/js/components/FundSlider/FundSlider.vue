@@ -148,12 +148,14 @@ export default {
             self.isLoad = false
             if(window.innerWidth < 661){
                 self.isMobile = true
-                self.isLoad = true
             }
             else {
                 self.isMobile = false
-                self.isLoad = true
             }
+
+            setTimeout(function (){
+                self.isLoad = true
+            }, 100)
         })
     },
     methods: {
