@@ -182,16 +182,14 @@ createApp({
         document.addEventListener('touchmove', e => {
             touchendY = window.scrollY
             checkDirection()
-            setTimeout(function (){
-                touchstartY = window.scrollY
-            },300)
+            touchstartY = window.scrollY
         })
         
         preloader.classList.add('page-load')
 
         setupScrollSettings()
 
-        window.addEventListener('scroll', function () {
+        window.addEventListener('scroll', function (e) {
             setupScrollSettings()
 
             progress.forEach(item => {
