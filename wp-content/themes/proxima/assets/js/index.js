@@ -114,8 +114,6 @@ createApp({
             helloSlider: false,
             showClipBoardNotice: false,
             isShowMore: false,
-            scrollTest: 0,
-            scrollTest2: 0,
         }
     },
     validations() {
@@ -164,30 +162,31 @@ createApp({
         let touchendY = 0
 
         function checkDirection() {
-            self.scrollTest = touchstartY
-            self.scrollTest2 = touchendY
             if (touchendY < touchstartY) {
-                header.classList.add('hide-header')
+                header.classList.remove('hide-header')
             }
             if (touchendY > touchstartY) {
-                header.classList.remove('hide-header')
+                header.classList.add('hide-header')
             }
         }
 
         document.addEventListener('touchstart', e => {
-            touchstartY = e.changedTouches[0].screenY
+            touchstartY = window.scrollY
         })
 
         document.addEventListener('touchend', e => {
-            touchendY = e.changedTouches[0].screenY
+            touchendY = window.scrollY
             checkDirection()
         })
 
         document.addEventListener('touchmove', e => {
-            touchendY = e.changedTouches[0].screenY
+            touchendY = window.scrollY
             checkDirection()
+            setTimeout(function (){
+                touchstartY = window.scrollY
+            },300)
         })
-
+        
         preloader.classList.add('page-load')
 
         setupScrollSettings()
