@@ -157,33 +157,48 @@ createApp({
                 }
             }
         }
+        //
+        // let touchstartY = 0
+        // let touchendY = 0
+        //
+        // function checkDirection() {
+        //     if (touchendY < touchstartY) {
+        //         header.classList.remove('hide-header')
+        //     }
+        //     if (touchendY > touchstartY) {
+        //         header.classList.add('hide-header')
+        //     }
+        // }
+        //
+        // document.addEventListener('touchstart', e => {
+        //     touchstartY = window.scrollY
+        // })
+        //
+        // document.addEventListener('touchend', e => {
+        //     touchendY = window.scrollY
+        //     checkDirection()
+        // })
+        //
+        // document.addEventListener('touchmove', e => {
+        //     touchendY = window.scrollY
+        //     checkDirection()
+        //     touchstartY = window.scrollY
+        // })
 
-        let touchstartY = 0
-        let touchendY = 0
+        let lastScrollTop = 0;
 
-        function checkDirection() {
-            if (touchendY < touchstartY) {
+        window.addEventListener("scroll", function () {
+            let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                header.classList.add('hide-header')
+            } else if (scrollTop < lastScrollTop) {
                 header.classList.remove('hide-header')
             }
-            if (touchendY > touchstartY) {
-                header.classList.add('hide-header')
-            }
-        }
 
-        document.addEventListener('touchstart', e => {
-            touchstartY = window.scrollY
-        })
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
 
-        document.addEventListener('touchend', e => {
-            touchendY = window.scrollY
-            checkDirection()
-        })
-
-        document.addEventListener('touchmove', e => {
-            touchendY = window.scrollY
-            checkDirection()
-            touchstartY = window.scrollY
-        })
         
         preloader.classList.add('page-load')
 
