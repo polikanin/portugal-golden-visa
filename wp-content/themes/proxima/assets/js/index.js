@@ -114,6 +114,8 @@ createApp({
             helloSlider: false,
             showClipBoardNotice: false,
             isShowMore: false,
+            scrollTest: 0,
+            scrollTest2: 0,
         }
     },
     validations() {
@@ -162,6 +164,8 @@ createApp({
         let touchendY = 0
 
         function checkDirection() {
+            self.scrollTest = touchstartY
+            self.scrollTest2 = touchendY
             if (touchendY < touchstartY) {
                 header.classList.add('hide-header')
             }

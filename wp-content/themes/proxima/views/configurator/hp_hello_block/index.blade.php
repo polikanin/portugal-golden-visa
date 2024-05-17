@@ -10,6 +10,8 @@
                         {!! $title !!}
                     </h1>
                 @endif
+                ${scrollTest}
+                ${scrollTest2}
             </div>
 
             @if($block_type === 'type_1')
