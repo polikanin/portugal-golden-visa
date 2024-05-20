@@ -144,6 +144,7 @@
                     ], 'class' => 'vp-btn--simple',])
 
                 <button class="vp-menu-btn"
+                        aria-label="Menu open"
                         :class="{active: isMenu}"
                         @click.prevent="toggleMenu">
                     <span></span>

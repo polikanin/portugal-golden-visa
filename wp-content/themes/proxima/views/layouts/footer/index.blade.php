@@ -160,7 +160,7 @@
     </div>
 </div>
 
-<button class="vp-top-btn" ref="top-btn" :class="{active: topBtnActive}" @click.prevent="goToTop">
+<button class="vp-top-btn" ref="top-btn" aria-label="top btn" :class="{active: topBtnActive}" @click.prevent="goToTop">
     <vp-icon type="arrow-narrow-up"></vp-icon>
 </button>
 
@@ -238,6 +238,7 @@
                 </a>
 
                 <button class="vp-menu-btn"
+                        aria-label="menu close"
                         :class="{active: isMenu}"
                         @click.prevent="hideMenu">
                     <span></span>
