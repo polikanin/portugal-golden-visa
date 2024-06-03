@@ -326,7 +326,7 @@ createApp({
                 result.push(
                     {
                         name: "phone",
-                        value: form.phoneCode + form.phone
+                        value: form.phone
                     },
                 )
             }
