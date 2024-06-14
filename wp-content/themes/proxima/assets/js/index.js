@@ -402,7 +402,7 @@ createApp({
                 result.push(
                     {
                         name: "preferred_type_of_investment",
-                        value: 'Venture or private equity funds'
+                        value: form.investment.join(';')
                     },
                 )
             }
