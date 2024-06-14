@@ -434,6 +434,12 @@ createApp({
                     },
                 )
             }
+            result.push(
+                {
+                    name: "site_identifier",
+                    value: "Portugal"
+                },
+            )
             // 4 step end
 
 
