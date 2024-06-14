@@ -373,7 +373,7 @@ createApp({
                 result.push(
                     {
                         name: "motivation_behind_portuguese_golden",
-                        value: ';' + form.motivation.join(';')
+                        value: form.motivation.join(';')
                     },
                 )
             }
@@ -386,7 +386,7 @@ createApp({
                 result.push(
                     {
                         name: "objectives_in_regards_to_the_investment_vehicle",
-                        value: ';' + form.objectives.join(';')
+                        value: form.objectives.join(';')
                     },
                 )
             }
@@ -402,7 +402,7 @@ createApp({
                 result.push(
                     {
                         name: "preferred_type_of_investment",
-                        value: ';' + form.investment.join(';')
+                        value: 'Venture or private equity funds'
                     },
                 )
             }
